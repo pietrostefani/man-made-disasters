@@ -1,0 +1,588 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Man-Made Disasters",
+    "section": "",
+    "text": "Triangulated data methods: satellite imagery, surveys & socioeconomic outcomes\n  \n    Elisabetta Pietrostefani · Univ. of Liverpool\n    SPACERAISE 2026 · Week 3 · GSSI, L'Aquila · 19 May 2026",
+    "crumbs": [
+      "About this training"
+    ]
+  },
+  {
+    "objectID": "index.html#about-this-training",
+    "href": "index.html#about-this-training",
+    "title": "Man-Made Disasters",
+    "section": "About this training",
+    "text": "About this training\nThis training is part of the SPACERAISE 2026 Doctoral School module on Geospatial Data and Quantitative Analysis in Social Science at the Gran Sasso Science Institute (GSSI), L’Aquila, Italy.\nIt covers how to combine satellite remote sensing data with traditional survey data to measure the impacts of man-made disasters — illustrated with the case of the 2020 Beirut Port Explosion.",
+    "crumbs": [
+      "About this training"
+    ]
+  },
+  {
+    "objectID": "index.html#schedule-for-may-19",
+    "href": "index.html#schedule-for-may-19",
+    "title": "Man-Made Disasters",
+    "section": "Schedule for May 19",
+    "text": "Schedule for May 19\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n08:30 – 10:00\nLecture · Triangulated data methods for understanding man-made disasters\n\n\n10:00 – 10:30\nCoffee break\n\n\n14:00 – 15:30\nLab · Geo data lab: Man-made disasters (Beirut case study)",
+    "crumbs": [
+      "About this training"
+    ]
+  },
+  {
+    "objectID": "index.html#what-you-will-learn",
+    "href": "index.html#what-you-will-learn",
+    "title": "Man-Made Disasters",
+    "section": "What you will learn",
+    "text": "What you will learn\nBy the end of this training you will be able to:\n\nUnderstand how satellite damage proxy maps are constructed from pre/post imagery\nSpatially join and compare remote sensing and ground-truth survey data\nRun and interpret regression models linking physical destruction to socioeconomic outcomes\nCritically assess where different data sources agree — and where they diverge",
+    "crumbs": [
+      "About this training"
+    ]
+  },
+  {
+    "objectID": "index.html#materials",
+    "href": "index.html#materials",
+    "title": "Man-Made Disasters",
+    "section": "Materials",
+    "text": "Materials\n\n\n\nLecture slides\nConceptual background on triangulated data methods\n\n\nPart 1 — Satellite & destruction\nMeasuring damage from MAXAR imagery\n\n\nPart 2 — Survey validation\nHow satellite damage matches ground-truth\n\n\nPart 3 — Socioeconomic outcomes\nDoes destruction predict sentiment and economic data?\n\n\nGetting oriented\nDatasets overview and how to set up your R environment",
+    "crumbs": [
+      "About this training"
+    ]
+  },
+  {
+    "objectID": "index.html#case-study-beirut-port-explosion-august-4-2020",
+    "href": "index.html#case-study-beirut-port-explosion-august-4-2020",
+    "title": "Man-Made Disasters",
+    "section": "Case study: Beirut Port Explosion (August 4, 2020)",
+    "text": "Case study: Beirut Port Explosion (August 4, 2020)\nThe explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.\n\n\n\n\n\n\nNoteData note\n\n\n\nThis lab uses MAXAR satellite-derived damage data and a synthetic survey dataset modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.",
+    "crumbs": [
+      "About this training"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html",
+    "href": "lab_part1.html",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "",
+    "text": "Lab Part 1 of 3",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#setup",
+    "href": "lab_part1.html#setup",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.3 Setup",
+    "text": "1.3 Setup\n\nlibrary(terra)     # modern raster operations (replaces the retired raster package)\nlibrary(sf)        # vector spatial data\nlibrary(tidyverse) # data wrangling + ggplot2\nlibrary(tmap)      # thematic mapping\nlibrary(viridis)   # accessible colour palettes\nlibrary(ggspatial) # scale bar, north arrow, basemap tiles\nlibrary(ggrepel)   # non-overlapping text labels on maps\nlibrary(classInt)  # break classification for choropleths\nlibrary(here)",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#load-the-data",
+    "href": "lab_part1.html#load-the-data",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.2 Load the data",
+    "text": "1.2 Load the data\n\nDamage grid\n\n\nAdministrative boundaries\n\n\n\n\n\n\nNote\n\n\n\nCheck that both layers share the same coordinate reference system (CRS) before any spatial operations."
+  },
+  {
+    "objectID": "lab_part1.html#explore-the-damage-index",
+    "href": "lab_part1.html#explore-the-damage-index",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.3 Explore the damage index",
+    "text": "1.3 Explore the damage index"
+  },
+  {
+    "objectID": "lab_part1.html#map-the-damage",
+    "href": "lab_part1.html#map-the-damage",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.4 Map the damage",
+    "text": "1.4 Map the damage"
+  },
+  {
+    "objectID": "lab_part1.html#damage-by-distance-from-the-epicentre",
+    "href": "lab_part1.html#damage-by-distance-from-the-epicentre",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.5 Damage by distance from the epicentre",
+    "text": "1.5 Damage by distance from the epicentre\nA key spatial pattern we expect: damage should decay with distance from the blast."
+  },
+  {
+    "objectID": "lab_part1.html#exercise-1",
+    "href": "lab_part1.html#exercise-1",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "✏️ Exercise 1",
+    "text": "✏️ Exercise 1\n\n\n\n\n\n\nTipYour turn\n\n\n\n\nCompare zones: The map uses quantile breaks, which distributes zones evenly across colour classes regardless of the actual data distribution. Try changing style = \"quantile\" to style = \"jenks\" (natural breaks) and style = \"equal\". How does the visual interpretation change? Which do you think is most appropriate here and why?\nBeyond distance: The decay curve in §1.9 explains a lot — but not everything. Identify the 3 zones that are the worst outliers above the LOESS smoother (more damaged than their distance predicts). Where are they on the map? What might explain the residual? Then do the same for 3 zones below the smoother. Hint: fit the LOESS yourself with loess(), extract residuals(), then slice_max() / slice_min().\nRaster inspection: Load one of the individual image tiles (10300100AB8F4A00.tif or 10300500A5F95600.tif). What are its dimensions, resolution, and number of bands? Plot it and compare the pre- and post-event images visually.\n\nHint for Q3: use terra::rast(), then plotRGB() with appropriate band numbers.\n\n\n\n\n\n\n\n\n\nNoteUp next\n\n\n\nIn Part 2 we load the survey data and ask: does what the satellite sees match what households reported on the ground — and where do the two sources diverge?",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part2.html",
+    "href": "lab_part2.html",
+    "title": "Part 2 · Survey Validation",
+    "section": "",
+    "text": "Lab Part 2 of 3 · ~25 min"
+  },
+  {
+    "objectID": "lab_part2.html#load-the-survey-data",
+    "href": "lab_part2.html#load-the-survey-data",
+    "title": "Part 2 · Survey Validation",
+    "section": "2.1 Load the survey data",
+    "text": "2.1 Load the survey data"
+  },
+  {
+    "objectID": "lab_part2.html#convert-survey-to-spatial",
+    "href": "lab_part2.html#convert-survey-to-spatial",
+    "title": "Part 2 · Survey Validation",
+    "section": "2.2 Convert survey to spatial",
+    "text": "2.2 Convert survey to spatial"
+  },
+  {
+    "objectID": "lab_part2.html#spatial-join-survey-points-satellite-grid",
+    "href": "lab_part2.html#spatial-join-survey-points-satellite-grid",
+    "title": "Part 2 · Survey Validation",
+    "section": "2.3 Spatial join: survey points → satellite grid",
+    "text": "2.3 Spatial join: survey points → satellite grid\nEach household gets assigned the damage index of the 250m grid cell it falls in."
+  },
+  {
+    "objectID": "lab_part2.html#correlation-satellite-vs.-survey-damage",
+    "href": "lab_part2.html#correlation-satellite-vs.-survey-damage",
+    "title": "Part 2 · Survey Validation",
+    "section": "2.4 Correlation: satellite vs. survey damage",
+    "text": "2.4 Correlation: satellite vs. survey damage"
+  },
+  {
+    "objectID": "lab_part2.html#regression-satellite-predicting-survey-damage",
+    "href": "lab_part2.html#regression-satellite-predicting-survey-damage",
+    "title": "Part 2 · Survey Validation",
+    "section": "2.5 Regression: satellite predicting survey damage",
+    "text": "2.5 Regression: satellite predicting survey damage\n\n\n\n\n\n\nNote\n\n\n\nThe coefficient on damage_index tells us: for a one-unit increase in the satellite damage score (0→1), how many points higher is self-reported damage on the 1–5 scale?"
+  },
+  {
+    "objectID": "lab_part2.html#where-do-they-disagree-mapping-residuals",
+    "href": "lab_part2.html#where-do-they-disagree-mapping-residuals",
+    "title": "Part 2 · Survey Validation",
+    "section": "2.6 Where do they disagree? Mapping residuals",
+    "text": "2.6 Where do they disagree? Mapping residuals"
+  },
+  {
+    "objectID": "lab_part2.html#exercise-2",
+    "href": "lab_part2.html#exercise-2",
+    "title": "Part 2 · Survey Validation",
+    "section": "✏️ Exercise 2",
+    "text": "✏️ Exercise 2\n\n\n\n\n\n\nTipYour turn\n\n\n\n\nSpatial clustering of residuals: Are the mismatches geographically clustered or random? Use spdep to compute Moran’s I on the residuals. What does the result suggest?\nStratify by building type: The mismatch might depend on building characteristics. Split the scatter plot by damage_class (the categorical version). Is the agreement better for severely damaged areas?\nHypothesise: Choose one area on the residual map where the satellite underestimates damage. What features of that area might explain it? (Think about building materials, street layout, blast direction.)\n\nHint for Moran’s I: you’ll need to create spatial weights with spdep::knearneigh() then spdep::moran.test()\n\n\n\n\n\n\n\n\n\nNoteUp next\n\n\n\nIn Part 3 we go beyond the physical damage to ask: does destruction predict what happened to people — their wellbeing, income, and economic stress?"
+  },
+  {
+    "objectID": "datasets.html",
+    "href": "datasets.html",
+    "title": "Datasets & Setup",
+    "section": "",
+    "text": "Install these before the lab session:\ninstall.packages(c(\n  \"terra\",      # raster / spatial analysis\n  \"sf\",         # vector spatial data\n  \"tidyverse\",  # data wrangling + ggplot2\n  \"tmap\",       # thematic mapping\n  \"broom\",      # tidy model outputs\n  \"spdep\",      # spatial dependence / Moran's I\n  \"patchwork\",  # combining plots\n  \"viridis\"     # colour palettes\n))\n\n\n\n\n\n\nTipRStudio version\n\n\n\nWe recommend RStudio ≥ 2024.09 or Positron. R ≥ 4.3.0 is required for terra compatibility.",
+    "crumbs": [
+      "Getting oriented",
+      "Datasets & Setup"
+    ]
+  },
+  {
+    "objectID": "datasets.html#r-packages-required",
+    "href": "datasets.html#r-packages-required",
+    "title": "Datasets & Setup",
+    "section": "",
+    "text": "Install these before the lab session:\ninstall.packages(c(\n  \"terra\",      # raster / spatial analysis\n  \"sf\",         # vector spatial data\n  \"tidyverse\",  # data wrangling + ggplot2\n  \"tmap\",       # thematic mapping\n  \"broom\",      # tidy model outputs\n  \"spdep\",      # spatial dependence / Moran's I\n  \"patchwork\",  # combining plots\n  \"viridis\"     # colour palettes\n))\n\n\n\n\n\n\nTipRStudio version\n\n\n\nWe recommend RStudio ≥ 2024.09 or Positron. R ≥ 4.3.0 is required for terra compatibility.",
+    "crumbs": [
+      "Getting oriented",
+      "Datasets & Setup"
+    ]
+  },
+  {
+    "objectID": "datasets.html#datasets",
+    "href": "datasets.html#datasets",
+    "title": "Datasets & Setup",
+    "section": "Datasets",
+    "text": "Datasets\n\n1. MAXAR damage data\nFile: data/beirut_damage_grid.gpkg\nA spatial grid (250m cells) covering the blast impact zone with a continuous Damage Index (0–1) derived from MAXAR pre/post satellite imagery change detection. Higher values = greater structural change detected from above.\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\ncell_id\nUnique grid cell identifier\n\n\ndamage_index\nSatellite-derived damage score (0–1)\n\n\ndamage_class\nCategorical: No Damage / Minor / Moderate / Severe / Destroyed\n\n\ndist_port_km\nDistance from blast epicentre (km)\n\n\ngeometry\nGrid cell polygon\n\n\n\n\n\n2. Synthetic survey data\nFile: data/beirut_survey_synthetic.csv\nHousehold-level survey data (n ≈ 800) drawn from a synthetic population calibrated to match the statistical structure of a real post-blast in-person survey. Includes self-reported damage, location, and outcome variables.\n\n\n\nVariable\nDescription\n\n\n\n\nhh_id\nHousehold identifier\n\n\nlon, lat\nGPS coordinates (jittered ±50m for privacy)\n\n\nsurvey_damage\nSelf-reported structural damage (1–5 scale)\n\n\ndamage_binary\n1 = Moderate+ damage reported\n\n\nwellbeing_score\nComposite wellbeing/sentiment index (0–100)\n\n\nincome_disruption\nMonths of income disruption reported\n\n\necon_stress\nEconomic stress scale (1–10)\n\n\nntl_change\nNighttime lights change (pre vs. post, synthetic)\n\n\nneighbourhood\nNeighbourhood name\n\n\ndist_port_km\nDistance from blast epicentre (km)\n\n\n\n\n\n3. Beirut administrative boundaries\nFile: data/beirut_neighbourhoods.gpkg\nNeighbourhood-level polygons for Beirut with a pre-blast socioeconomic deprivation index.\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nneighbourhood\nNeighbourhood name\n\n\ndeprivation_index\nPre-blast deprivation score (0–10, higher = more deprived)\n\n\npop_2019\nEstimated 2019 population\n\n\ngeometry\nPolygon",
+    "crumbs": [
+      "Getting oriented",
+      "Datasets & Setup"
+    ]
+  },
+  {
+    "objectID": "datasets.html#file-structure",
+    "href": "datasets.html#file-structure",
+    "title": "Datasets & Setup",
+    "section": "File structure",
+    "text": "File structure\nman-made-disasters/\n├── data/\n│   ├── beirut_damage_grid.gpkg\n│   ├── beirut_survey_synthetic.csv\n│   └── beirut_neighbourhoods.gpkg\n├── lab_part1.qmd\n├── lab_part2.qmd\n└── lab_part3.qmd\n\n\n\n\n\n\nNote\n\n\n\nAll data files are available on the course GitHub repository. Clone or download before the session.",
+    "crumbs": [
+      "Getting oriented",
+      "Datasets & Setup"
+    ]
+  },
+  {
+    "objectID": "lecture.html",
+    "href": "lecture.html",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "",
+    "text": "Lecture · 90 min"
+  },
+  {
+    "objectID": "lecture.html#what-are-man-made-disasters",
+    "href": "lecture.html#what-are-man-made-disasters",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "1. What are man-made disasters?",
+    "text": "1. What are man-made disasters?\n[Slides section 1 — typology, scale, examples]\n\nIndustrial accidents, explosions, conflict\nThe Beirut port explosion as the running example"
+  },
+  {
+    "objectID": "lecture.html#the-data-challenge",
+    "href": "lecture.html#the-data-challenge",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "2. The data challenge",
+    "text": "2. The data challenge\n[Slides section 2 — why standard data fails us]\n\nTimeliness vs. depth\nAdministrative collapse after disasters\nThe role of remote sensing as a rapid-response tool"
+  },
+  {
+    "objectID": "lecture.html#traditional-data-sources",
+    "href": "lecture.html#traditional-data-sources",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "3. Traditional data sources",
+    "text": "3. Traditional data sources\n[Slides section 3]\n\nHousehold surveys: strengths, limitations, cost\nAdministrative records: coverage gaps in crisis\nCensus and registry data"
+  },
+  {
+    "objectID": "lecture.html#digital-non-traditional-data",
+    "href": "lecture.html#digital-non-traditional-data",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "4. Digital non-traditional data",
+    "text": "4. Digital non-traditional data\n[Slides section 4]\n\nSatellite imagery (optical, SAR)\nSocial media and mobile data\nNighttime lights as an economic proxy\nMAXAR and commercial very-high-resolution imagery"
+  },
+  {
+    "objectID": "lecture.html#triangulation-logic",
+    "href": "lecture.html#triangulation-logic",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "5. Triangulation logic",
+    "text": "5. Triangulation logic\n[Slides section 5]\n\nWhy no single source is sufficient\nConvergent validity and divergent findings\nSpatial and temporal alignment challenges\nA framework for multi-source disaster analysis"
+  },
+  {
+    "objectID": "lecture.html#the-beirut-case-study",
+    "href": "lecture.html#the-beirut-case-study",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "6. The Beirut case study",
+    "text": "6. The Beirut case study\n[Slides section 6 — bridge to the lab]\n\nAugust 4, 2020 — what happened\nThe damage footprint: spatial extent and intensity gradient\nOur data: MAXAR damage scores, in-person survey, synthetic outcomes\nPreview of the lab"
+  },
+  {
+    "objectID": "lecture.html#references",
+    "href": "lecture.html#references",
+    "title": "Lecture: Triangulated Data Methods for Man-Made Disasters",
+    "section": "References",
+    "text": "References\nReferences to be added."
+  },
+  {
+    "objectID": "satellites_to_areas.html",
+    "href": "satellites_to_areas.html",
+    "title": "From Satellites to Areas",
+    "section": "",
+    "text": "MAXAR operates a constellation of very-high-resolution (VHR) optical satellites — primarily WorldView-2, WorldView-3, and GeoEye-1 — capable of sub-metre resolution (30–50 cm panchromatic). After major disasters, MAXAR typically releases pre- and post-event imagery under their Open Data Program.",
+    "crumbs": [
+      "Getting oriented",
+      "From Satellites to Areas"
+    ]
+  },
+  {
+    "objectID": "satellites_to_areas.html#how-maxar-imagery-works",
+    "href": "satellites_to_areas.html#how-maxar-imagery-works",
+    "title": "From Satellites to Areas",
+    "section": "",
+    "text": "MAXAR operates a constellation of very-high-resolution (VHR) optical satellites — primarily WorldView-2, WorldView-3, and GeoEye-1 — capable of sub-metre resolution (30–50 cm panchromatic). After major disasters, MAXAR typically releases pre- and post-event imagery under their Open Data Program.",
+    "crumbs": [
+      "Getting oriented",
+      "From Satellites to Areas"
+    ]
+  },
+  {
+    "objectID": "satellites_to_areas.html#the-change-detection-pipeline",
+    "href": "satellites_to_areas.html#the-change-detection-pipeline",
+    "title": "From Satellites to Areas",
+    "section": "The change detection pipeline",
+    "text": "The change detection pipeline\nPre-event image   →  ┐\n                      ├─ Co-registration → Differencing → Damage Index\nPost-event image  →  ┘\n\nStep 1: Image co-registration\nPre and post images must be aligned to sub-pixel accuracy. Any spatial offset creates false “change” signal.\n\n\nStep 2: Spectral change detection\nWe compare spectral signatures before and after. Common approaches:\n\nNormalised Difference Index on band ratios\nChange Vector Analysis across multiple bands\nDeep learning classifiers (CNN trained on labelled damage examples)\n\n\n\nStep 3: Damage classification\nThe UNOSAT/JRC damage scale used in humanitarian response:\n\n\n\nClass\nDescription\n\n\n\n\n1\nNo damage\n\n\n2\nPossible damage\n\n\n3\nMinor damage\n\n\n4\nModerate damage\n\n\n5\nSevere damage\n\n\n6\nDestroyed\n\n\n\n\n\nStep 4: Aggregation to areas\nIndividual building assessments are aggregated to grid cells or administrative units to enable statistical analysis and joining with survey/census data.",
+    "crumbs": [
+      "Getting oriented",
+      "From Satellites to Areas"
+    ]
+  },
+  {
+    "objectID": "satellites_to_areas.html#limitations-to-keep-in-mind",
+    "href": "satellites_to_areas.html#limitations-to-keep-in-mind",
+    "title": "From Satellites to Areas",
+    "section": "Limitations to keep in mind",
+    "text": "Limitations to keep in mind\n\n\n\n\n\n\nWarning\n\n\n\nSatellite damage assessment has known limitations:\n\nLine-of-sight bias: Flat roofs look intact even with severe facade damage\nRubble vs. damage: Cleared rubble = no damage detected\nCloud cover: Optical imagery fails if post-event clouds present\nTemporal gap: Imagery may be days–weeks post-event; recovery has begun\nBuilding footprint quality: Aggregation quality depends on baseline building data\n\n\n\nThese limitations are exactly why we triangulate with survey data in Part 2 of the lab.",
+    "crumbs": [
+      "Getting oriented",
+      "From Satellites to Areas"
+    ]
+  },
+  {
+    "objectID": "lab_part1_prefinal.html",
+    "href": "lab_part1_prefinal.html",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "",
+    "text": "Lab Part 1 of 3 · ~35 min"
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#background-the-data-and-its-origins",
+    "href": "lab_part1_prefinal.html#background-the-data-and-its-origins",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.1 Background: the data and its origins",
+    "text": "1.1 Background: the data and its origins\n\nThe Beirut Port Explosion\nOn 4 August 2020, approximately 2,750 tonnes of ammonium nitrate that had been stored unsafely at Beirut’s port exploded, killing more than 200 people, injuring thousands, and destroying or damaging an estimated 77,000 buildings across the city. The blast was felt as far away as Cyprus.\n\n\nWho collected this imagery?\nThe satellite images used in this lab were collected by Maxar Technologies — at the time one of the world’s leading commercial Earth observation companies, operating the WorldView constellation of very-high-resolution (VHR) optical satellites (WorldView-2, WorldView-3, GeoEye-1) capable of sub-metre resolution (~30–50 cm panchromatic).\n\n\n\n\n\n\nNoteA note on Maxar’s current status\n\n\n\nMaxar Technologies no longer exists as a single company. In May 2023 it was acquired by private equity firm Advent International for $6.4 billion and subsequently split into two independent entities: Vantor (formerly Maxar Intelligence — the Earth imagery and analytics side, which still operates the WorldView satellites) and Lanteris Space Systems (formerly Maxar Space Systems — satellite manufacturing). The rebrand was announced in October 2025. The open data programme and the Beirut dataset remain accessible and the imagery copyright attribution still reads Maxar Technologies Inc., as that was the company name at the time of collection.\n\n\n\n\nThe open data release\nFollowing the explosion, Maxar released pre- and post-event imagery under their Open Data Program, making it freely available for humanitarian response. The data we use in this lab comes from that release:\n\nmaxar.com/open-data/beirut-explosion\n\n\nhttps://vantor.com/company/open-data-program/\n\nWe work with three image tiles:\n\n\n\nFile\nDescription\n\n\n\n\n10300100AB8F4A00.tif\nPre-event WorldView image (July 2020)\n\n\n10300500A5F95600.tif\nPost-event WorldView image (August 5, 2020)\n\n\n104001005BD06800.tif\nAdditional post-event coverage\n\n\nMX_31Jul_5Aug_UN.tif\nUN-processed composite (31 Jul – 5 Aug)\n\n\n\nThe vector building footprints are from Ecopia Tech Corporation, who digitised structures from the satellite imagery.\n\n\n\n\n\n\nWarningData licence\n\n\n\nThis data is licensed under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).\n\n✅ You may use and adapt it for non-commercial purposes\n✅ You must credit: Vector Data © 2020 Ecopia Tech Corporation; Image Data © 2020 Maxar Technologies Inc.\n❌ You may not use it for commercial purposes\n\nFull licence: creativecommons.org/licenses/by-nc/4.0"
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#how-does-satellite-damage-assessment-work",
+    "href": "lab_part1_prefinal.html#how-does-satellite-damage-assessment-work",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.2 How does satellite damage assessment work?",
+    "text": "1.2 How does satellite damage assessment work?\nBefore touching the data, it helps to understand the chain of scale: how do we get from a satellite hundreds of kilometres above Beirut to a number — “12 % of this neighbourhood was severely damaged” — that a humanitarian agency can act on?\nThe answer is a four-step pipeline. The hardest thing to keep in your head as you read it is just how small a pixel is.\n\nStep 0 — What is a pixel, really?\nWorldView-2 and WorldView-3 produce panchromatic imagery at roughly 0.3–0.5 metres per pixel. To make that concrete:\n\n\n\n\n\n\n\n\nIf a pixel is…\nThen the area it covers is…\nAnd a typical Beirut apartment building (say 20 × 30 m) is…\n\n\n\n\n0.5 m × 0.5 m\n0.25 m² — about a dinner plate\n~2,400 pixels\n\n\n1 m × 1 m\n1 m² — a doormat\n~600 pixels\n\n\n10 m × 10 m (Sentinel-2)\n100 m² — a small studio flat\n~6 pixels — building barely resolved\n\n\n30 m × 30 m (Landsat)\n900 m² — half a football pitch\n&lt;1 pixel — building invisible\n\n\n\nThis is why MAXAR / WorldView-class imagery is special: at 0.5 m, a single building generates thousands of pixels, so a collapsed roof, a cleared lot, or a debris pile each leave a clear statistical signature. With Landsat, the whole building would be a smudge.\nFor the Beirut tiles we’ll work with, the raster covers roughly 80 km² of greater Beirut. At ~0.5 m resolution that is on the order of 300 million pixels per band, across 3 spectral bands (RGB), for both the pre- and post-event acquisition — i.e. ~1.8 billion numbers in total. This is why we don’t run the heavy steps live in the lab.\n\n\nStep 1 — Image differencing (pixel-level change)\nThe first step asks, for every one of those 300 million pixels: did this patch of ground change between July and August?\nThe operation is band-by-band division of the post-event image by the pre-event one, on a log scale:\nlog10( Band_after / Band_before )  →  positive = brighter after (rubble, dust, exposed concrete)\n                                       negative = darker after (collapsed structure, shadow)\n                                       near zero = no change\nWe use the log-ratio rather than simple subtraction after − before because the two images were taken on different days, with different sun angles and atmospheric conditions. The log-ratio is more robust to those nuisance differences: multiplicative illumination effects become additive and largely cancel out. The output is a 3-band raster with the same ~0.5 m pixel size as the inputs.\n\n\n\n\n\n\nNoteMore advanced approaches\n\n\n\nLog-ratio differencing is a transparent, reproducible baseline — but the field has moved well beyond it. Two recent papers I admire:\n\nScher, C., & Van Den Hoek, J. (2025). Nationwide conflict damage mapping with interferometric synthetic aperture radar: a study of the 2022 Russia–Ukraine conflict. Science of Remote Sensing.\nScher, C., & Van Den Hoek, J. (2025). Active InSAR monitoring of building damage in Gaza during the Israel-Hamas War. arXiv preprint.\n\nBoth use radar (SAR) rather than optical imagery, which can see through clouds and at night — at the cost of harder-to-interpret pixel values.\n\n\n\n\nStep 2 — Classification (pixel → damage class)\nAfter differencing we have a number for every pixel, but humans don’t act on continuous log-ratio values — we act on categories like severe / moderate / little-to-no damage. So the next step classifies each pixel into a small number of damage classes.\nThe original analysis behind this dataset used unsupervised k-means clustering on the 3-band log-ratio stack: every pixel is treated as a point in 3-D colour-change space, and the algorithm groups pixels into k clusters of “similar change signature”. The number of clusters was chosen by the silhouette index (a measure of how well-separated the clusters are), which peaked at k = 3 — and those three clusters were then interpreted as severe damage, medium damage, and little to no damage. A supervised Random Forest was also explored but found to be less interpretable on this dataset.\nThe key point: classification turns billions of continuous pixel values into three discrete labels, while still respecting the ~0.5 m pixel grid. The output is a single-band raster at the original resolution where each cell is 1, 2, or 3.\n\n\nStep 3 — Aggregation to zones (pixel → neighbourhood)\nA pixel-level damage map is too granular for policy or humanitarian targeting — agencies operate at the neighbourhood (cadastre / operational zone) scale, not the dinner-plate scale. So the final step aggregates pixel classifications up using zonal statistics:\n\nFor each operational zone polygon, count how many pixels fall inside it, count how many of those are classified as severe damage, and divide.\n\nSo a zone of 0.2 km² contains roughly 800,000 pixels at 0.5 m resolution. If 96,000 of those are classified as severely damaged, the zone is reported as 12 % severely damaged. That percentage is the variable pct_severe_adj we’ll be mapping for the rest of the lab.\n\n\nThe pipeline in one picture\n  WorldView tile        WorldView tile\n    (pre-event)          (post-event)\n    ~0.5 m pixels         ~0.5 m pixels\n         │                     │\n         └──────────┬──────────┘\n                    │  log10(after / before), band by band\n                    ▼\n         3-band log-ratio raster        ◀── Step 1: pixel-level change\n         (still ~0.5 m pixels)\n                    │\n                    │  k-means clustering, k=3 (silhouette-selected)\n                    ▼\n         Single-band damage class raster  ◀── Step 2: pixel → class\n         (1 = severe, 2 = medium, 3 = little/none)\n                    │\n                    │  zonal statistics: count severe pixels per polygon\n                    ▼\n         Damage % per operational zone    ◀── Step 3: pixel → zone\n         (the vector layer we load in §1.6)\n\n\n\n\n\n\nTipKey limitations to keep in mind throughout\n\n\n\n\nLine-of-sight bias: at nadir the satellite sees rooftops, not facades. A building with intact roof but blown-out walls can look fine from above.\nRubble removal: pixels cleared before the post-image was acquired show no change signature and read as undamaged.\nCloud and smoke: optical sensors can’t see through either.\nTemporal gap: the “post” image was acquired ~24 hours after the blast — early enough that little reconstruction has happened, but late enough that some pixels have shifted (vehicles moved, fires extinguished).\nThe 0.5 m floor: anything genuinely smaller than the pixel (a cracked window, a damaged car wheel) is invisible to this method."
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#setup",
+    "href": "lab_part1_prefinal.html#setup",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.3 Setup",
+    "text": "1.3 Setup\n\nlibrary(terra)     # modern raster operations (replaces the retired raster package)\nlibrary(sf)        # vector spatial data\nlibrary(tidyverse) # data wrangling + ggplot2\nlibrary(tmap)      # thematic mapping\nlibrary(viridis)   # accessible colour palettes\nlibrary(ggspatial) # scale bar, north arrow, basemap tiles\nlibrary(ggrepel)   # non-overlapping text labels on maps\nlibrary(classInt)  # break classification for choropleths\nlibrary(here)"
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#the-full-pipeline-illustrated-not-run",
+    "href": "lab_part1_prefinal.html#the-full-pipeline-illustrated-not-run",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.4 The full pipeline (illustrated, not run)",
+    "text": "1.4 The full pipeline (illustrated, not run)\nThe code below shows the entire pipeline from raw MAXAR tiles to the percentage of severely damaged pixels per zone — exactly the three steps described in §1.2. None of it runs in this document because the raw .tif files are several GB each and the k-means step takes ~10 minutes on a workstation. The pre-computed outputs are what we load in §1.5 and §1.6.\nRead it as a recipe — note especially how each step changes the shape of the data: 2 × 3-band rasters → 1 × 3-band log-ratio raster → 1 × 1-band class raster → 1 polygon per zone.\n\nStep 1 — Image differencing\n\n# ── Load the pre-event image ──────────────────────────────────────────────────\n# Source: data/maxar_raw/Before/10300500A5F95600.tif (WorldView, July 2020)\n# 3 bands (R, G, B) · ~0.5 m pixel size · many GB\n\nr_before &lt;- terra::rast(\"data/maxmar_raw/Before/10300500A5F95600.tif\")\n\n# ── Load the post-event image ─────────────────────────────────────────────────\n# Source: data/maxar_raw/After/10300500A6F8AA00.tif (WorldView, 5 Aug 2020)\n\nr_after  &lt;- terra::rast(\"data/maxmar_raw/After/10300500A6F8AA00.tif\")\n\n# ── Load the operational zones (used as a mask and later for zonal stats) ────\n# CRS: Deir el Zor (EPSG:22770) — local Lebanese projection\n\nzones &lt;- sf::st_read(\n  \"data/geo/beirut_port_explosions_operational_zones_139.shp\"\n) |&gt;\n  sf::st_transform(22770)\n\n# ── Align the two acquisitions ────────────────────────────────────────────────\n# The two tiles do not share an identical extent or grid. Resample the \"after\"\n# image onto the \"before\" grid. method = \"near\" preserves original DN values\n# (no interpolation) — critical because we will divide them in a moment.\n\nr_after_matched &lt;- terra::resample(r_after, r_before, method = \"near\")\n\n# ── Crop and mask to the study area ───────────────────────────────────────────\n# Shrinks file size by ~80% and makes the rest of the pipeline tractable.\n\nzones_vect    &lt;- terra::vect(zones)\nr_before_crop &lt;- r_before        |&gt; terra::crop(zones_vect) |&gt; terra::mask(zones_vect)\nr_after_crop  &lt;- r_after_matched |&gt; terra::crop(zones_vect) |&gt; terra::mask(zones_vect)\n\n# ── The actual differencing: log10(after / before), band by band ─────────────\n# Output is still ~0.5 m, still 3 bands — but values now mean CHANGE, not colour.\n\ndiff_log &lt;- log10(r_after_crop / r_before_crop)\n\nterra::writeRaster(\n  diff_log,\n  \"data/maxmar_processed/stack_after_before_log.tif\",\n  overwrite = TRUE\n)\n\n\n\n\n\n\n\nNoteWhy log-ratio differencing?\n\n\n\nSimple differencing (after − before) is sensitive to sun angle, atmospheric haze, and sensor gain differences between acquisitions. Log-ratio differencing turns multiplicative illumination noise into additive noise that largely cancels out. A value near 0 means no change; positive values mean the surface got brighter (rubble, dust, exposed concrete); negative values mean darker (collapsed structures, debris-shadow).\n\n\n\n\nStep 2 — Unsupervised classification (k-means with silhouette selection)\nThe log-ratio raster has a continuous value per pixel per band. To get damage classes, we cluster pixels in 3-D log-ratio space. We sweep k from 2 to 12 and pick the k with the highest silhouette index — for this dataset that turned out to be k = 3, which we interpret as severe / medium / little-to-no damage.\n\nlibrary(cluster)        # clara() — k-medoids variant of k-means\nlibrary(clusterCrit)    # intCriteria() — silhouette index\n\n# Read pixel values out of the log-ratio raster into a plain matrix\n# (rows = pixels, columns = bands). Drop pixels with any NA.\nrstDF &lt;- terra::values(diff_log)\nidx   &lt;- complete.cases(rstDF)\n\n# Sweep k = 2..12, store both the cluster assignment AND the silhouette score\nclustPerf &lt;- data.frame(nClust = 2:12, SI_KM = NA_real_)\ncluster_rasters &lt;- list()\n\nfor (k in 2:12) {\n\n  # k-means on the log-ratio values\n  km &lt;- kmeans(rstDF[idx, ], centers = k, iter.max = 50)\n\n  # Put the cluster labels back into a raster of the same shape as diff_log\n  cluster_vec      &lt;- rep(NA_integer_, terra::ncell(diff_log))\n  cluster_vec[idx] &lt;- km$cluster\n\n  r_k        &lt;- terra::rast(diff_log, nlyrs = 1)\n  terra::values(r_k) &lt;- cluster_vec\n  cluster_rasters[[as.character(k)]] &lt;- r_k\n\n  # Silhouette index on a stratified random sample (full pop is too big)\n  samp &lt;- sample(seq_along(idx)[idx], 2000)\n  si   &lt;- clusterCrit::intCriteria(\n    traj = rstDF[samp, ],\n    part = as.integer(km$cluster[match(samp, which(idx))]),\n    crit = \"Silhouette\"\n  )\n  clustPerf$SI_KM[clustPerf$nClust == k] &lt;- si[[1]][1]\n}\n\n# Plot silhouette index vs k — the peak tells us the natural number of classes\nplot(clustPerf$nClust, clustPerf$SI_KM, type = \"b\",\n     xlab = \"Number of clusters (k)\", ylab = \"Average silhouette\")\n\n# For Beirut, k = 3 wins. Save that raster as our final classification.\ndamage_class &lt;- cluster_rasters[[\"3\"]]   # values 1, 2, 3\n\nterra::writeRaster(\n  damage_class,\n  \"data/maxmar_processed/raster_kmeans_k3.tif\",\n  overwrite = TRUE\n)\n\n\n\n\n\n\n\nNoteWhy unsupervised, not supervised?\n\n\n\nA supervised Random Forest classifier was tried on this dataset and discarded as less interpretable than k-means. With unsupervised clustering we don’t need labelled training pixels — the algorithm just groups pixels with similar change signatures. The trade-off is that the cluster labels (1, 2, 3) are arbitrary and need to be matched to damage levels by visual inspection of where each cluster falls on the map.\n\n\n\n\nStep 3 — Zonal statistics (aggregate pixels to neighbourhoods)\nThe final step counts how many “severe” pixels fall inside each operational-zone polygon, divides by the total pixel count to get a percentage, and attaches that number to the polygon as an attribute.\n\n# Total pixels per zone (denominator)\nn_total  &lt;- terra::extract(damage_class, zones_vect, fun = function(x) sum(!is.na(x)))\n\n# Severe-damage pixels per zone — assuming cluster id 1 was matched to \"severe\"\nn_severe &lt;- terra::extract(damage_class, zones_vect,\n                           fun = function(x) sum(x == 1, na.rm = TRUE))\n\nzones$n_severe_px   &lt;- n_severe[, 2]\nzones$n_total_px    &lt;- n_total[, 2]\nzones$pct_severe    &lt;- 100 * zones$n_severe_px / zones$n_total_px\n\n# This is the file we load in §1.6 as `raster_rf_damage.shp`\nsf::st_write(zones, \"data/geo/raster_rf_damage.shp\", delete_dsn = TRUE)\n\n\n\n\n\n\n\nTipSense-check the orders of magnitude\n\n\n\nA zone of 0.2 km² at 0.5 m resolution contains roughly 800,000 pixels. If n_severe_px for that zone comes back as ~96,000, then pct_severe ≈ 12 %. If it comes back as 0 or as 800,000, something has gone wrong — either the cluster ID is mismatched or the mask did not align. Always sanity-check denominators on a known zone first."
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#load-and-explore-the-composite",
+    "href": "lab_part1_prefinal.html#load-and-explore-the-composite",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.5 Load and explore the composite",
+    "text": "1.5 Load and explore the composite\nFrom here on, everything is live. We work directly with MX_31Jul_5Aug_UN.tif — the UN-processed composite that stacks the pre- and post-event RGB scenes into a single 6-band file (bands 1–3 = pre, bands 4–6 = post). This is a manageable derivative of Step 1 above; we use it for visualisation, while the damage numbers we map come from a vector file produced by Step 3.\n\n# 6-band GeoTIFF: bands 1–3 = pre-event RGB, bands 4–6 = post-event RGB\n# CRS is geographic (WGS84): resolution ~0.5m expressed in degrees\n\nbeirut_img &lt;- terra::rast(\"data/maxmar_processed/MX_31Jul_5Aug_UN.tif\")\nbeirut_img\n\nclass       : SpatRaster \nsize        : 10593, 12811, 6  (nrow, ncol, nlyr)\nresolution  : 4.527509e-06, 4.527509e-06  (x, y)\nextent      : 35.4947, 35.5527, 33.8615, 33.90946  (xmin, xmax, ymin, ymax)\ncoord. ref. : lon/lat WGS 84 (EPSG:4326) \nsource      : MX_31Jul_5Aug_UN.tif \nnames       : MX_31~_UN_1, MX_31~_UN_2, MX_31~_UN_3, MX_31~_UN_4, MX_31~_UN_5, MX_31~_UN_6 \n\n\n\nnlyr(beirut_img)                   # number of bands (expect 6)\n\n[1] 6\n\nres(beirut_img)                    # pixel resolution in degrees (~0.5m at this latitude)\n\n[1] 4.527509e-06 4.527509e-06\n\ncrs(beirut_img, describe = TRUE)   # coordinate reference system\n\n    name authority code  area             extent\n1 WGS 84      EPSG 4326 World -180, 180, -90, 90\n\next(beirut_img)                    # spatial extent (lon/lat bounding box)\n\nSpatExtent : 35.4946952757966, 35.552697194005, 33.8614968010072, 33.9094567041828 (xmin, xmax, ymin, ymax)\n\nnames(beirut_img)                  # band names if set\n\n[1] \"MX_31Jul_5Aug_UN_1\" \"MX_31Jul_5Aug_UN_2\" \"MX_31Jul_5Aug_UN_3\"\n[4] \"MX_31Jul_5Aug_UN_4\" \"MX_31Jul_5Aug_UN_5\" \"MX_31Jul_5Aug_UN_6\"\n\n\n\n\n\n\n\n\nTipRead the raster header like a story\n\n\n\nThe output above tells you four things — write them down before plotting anything:\n\nLayers: 6 — the 3 pre-event RGB bands stacked on top of the 3 post-event RGB bands.\nResolution: at this latitude, ~0.5 m on the ground per pixel. Because the CRS is geographic (WGS84), res() reports it in decimal degrees (~4.5e-6°), which is a confusing unit until you realise 1° ≈ 111 km at the equator. Reproject to a metric CRS if you ever need to read pixel size directly.\nCRS: geographic (EPSG:4326). For zonal statistics later we’ll be in EPSG:22770 (Deir el Zor) — a mismatch in CRS between raster and vector is the single most common source of bugs in this kind of analysis.\nExtent: the lon/lat bounding box. Multiply (width × height) in metres to get the footprint — for the cropped Beirut tile this is on the order of 80 km², i.e. ~300 million pixels per band.\n\nSo when you plot(beirut_img[[1]]) below, every visible dot in that image is a 0.5 m × 0.5 m patch of Beirut — small enough to resolve a parked car, a market stall, a damaged roof corner.\n\n\n\nVisualise all six bands individually\n\npar(mfrow = c(2, 3))\nfor (i in 1:6) {\n  plot(beirut_img[[i]], main = paste0(\"Band \", i, \": \", names(beirut_img)[i]))\n}\n\n\n\n\n\n\n\npar(mfrow = c(1, 1))\n\nThe band-by-band plots may not be immediately intuitive — this is why we use RGB composites.\n\n\nPre- and post-event RGB composites side by side\n\npar(mfrow = c(1, 2))\n\nplotRGB(beirut_img, r = 1, g = 2, b = 3,\n        stretch = \"lin\",\n        main    = \"Pre-event (Jul 31)\")\n\nplotRGB(beirut_img, r = 4, g = 5, b = 6,\n        stretch = \"lin\",\n        main    = \"Post-event (Aug 5)\")\n\n\n\n\n\n\n\npar(mfrow = c(1, 1))\n\nEven visually, the destruction around the port is immediately apparent in the post-event image."
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#load-the-damage-zones-vector",
+    "href": "lab_part1_prefinal.html#load-the-damage-zones-vector",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.6 Load the damage zones (vector)",
+    "text": "1.6 Load the damage zones (vector)\nThis is the output of Step 3 of the pipeline in §1.4: a polygon shapefile where every operational zone carries the count and percentage of pixels classified as severely damaged. Each polygon represents the aggregation of hundreds of thousands of 0.5 m pixel decisions into one number a humanitarian agency can act on.\n(The file name raster_rf_damage.shp is a historical artefact — an early version of the analysis did try a Random Forest classifier before settling on unsupervised k-means with k = 3. The numbers inside are the k-means results.)\n\n# Operational zones with severe-damage pixel counts from the k-means classification\ndamage_zones &lt;- st_read(\"data/geo/raster_rf_damage.shp\", quiet = TRUE)\n\n# Inspect\nglimpse(damage_zones)\n\nRows: 139\nColumns: 12\n$ OBJECTI  &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…\n$ ACS_COD  &lt;dbl&gt; 10999, 10610, 10450, 10510, 10550, 10650, 10450, 10510, 10510…\n$ Cdstr_1  &lt;chr&gt; \"Beirut Central District\", \"Mdaouar foncière\", \"Marfa' fonciè…\n$ Dstrc_1  &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"…\n$ Govrnrt  &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"…\n$ zon_nmb  &lt;dbl&gt; 1, 5, 4, 13, 39, 62, 2, 55, 15, 14, 12, 11, 9, 10, 17, 16, 19…\n$ Shp_Lng  &lt;dbl&gt; 0.045202611, 0.072433259, 0.042239645, 0.016107903, 0.0116163…\n$ Shap_Ar  &lt;dbl&gt; 5.226966e-05, 8.667112e-05, 5.621270e-05, 1.350386e-05, 5.961…\n$ z_count  &lt;dbl&gt; 2549948, 4228181, 2742309, 658791, 290824, 1895734, 1927993, …\n$ pct_sv_  &lt;dbl&gt; 68.48371, 68.37011, 64.95605, 63.68108, 62.67027, 54.59718, 6…\n$ pct___2  &lt;dbl&gt; 59.58479, 59.47877, 56.29231, 55.10234, 54.15892, 46.62404, 5…\n$ geometry &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((35.53859 33…\n\nnames(damage_zones)\n\n [1] \"OBJECTI\"  \"ACS_COD\"  \"Cdstr_1\"  \"Dstrc_1\"  \"Govrnrt\"  \"zon_nmb\" \n [7] \"Shp_Lng\"  \"Shap_Ar\"  \"z_count\"  \"pct_sv_\"  \"pct___2\"  \"geometry\"\n\ndamage_zones &lt;- damage_zones |&gt;\n  dplyr::rename(\n    object_id      = OBJECTI,\n    acs_code       = ACS_COD,\n    cadastre       = Cdstr_1,\n    district       = Dstrc_1,\n    governorate    = Govrnrt,\n    zone_number    = zon_nmb,\n    pct_severe_raw = pct_sv_,\n    pct_severe_adj = pct___2\n  ) |&gt;\n  dplyr::mutate(\n    area_m2  = as.numeric(sf::st_area(geometry)),\n    area_km2 = area_m2 / 1e6,\n  ) |&gt;\n  dplyr::select(-Shp_Lng, -Shap_Ar)   # drop the unhelpful degree-based columns\n\nglimpse(damage_zones)\n\nRows: 139\nColumns: 12\n$ object_id      &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n$ acs_code       &lt;dbl&gt; 10999, 10610, 10450, 10510, 10550, 10650, 10450, 10510,…\n$ cadastre       &lt;chr&gt; \"Beirut Central District\", \"Mdaouar foncière\", \"Marfa' …\n$ district       &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beir…\n$ governorate    &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beir…\n$ zone_number    &lt;dbl&gt; 1, 5, 4, 13, 39, 62, 2, 55, 15, 14, 12, 11, 9, 10, 17, …\n$ z_count        &lt;dbl&gt; 2549948, 4228181, 2742309, 658791, 290824, 1895734, 192…\n$ pct_severe_raw &lt;dbl&gt; 68.48371, 68.37011, 64.95605, 63.68108, 62.67027, 54.59…\n$ pct_severe_adj &lt;dbl&gt; 59.58479, 59.47877, 56.29231, 55.10234, 54.15892, 46.62…\n$ area_m2        &lt;dbl&gt; 536396.23, 889423.71, 576891.05, 138590.48, 61181.85, 3…\n$ area_km2       &lt;dbl&gt; 0.53639623, 0.88942371, 0.57689105, 0.13859048, 0.06118…\n$ geometry       &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((35.53…\n\n\n\nAnchor the map: the blast epicentre\nThe explosion originated at Hangar 12 of the Port of Beirut. Pinning this point lets us label distances, draw concentric reference rings, and quantify how damage decays with proximity to the source.\n\n# Hangar 12, Port of Beirut (approximate epicentre coordinates)\nepicentre &lt;- sf::st_sfc(\n  sf::st_point(c(35.5189, 33.9013)),\n  crs = 4326\n) |&gt;\n  sf::st_transform(sf::st_crs(damage_zones))\n\n# Distance from each zone centroid to the epicentre, in km\ndamage_zones &lt;- damage_zones |&gt;\n  dplyr::mutate(\n    dist_km = as.numeric(\n      sf::st_distance(sf::st_centroid(geometry), epicentre)\n    ) / 1000\n  )\n\nsummary(damage_zones$dist_km)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n 0.3876  1.2699  1.9627  1.9109  2.4348  4.4732"
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#visualise-the-damage",
+    "href": "lab_part1_prefinal.html#visualise-the-damage",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.7 Visualise the damage",
+    "text": "1.7 Visualise the damage\n\nStatic map with epicentre and top zones labelled\nTo make the map interpretable (and not just decorative), we add two things:\n\nA cross marking the blast epicentre at Hangar 12 of the Port of Beirut.\nLabels for the 8 most-damaged cadastres, so the eye doesn’t have to jump between map and table to identify them.\n\n\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(ggspatial)\nlibrary(classInt)\nlibrary(ggrepel)\n\n# Compute quantile breaks\nbrks &lt;- round(\n  classInt::classIntervals(damage_zones$pct_severe_adj, n = 7, style = \"quantile\")$brks,\n  1\n)\n\n# Top zones to label directly on the map\ntop_labels &lt;- damage_zones |&gt;\n  dplyr::slice_max(pct_severe_adj, n = 8) |&gt;\n  dplyr::mutate(\n    label_xy = sf::st_centroid(geometry)\n  )\n\nggplot(damage_zones) +\n  annotation_map_tile(\n    type = \"cartolight\",\n    zoom = 14,\n    progress = \"none\"\n  ) +\n  geom_sf(\n    aes(fill = pct_severe_adj),\n    colour = \"white\",\n    linewidth = 0.3,\n    alpha = 0.85\n  ) +\n  # Epicentre marker\n  geom_sf(\n    data = epicentre,\n    shape = 4, size = 5, stroke = 1.4, colour = \"black\"\n  ) +\n  geom_sf_text(\n    data = epicentre,\n    label = \"Epicentre\",\n    nudge_y = 0.003, size = 3, fontface = \"bold\"\n  ) +\n  # Labels for top-damaged zones\n  ggrepel::geom_label_repel(\n    data = top_labels,\n    aes(label = cadastre, geometry = geometry),\n    stat = \"sf_coordinates\",\n    size = 2.7,\n    alpha = 0.9,\n    label.size = 0,\n    label.padding = unit(0.12, \"lines\"),\n    min.segment.length = 0,\n    segment.colour = \"grey30\",\n    segment.size = 0.3,\n    max.overlaps = Inf\n  ) +\n  scale_fill_fermenter(\n    palette = \"YlOrRd\",\n    direction = 1,\n    breaks = brks,\n    name = \"% pixels\\nseverely damaged\"\n  ) +\n  annotation_scale(\n    location = \"bl\",\n    width_hint = 0.25,\n    text_cex = 0.7\n  ) +\n  annotation_north_arrow(\n    location = \"br\",\n    which_north = \"true\",\n    height = unit(0.8, \"cm\"),\n    width = unit(0.8, \"cm\"),\n    style = north_arrow_fancy_orienteering\n  ) +\n  labs(\n    title = \"Severe Damage Density by Operational Zone\",\n    subtitle = \"Beirut Port Explosion, August 2020 · top 8 cadastres labelled\"\n  ) +\n  theme_void() +\n  theme(\n    plot.title = element_text(size = 11, hjust = 0.5, face = \"bold\"),\n    plot.subtitle = element_text(size = 9, hjust = 0.5),\n    legend.position = \"right\",\n    legend.title = element_text(size = 9),\n    legend.text = element_text(size = 8)\n  )\n\nWarning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not\ngive correct results for longitude/latitude data\nWarning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not\ngive correct results for longitude/latitude data"
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#damage-distribution",
+    "href": "lab_part1_prefinal.html#damage-distribution",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.8 Damage distribution",
+    "text": "1.8 Damage distribution\n\ndamage_zones |&gt;\n  st_drop_geometry() |&gt;\n  ggplot(aes(x = pct_severe_adj)) +\n  geom_histogram(bins = 25, fill = \"#1a2744\", colour = \"white\", linewidth = 0.2) +\n  geom_vline(\n    xintercept = median(damage_zones$pct_severe_adj, na.rm = TRUE),\n    colour = \"#e8a020\", linetype = \"dashed\", linewidth = 1\n  ) +\n  annotate(\"text\",\n    x = median(damage_zones$pct_severe_adj, na.rm = TRUE),\n    y = Inf, vjust = 1.5, hjust = -0.1,\n    label = paste0(\n      \"Median: \",\n      round(median(damage_zones$pct_severe_adj, na.rm = TRUE), 1),\n      \"%\"\n    ),\n    colour = \"#e8a020\", size = 3.5\n  ) +\n  labs(\n    title    = \"Distribution of severe damage density across zones\",\n    subtitle = \"Beirut operational zones · RF classification\",\n    x        = \"% of zone classified as severely damaged\",\n    y        = \"Number of zones\"\n  ) +\n  theme_minimal(base_size = 12)"
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#how-does-damage-decay-with-distance-from-the-port",
+    "href": "lab_part1_prefinal.html#how-does-damage-decay-with-distance-from-the-port",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.9 How does damage decay with distance from the port?",
+    "text": "1.9 How does damage decay with distance from the port?\nThe histogram tells us how much damage there is overall, but not where. Plotting severe-damage percentage against distance from the epicentre gives us the spatial structure in a single chart — and a sanity check on the map.\n\ndamage_zones |&gt;\n  st_drop_geometry() |&gt;\n  ggplot(aes(x = dist_km, y = pct_severe_adj)) +\n  geom_point(\n    aes(size = area_km2),\n    alpha = 0.55,\n    colour = \"#b30000\"\n  ) +\n  geom_smooth(\n    method = \"loess\",\n    se = TRUE,\n    colour = \"#1a2744\",\n    fill = \"#1a2744\",\n    alpha = 0.15,\n    linewidth = 0.8\n  ) +\n  scale_size_continuous(range = c(1, 6), name = \"Zone area (km²)\") +\n  labs(\n    title    = \"Severe damage decays with distance from the blast epicentre\",\n    subtitle = \"Each point is one operational zone · LOESS smoother in navy\",\n    x        = \"Distance from epicentre (km)\",\n    y        = \"% of zone severely damaged\"\n  ) +\n  theme_minimal(base_size = 12) +\n  theme(\n    plot.title = element_text(face = \"bold\")\n  )\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteReading the decay curve\n\n\n\nThe drop-off is typically steep within the first 1–2 km of the port and then flattens. Points sitting above the smoother are zones that suffered more damage than their distance alone would predict — worth investigating (building stock, exposure, line-of-sight to the blast). Points below it are unexpectedly spared."
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#most-damaged-zones-ranked",
+    "href": "lab_part1_prefinal.html#most-damaged-zones-ranked",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.10 Most damaged zones — ranked",
+    "text": "1.10 Most damaged zones — ranked\nRather than a plain table, we rank the top 15 cadastres by its distance from the epicentre. This pulls together magnitude and geography.\nFor reference, the same ten zones as a compact table:\n\ndamage_zones |&gt;\n  st_drop_geometry() |&gt;\n  arrange(desc(pct_severe_adj)) |&gt;\n  slice_head(n = 10) |&gt;\n  dplyr::select(zone_number, cadastre, area_km2, dist_km, pct_severe_adj) |&gt;\n  mutate(\n    area_km2       = round(area_km2, 3),\n    dist_km        = round(dist_km, 2),\n    pct_severe_adj = round(pct_severe_adj, 2)\n  ) |&gt;\n  knitr::kable(\n    col.names = c(\"Zone\", \"Cadastre\", \"Area (km²)\", \"Distance to port (km)\", \"% Severe\"),\n    caption   = \"Ten most severely damaged operational zones\"\n  )\n\n\nTen most severely damaged operational zones\n\n\n\n\n\n\n\n\n\nZone\nCadastre\nArea (km²)\nDistance to port (km)\n% Severe\n\n\n\n\n118\nBourj Hammoud\n0.018\n2.18\n75.00\n\n\n6\nMdaouar foncière\n0.218\n1.21\n65.38\n\n\n110\nBourj Hammoud\n0.009\n2.13\n63.50\n\n\n113\nBourj Hammoud\n0.016\n2.01\n60.84\n\n\n27\nRmeil foncière\n0.017\n0.94\n60.77\n\n\n1\nBeirut Central District\n0.536\n1.36\n59.58\n\n\n5\nMdaouar foncière\n0.889\n1.11\n59.48\n\n\n26\nRmeil foncière\n0.042\n0.89\n58.59\n\n\n50\nRmeil foncière\n0.029\n1.11\n57.76\n\n\n107\nBourj Hammoud\n0.050\n1.80\n57.30"
+  },
+  {
+    "objectID": "lab_part1_prefinal.html#exercise-1",
+    "href": "lab_part1_prefinal.html#exercise-1",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "✏️ Exercise 1",
+    "text": "✏️ Exercise 1\n\n\n\n\n\n\nTipYour turn\n\n\n\n\nCompare zones: The map uses quantile breaks, which distributes zones evenly across colour classes regardless of the actual data distribution. Try changing style = \"quantile\" to style = \"jenks\" (natural breaks) and style = \"equal\". How does the visual interpretation change? Which do you think is most appropriate here and why?\nBeyond distance: The decay curve in §1.9 explains a lot — but not everything. Identify the 3 zones that are the worst outliers above the LOESS smoother (more damaged than their distance predicts). Where are they on the map? What might explain the residual? Then do the same for 3 zones below the smoother. Hint: fit the LOESS yourself with loess(), extract residuals(), then slice_max() / slice_min().\nRaster inspection: Load one of the individual image tiles (10300100AB8F4A00.tif or 10300500A5F95600.tif). What are its dimensions, resolution, and number of bands? Plot it and compare the pre- and post-event images visually.\n\nHint for Q3: use terra::rast(), then plotRGB() with appropriate band numbers.\n\n\n\n\n\n\n\n\n\nNoteUp next\n\n\n\nIn Part 2 we load the survey data and ask: does what the satellite sees match what households reported on the ground — and where do the two sources diverge?"
+  },
+  {
+    "objectID": "lab_part1.html#background-the-data-and-its-origins",
+    "href": "lab_part1.html#background-the-data-and-its-origins",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.1 Background: the data and its origins",
+    "text": "1.1 Background: the data and its origins\n\nThe Beirut Port Explosion\nOn 4 August 2020, approximately 2,750 tonnes of ammonium nitrate that had been stored unsafely at Beirut’s port exploded, killing more than 200 people, injuring thousands, and destroying or damaging an estimated 77,000 buildings across the city. The blast was felt as far away as Cyprus.\n\n\nWho collected this imagery?\nThe satellite images used in this lab were collected by Maxar Technologies — at the time one of the world’s leading commercial Earth observation companies, operating the WorldView constellation of very-high-resolution (VHR) optical satellites (WorldView-2, WorldView-3, GeoEye-1) capable of sub-metre resolution (~30–50 cm panchromatic).\n\n\n\n\n\n\nNoteA note on Maxar’s current status\n\n\n\nMaxar Technologies no longer exists as a single company. In May 2023 it was acquired by private equity firm Advent International for $6.4 billion and subsequently split into two independent entities: Vantor (formerly Maxar Intelligence — the Earth imagery and analytics side, which still operates the WorldView satellites) and Lanteris Space Systems (formerly Maxar Space Systems — satellite manufacturing). The rebrand was announced in October 2025. The open data programme and the Beirut dataset remain accessible and the imagery copyright attribution still reads Maxar Technologies Inc., as that was the company name at the time of collection.\n\n\n\n\nThe open data release\nFollowing the explosion, Maxar released pre- and post-event imagery under their Open Data Program, making it freely available for humanitarian response. The data we use in this lab comes from that release:\n\nmaxar.com/open-data/beirut-explosion\n\n\nhttps://vantor.com/company/open-data-program/\n\nWe work with three image tiles:\n\n\n\nFile\nDescription\n\n\n\n\n10300100AB8F4A00.tif\nPre-event WorldView image (July 2020)\n\n\n10300500A5F95600.tif\nPost-event WorldView image (August 5, 2020)\n\n\n104001005BD06800.tif\nAdditional post-event coverage\n\n\nMX_31Jul_5Aug_UN.tif\nUN-processed composite (31 Jul – 5 Aug)\n\n\n\nThe vector building footprints are from Ecopia Tech Corporation, who digitised structures from the satellite imagery.\n\n\n\n\n\n\nWarningData licence\n\n\n\nThis data is licensed under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).\n\n✅ You may use and adapt it for non-commercial purposes\n✅ You must credit: Vector Data © 2020 Ecopia Tech Corporation; Image Data © 2020 Maxar Technologies Inc.\n❌ You may not use it for commercial purposes\n\nFull licence: creativecommons.org/licenses/by-nc/4.0",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#how-does-satellite-damage-assessment-work",
+    "href": "lab_part1.html#how-does-satellite-damage-assessment-work",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.2 How does satellite damage assessment work?",
+    "text": "1.2 How does satellite damage assessment work?\nBefore touching the data, it helps to understand the chain of scale: how do we get from a satellite hundreds of kilometres above Beirut to a number — “12 % of this neighbourhood was severely damaged” — that a humanitarian agency can act on?\nThe answer is a four-step pipeline. The hardest thing to keep in your head as you read it is just how small a pixel is.\n\nStep 0 — What is a pixel, really?\nWorldView-2 and WorldView-3 produce panchromatic imagery at roughly 0.3–0.5 metres per pixel. To make that concrete:\n\n\n\n\n\n\n\n\nIf a pixel is…\nThen the area it covers is…\nAnd a typical Beirut apartment building (say 20 × 30 m) is…\n\n\n\n\n0.5 m × 0.5 m\n0.25 m² — about a dinner plate\n~2,400 pixels\n\n\n1 m × 1 m\n1 m² — a doormat\n~600 pixels\n\n\n10 m × 10 m (Sentinel-2)\n100 m² — a small studio flat\n~6 pixels — building barely resolved\n\n\n30 m × 30 m (Landsat)\n900 m² — half a football pitch\n&lt;1 pixel — building invisible\n\n\n\nThis is why MAXAR / WorldView-class imagery is special: at 0.5 m, a single building generates thousands of pixels, so a collapsed roof, a cleared lot, or a debris pile each leave a clear statistical signature. With Landsat, the whole building would be a smudge.\nFor the Beirut tiles we’ll work with, the raster covers roughly 80 km² of greater Beirut. At ~0.5 m resolution that is on the order of 300 million pixels per band, across 3 spectral bands (RGB), for both the pre- and post-event acquisition — i.e. ~1.8 billion numbers in total. This is why we don’t run the heavy steps live in the lab.\n\n\nStep 1 — Image differencing (pixel-level change)\nThe first step asks, for every one of those 300 million pixels: did this patch of ground change between July and August?\nThe operation is band-by-band division of the post-event image by the pre-event one, on a log scale:\nlog10( Band_after / Band_before )  →  positive = brighter after (rubble, dust, exposed concrete)\n                                       negative = darker after (collapsed structure, shadow)\n                                       near zero = no change\nWe use the log-ratio rather than simple subtraction after − before because the two images were taken on different days, with different sun angles and atmospheric conditions. The log-ratio is more robust to those nuisance differences: multiplicative illumination effects become additive and largely cancel out. The output is a 3-band raster with the same ~0.5 m pixel size as the inputs.\n\n\n\n\n\n\nNoteMore advanced approaches\n\n\n\nLog-ratio differencing is a transparent, reproducible baseline — but the field has moved well beyond it. Two recent papers I admire:\n\nScher, C., & Van Den Hoek, J. (2025). Nationwide conflict damage mapping with interferometric synthetic aperture radar: a study of the 2022 Russia–Ukraine conflict. Science of Remote Sensing.\nScher, C., & Van Den Hoek, J. (2025). Active InSAR monitoring of building damage in Gaza during the Israel-Hamas War. arXiv preprint.\n\nBoth use radar (SAR) rather than optical imagery, which can see through clouds and at night — at the cost of harder-to-interpret pixel values.\n\n\n\n\nStep 2 — Classification (pixel → damage class)\nAfter differencing we have a number for every pixel, but humans don’t act on continuous log-ratio values — we act on categories like severe / moderate / little-to-no damage. So the next step classifies each pixel into a small number of damage classes.\nThe original analysis behind this dataset used unsupervised k-means clustering on the 3-band log-ratio stack: every pixel is treated as a point in 3-D colour-change space, and the algorithm groups pixels into k clusters of “similar change signature”. The number of clusters was chosen by the silhouette index (a measure of how well-separated the clusters are), which peaked at k = 3 — and those three clusters were then interpreted as severe damage, medium damage, and little to no damage. A supervised Random Forest was also explored but found to be less interpretable on this dataset.\nThe key point: classification turns billions of continuous pixel values into three discrete labels, while still respecting the ~0.5 m pixel grid. The output is a single-band raster at the original resolution where each cell is 1, 2, or 3.\n\n\nStep 3 — Aggregation to zones (pixel → neighbourhood)\nA pixel-level damage map is too granular for policy or humanitarian targeting — agencies operate at the neighbourhood (cadastre / operational zone) scale, not the dinner-plate scale. So the final step aggregates pixel classifications up using zonal statistics:\n\nFor each operational zone polygon, count how many pixels fall inside it, count how many of those are classified as severe damage, and divide.\n\nSo a zone of 0.2 km² contains roughly 800,000 pixels at 0.5 m resolution. If 96,000 of those are classified as severely damaged, the zone is reported as 12 % severely damaged. That percentage is the variable pct_severe_adj we’ll be mapping for the rest of the lab.\n\n\nThe pipeline in one picture\n  WorldView tile        WorldView tile\n    (pre-event)          (post-event)\n    ~0.5 m pixels         ~0.5 m pixels\n         │                     │\n         └──────────┬──────────┘\n                    │  log10(after / before), band by band\n                    ▼\n         3-band log-ratio raster        ◀── Step 1: pixel-level change\n         (still ~0.5 m pixels)\n                    │\n                    │  k-means clustering, k=3 (silhouette-selected)\n                    ▼\n         Single-band damage class raster  ◀── Step 2: pixel → class\n         (1 = severe, 2 = medium, 3 = little/none)\n                    │\n                    │  zonal statistics: count severe pixels per polygon\n                    ▼\n         Damage % per operational zone    ◀── Step 3: pixel → zone\n         (the vector layer we load in §1.6)\n\n\n\n\n\n\nTipKey limitations to keep in mind throughout\n\n\n\n\nLine-of-sight bias: at nadir the satellite sees rooftops, not facades. A building with intact roof but blown-out walls can look fine from above.\nRubble removal: pixels cleared before the post-image was acquired show no change signature and read as undamaged.\nCloud and smoke: optical sensors can’t see through either.\nTemporal gap: the “post” image was acquired ~24 hours after the blast — early enough that little reconstruction has happened, but late enough that some pixels have shifted (vehicles moved, fires extinguished).\nThe 0.5 m floor: anything genuinely smaller than the pixel (a cracked window, a damaged car wheel) is invisible to this method.",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#the-full-pipeline-illustrated-not-run",
+    "href": "lab_part1.html#the-full-pipeline-illustrated-not-run",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.4 The full pipeline (illustrated, not run)",
+    "text": "1.4 The full pipeline (illustrated, not run)\nThe code below shows the entire pipeline from raw MAXAR tiles to the percentage of severely damaged pixels per zone — exactly the three steps described in §1.2. None of it runs in this document because the raw .tif files are several GB each and the k-means step takes ~10 minutes on a workstation. The pre-computed outputs are what we load in §1.5 and §1.6.\nRead it as a recipe — note especially how each step changes the shape of the data: 2 × 3-band rasters → 1 × 3-band log-ratio raster → 1 × 1-band class raster → 1 polygon per zone.\n\nStep 1 — Image differencing\n\n# ── Load the pre-event image ──────────────────────────────────────────────────\n# Source: data/maxar_raw/Before/10300500A5F95600.tif (WorldView, July 2020)\n# 3 bands (R, G, B) · ~0.5 m pixel size · many GB\n\nr_before &lt;- terra::rast(\"data/maxmar_raw/Before/10300500A5F95600.tif\")\n\n# ── Load the post-event image ─────────────────────────────────────────────────\n# Source: data/maxar_raw/After/10300500A6F8AA00.tif (WorldView, 5 Aug 2020)\n\nr_after  &lt;- terra::rast(\"data/maxmar_raw/After/10300500A6F8AA00.tif\")\n\n# ── Load the operational zones (used as a mask and later for zonal stats) ────\n# CRS: Deir el Zor (EPSG:22770) — local Lebanese projection\n\nzones &lt;- sf::st_read(\n  \"data/geo/beirut_port_explosions_operational_zones_139.shp\"\n) |&gt;\n  sf::st_transform(22770)\n\n# ── Align the two acquisitions ────────────────────────────────────────────────\n# The two tiles do not share an identical extent or grid. Resample the \"after\"\n# image onto the \"before\" grid. method = \"near\" preserves original DN values\n# (no interpolation) — critical because we will divide them in a moment.\n\nr_after_matched &lt;- terra::resample(r_after, r_before, method = \"near\")\n\n# ── Crop and mask to the study area ───────────────────────────────────────────\n# Shrinks file size by ~80% and makes the rest of the pipeline tractable.\n\nzones_vect    &lt;- terra::vect(zones)\nr_before_crop &lt;- r_before        |&gt; terra::crop(zones_vect) |&gt; terra::mask(zones_vect)\nr_after_crop  &lt;- r_after_matched |&gt; terra::crop(zones_vect) |&gt; terra::mask(zones_vect)\n\n# ── The actual differencing: log10(after / before), band by band ─────────────\n# Output is still ~0.5 m, still 3 bands — but values now mean CHANGE, not colour.\n\ndiff_log &lt;- log10(r_after_crop / r_before_crop)\n\nterra::writeRaster(\n  diff_log,\n  \"data/maxmar_processed/stack_after_before_log.tif\",\n  overwrite = TRUE\n)\n\n\n\n\n\n\n\nNoteWhy log-ratio differencing?\n\n\n\nSimple differencing (after − before) is sensitive to sun angle, atmospheric haze, and sensor gain differences between acquisitions. Log-ratio differencing turns multiplicative illumination noise into additive noise that largely cancels out. A value near 0 means no change; positive values mean the surface got brighter (rubble, dust, exposed concrete); negative values mean darker (collapsed structures, debris-shadow).\n\n\n\n\nStep 2 — Unsupervised classification (k-means with silhouette selection)\nThe log-ratio raster has a continuous value per pixel per band. To get damage classes, we cluster pixels in 3-D log-ratio space. We sweep k from 2 to 12 and pick the k with the highest silhouette index — for this dataset that turned out to be k = 3, which we interpret as severe / medium / little-to-no damage.\n\nlibrary(cluster)        # clara() — k-medoids variant of k-means\nlibrary(clusterCrit)    # intCriteria() — silhouette index\n\n# Read pixel values out of the log-ratio raster into a plain matrix\n# (rows = pixels, columns = bands). Drop pixels with any NA.\nrstDF &lt;- terra::values(diff_log)\nidx   &lt;- complete.cases(rstDF)\n\n# Sweep k = 2..12, store both the cluster assignment AND the silhouette score\nclustPerf &lt;- data.frame(nClust = 2:12, SI_KM = NA_real_)\ncluster_rasters &lt;- list()\n\nfor (k in 2:12) {\n\n  # k-means on the log-ratio values\n  km &lt;- kmeans(rstDF[idx, ], centers = k, iter.max = 50)\n\n  # Put the cluster labels back into a raster of the same shape as diff_log\n  cluster_vec      &lt;- rep(NA_integer_, terra::ncell(diff_log))\n  cluster_vec[idx] &lt;- km$cluster\n\n  r_k        &lt;- terra::rast(diff_log, nlyrs = 1)\n  terra::values(r_k) &lt;- cluster_vec\n  cluster_rasters[[as.character(k)]] &lt;- r_k\n\n  # Silhouette index on a stratified random sample (full pop is too big)\n  samp &lt;- sample(seq_along(idx)[idx], 2000)\n  si   &lt;- clusterCrit::intCriteria(\n    traj = rstDF[samp, ],\n    part = as.integer(km$cluster[match(samp, which(idx))]),\n    crit = \"Silhouette\"\n  )\n  clustPerf$SI_KM[clustPerf$nClust == k] &lt;- si[[1]][1]\n}\n\n# Plot silhouette index vs k — the peak tells us the natural number of classes\nplot(clustPerf$nClust, clustPerf$SI_KM, type = \"b\",\n     xlab = \"Number of clusters (k)\", ylab = \"Average silhouette\")\n\n# For Beirut, k = 3 wins. Save that raster as our final classification.\ndamage_class &lt;- cluster_rasters[[\"3\"]]   # values 1, 2, 3\n\nterra::writeRaster(\n  damage_class,\n  \"data/maxmar_processed/raster_kmeans_k3.tif\",\n  overwrite = TRUE\n)\n\n\n\n\n\n\n\nNoteWhy unsupervised, not supervised?\n\n\n\nA supervised Random Forest classifier was tried on this dataset and discarded as less interpretable than k-means. With unsupervised clustering we don’t need labelled training pixels — the algorithm just groups pixels with similar change signatures. The trade-off is that the cluster labels (1, 2, 3) are arbitrary and need to be matched to damage levels by visual inspection of where each cluster falls on the map.\n\n\n\n\nStep 3 — Zonal statistics (aggregate pixels to neighbourhoods)\nThe final step counts how many “severe” pixels fall inside each operational-zone polygon, divides by the total pixel count to get a percentage, and attaches that number to the polygon as an attribute.\n\n# Total pixels per zone (denominator)\nn_total  &lt;- terra::extract(damage_class, zones_vect, fun = function(x) sum(!is.na(x)))\n\n# Severe-damage pixels per zone — assuming cluster id 1 was matched to \"severe\"\nn_severe &lt;- terra::extract(damage_class, zones_vect,\n                           fun = function(x) sum(x == 1, na.rm = TRUE))\n\nzones$n_severe_px   &lt;- n_severe[, 2]\nzones$n_total_px    &lt;- n_total[, 2]\nzones$pct_severe    &lt;- 100 * zones$n_severe_px / zones$n_total_px\n\n# This is the file we load in §1.6 as `raster_rf_damage.shp`\nsf::st_write(zones, \"data/geo/raster_rf_damage.shp\", delete_dsn = TRUE)\n\n\n\n\n\n\n\nTipSense-check the orders of magnitude\n\n\n\nA zone of 0.2 km² at 0.5 m resolution contains roughly 800,000 pixels. If n_severe_px for that zone comes back as ~96,000, then pct_severe ≈ 12 %. If it comes back as 0 or as 800,000, something has gone wrong — either the cluster ID is mismatched or the mask did not align. Always sanity-check denominators on a known zone first.",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#load-and-explore-the-composite",
+    "href": "lab_part1.html#load-and-explore-the-composite",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.5 Load and explore the composite",
+    "text": "1.5 Load and explore the composite\nFrom here on, everything is live. We work directly with MX_31Jul_5Aug_UN.tif — the UN-processed composite that stacks the pre- and post-event RGB scenes into a single 6-band file (bands 1–3 = pre, bands 4–6 = post). This is a manageable derivative of Step 1 above; we use it for visualisation, while the damage numbers we map come from a vector file produced by Step 3.\n\n# 6-band GeoTIFF: bands 1–3 = pre-event RGB, bands 4–6 = post-event RGB\n# CRS is geographic (WGS84): resolution ~0.5m expressed in degrees\n\nbeirut_img &lt;- terra::rast(\"data/maxmar_processed/MX_31Jul_5Aug_UN.tif\")\nbeirut_img\n\nclass       : SpatRaster \nsize        : 10593, 12811, 6  (nrow, ncol, nlyr)\nresolution  : 4.527509e-06, 4.527509e-06  (x, y)\nextent      : 35.4947, 35.5527, 33.8615, 33.90946  (xmin, xmax, ymin, ymax)\ncoord. ref. : lon/lat WGS 84 (EPSG:4326) \nsource      : MX_31Jul_5Aug_UN.tif \nnames       : MX_31~_UN_1, MX_31~_UN_2, MX_31~_UN_3, MX_31~_UN_4, MX_31~_UN_5, MX_31~_UN_6 \n\n\n\nnlyr(beirut_img)                   # number of bands (expect 6)\n\n[1] 6\n\nres(beirut_img)                    # pixel resolution in degrees (~0.5m at this latitude)\n\n[1] 4.527509e-06 4.527509e-06\n\ncrs(beirut_img, describe = TRUE)   # coordinate reference system\n\n    name authority code  area             extent\n1 WGS 84      EPSG 4326 World -180, 180, -90, 90\n\next(beirut_img)                    # spatial extent (lon/lat bounding box)\n\nSpatExtent : 35.4946952757966, 35.552697194005, 33.8614968010072, 33.9094567041828 (xmin, xmax, ymin, ymax)\n\nnames(beirut_img)                  # band names if set\n\n[1] \"MX_31Jul_5Aug_UN_1\" \"MX_31Jul_5Aug_UN_2\" \"MX_31Jul_5Aug_UN_3\"\n[4] \"MX_31Jul_5Aug_UN_4\" \"MX_31Jul_5Aug_UN_5\" \"MX_31Jul_5Aug_UN_6\"\n\n\n\n\n\n\n\n\nTipRead the raster header like a story\n\n\n\nThe output above tells you four things — write them down before plotting anything:\n\nLayers: 6 — the 3 pre-event RGB bands stacked on top of the 3 post-event RGB bands.\nResolution: at this latitude, ~0.5 m on the ground per pixel. Because the CRS is geographic (WGS84), res() reports it in decimal degrees (~4.5e-6°), which is a confusing unit until you realise 1° ≈ 111 km at the equator. Reproject to a metric CRS if you ever need to read pixel size directly.\nCRS: geographic (EPSG:4326). For zonal statistics later we’ll be in EPSG:22770 (Deir el Zor) — a mismatch in CRS between raster and vector is the single most common source of bugs in this kind of analysis.\nExtent: the lon/lat bounding box. Multiply (width × height) in metres to get the footprint — for the cropped Beirut tile this is on the order of 80 km², i.e. ~300 million pixels per band.\n\nSo when you plot(beirut_img[[1]]) below, every visible dot in that image is a 0.5 m × 0.5 m patch of Beirut — small enough to resolve a parked car, a market stall, a damaged roof corner.\n\n\n\nVisualise all six bands individually\n\npar(mfrow = c(2, 3))\nfor (i in 1:6) {\n  plot(beirut_img[[i]], main = paste0(\"Band \", i, \": \", names(beirut_img)[i]))\n}\n\n\n\n\n\n\n\npar(mfrow = c(1, 1))\n\nThe band-by-band plots may not be immediately intuitive — this is why we use RGB composites.\n\n\nPre- and post-event RGB composites side by side\n\npar(mfrow = c(1, 2))\n\nplotRGB(beirut_img, r = 1, g = 2, b = 3,\n        stretch = \"lin\",\n        main    = \"Pre-event (Jul 31)\")\n\nplotRGB(beirut_img, r = 4, g = 5, b = 6,\n        stretch = \"lin\",\n        main    = \"Post-event (Aug 5)\")\n\n\n\n\n\n\n\npar(mfrow = c(1, 1))\n\nEven visually, the destruction around the port is immediately apparent in the post-event image.",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#load-the-damage-zones-vector",
+    "href": "lab_part1.html#load-the-damage-zones-vector",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.6 Load the damage zones (vector)",
+    "text": "1.6 Load the damage zones (vector)\nThis is the output of Step 3 of the pipeline in §1.4: a polygon shapefile where every operational zone carries the count and percentage of pixels classified as severely damaged. Each polygon represents the aggregation of hundreds of thousands of 0.5 m pixel decisions into one number a humanitarian agency can act on.\n(The file name raster_rf_damage.shp is a historical artefact — an early version of the analysis did try a Random Forest classifier before settling on unsupervised k-means with k = 3. The numbers inside are the k-means results.)\n\n# Operational zones with severe-damage pixel counts from the k-means classification\ndamage_zones &lt;- st_read(\"data/geo/raster_rf_damage.shp\", quiet = TRUE)\n\n# Inspect\nglimpse(damage_zones)\n\nRows: 139\nColumns: 12\n$ OBJECTI  &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…\n$ ACS_COD  &lt;dbl&gt; 10999, 10610, 10450, 10510, 10550, 10650, 10450, 10510, 10510…\n$ Cdstr_1  &lt;chr&gt; \"Beirut Central District\", \"Mdaouar foncière\", \"Marfa' fonciè…\n$ Dstrc_1  &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"…\n$ Govrnrt  &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"…\n$ zon_nmb  &lt;dbl&gt; 1, 5, 4, 13, 39, 62, 2, 55, 15, 14, 12, 11, 9, 10, 17, 16, 19…\n$ Shp_Lng  &lt;dbl&gt; 0.045202611, 0.072433259, 0.042239645, 0.016107903, 0.0116163…\n$ Shap_Ar  &lt;dbl&gt; 5.226966e-05, 8.667112e-05, 5.621270e-05, 1.350386e-05, 5.961…\n$ z_count  &lt;dbl&gt; 2549948, 4228181, 2742309, 658791, 290824, 1895734, 1927993, …\n$ pct_sv_  &lt;dbl&gt; 68.48371, 68.37011, 64.95605, 63.68108, 62.67027, 54.59718, 6…\n$ pct___2  &lt;dbl&gt; 59.58479, 59.47877, 56.29231, 55.10234, 54.15892, 46.62404, 5…\n$ geometry &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((35.53859 33…\n\nnames(damage_zones)\n\n [1] \"OBJECTI\"  \"ACS_COD\"  \"Cdstr_1\"  \"Dstrc_1\"  \"Govrnrt\"  \"zon_nmb\" \n [7] \"Shp_Lng\"  \"Shap_Ar\"  \"z_count\"  \"pct_sv_\"  \"pct___2\"  \"geometry\"\n\ndamage_zones &lt;- damage_zones |&gt;\n  dplyr::rename(\n    object_id      = OBJECTI,\n    acs_code       = ACS_COD,\n    cadastre       = Cdstr_1,\n    district       = Dstrc_1,\n    governorate    = Govrnrt,\n    zone_number    = zon_nmb,\n    pct_severe_raw = pct_sv_,\n    pct_severe_adj = pct___2\n  ) |&gt;\n  dplyr::mutate(\n    area_m2  = as.numeric(sf::st_area(geometry)),\n    area_km2 = area_m2 / 1e6,\n  ) |&gt;\n  dplyr::select(-Shp_Lng, -Shap_Ar)   # drop the unhelpful degree-based columns\n\nglimpse(damage_zones)\n\nRows: 139\nColumns: 12\n$ object_id      &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n$ acs_code       &lt;dbl&gt; 10999, 10610, 10450, 10510, 10550, 10650, 10450, 10510,…\n$ cadastre       &lt;chr&gt; \"Beirut Central District\", \"Mdaouar foncière\", \"Marfa' …\n$ district       &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beir…\n$ governorate    &lt;chr&gt; \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beirut\", \"Beir…\n$ zone_number    &lt;dbl&gt; 1, 5, 4, 13, 39, 62, 2, 55, 15, 14, 12, 11, 9, 10, 17, …\n$ z_count        &lt;dbl&gt; 2549948, 4228181, 2742309, 658791, 290824, 1895734, 192…\n$ pct_severe_raw &lt;dbl&gt; 68.48371, 68.37011, 64.95605, 63.68108, 62.67027, 54.59…\n$ pct_severe_adj &lt;dbl&gt; 59.58479, 59.47877, 56.29231, 55.10234, 54.15892, 46.62…\n$ area_m2        &lt;dbl&gt; 536396.23, 889423.71, 576891.05, 138590.48, 61181.85, 3…\n$ area_km2       &lt;dbl&gt; 0.53639623, 0.88942371, 0.57689105, 0.13859048, 0.06118…\n$ geometry       &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((35.53…\n\n\n\nAnchor the map: the blast epicentre\nThe explosion originated at Hangar 12 of the Port of Beirut. Pinning this point lets us label distances, draw concentric reference rings, and quantify how damage decays with proximity to the source.\n\n# Hangar 12, Port of Beirut (approximate epicentre coordinates)\nepicentre &lt;- sf::st_sfc(\n  sf::st_point(c(35.5189, 33.9013)),\n  crs = 4326\n) |&gt;\n  sf::st_transform(sf::st_crs(damage_zones))\n\n# Distance from each zone centroid to the epicentre, in km\ndamage_zones &lt;- damage_zones |&gt;\n  dplyr::mutate(\n    dist_km = as.numeric(\n      sf::st_distance(sf::st_centroid(geometry), epicentre)\n    ) / 1000\n  )\n\nsummary(damage_zones$dist_km)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n 0.3876  1.2699  1.9627  1.9109  2.4348  4.4732",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#visualise-the-damage",
+    "href": "lab_part1.html#visualise-the-damage",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.7 Visualise the damage",
+    "text": "1.7 Visualise the damage\n\nStatic map with epicentre and top zones labelled\nTo make the map interpretable (and not just decorative), we add two things:\n\nA cross marking the blast epicentre at Hangar 12 of the Port of Beirut.\nLabels for the 8 most-damaged cadastres, so the eye doesn’t have to jump between map and table to identify them.\n\n\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(ggspatial)\nlibrary(classInt)\nlibrary(ggrepel)\n\n# Compute quantile breaks\nbrks &lt;- round(\n  classInt::classIntervals(damage_zones$pct_severe_adj, n = 7, style = \"quantile\")$brks,\n  1\n)\n\n# Top zones to label directly on the map\ntop_labels &lt;- damage_zones |&gt;\n  dplyr::slice_max(pct_severe_adj, n = 8) |&gt;\n  dplyr::mutate(\n    label_xy = sf::st_centroid(geometry)\n  )\n\nggplot(damage_zones) +\n  annotation_map_tile(\n    type = \"cartolight\",\n    zoom = 14,\n    progress = \"none\"\n  ) +\n  geom_sf(\n    aes(fill = pct_severe_adj),\n    colour = \"white\",\n    linewidth = 0.3,\n    alpha = 0.85\n  ) +\n  # Epicentre marker\n  geom_sf(\n    data = epicentre,\n    shape = 4, size = 5, stroke = 1.4, colour = \"black\"\n  ) +\n  geom_sf_text(\n    data = epicentre,\n    label = \"Epicentre\",\n    nudge_y = 0.003, size = 3, fontface = \"bold\"\n  ) +\n  # Labels for top-damaged zones\n  ggrepel::geom_label_repel(\n    data = top_labels,\n    aes(label = cadastre, geometry = geometry),\n    stat = \"sf_coordinates\",\n    size = 2.7,\n    alpha = 0.9,\n    label.size = 0,\n    label.padding = unit(0.12, \"lines\"),\n    min.segment.length = 0,\n    segment.colour = \"grey30\",\n    segment.size = 0.3,\n    max.overlaps = Inf\n  ) +\n  scale_fill_fermenter(\n    palette = \"YlOrRd\",\n    direction = 1,\n    breaks = brks,\n    name = \"% pixels\\nseverely damaged\"\n  ) +\n  annotation_scale(\n    location = \"bl\",\n    width_hint = 0.25,\n    text_cex = 0.7\n  ) +\n  annotation_north_arrow(\n    location = \"br\",\n    which_north = \"true\",\n    height = unit(0.8, \"cm\"),\n    width = unit(0.8, \"cm\"),\n    style = north_arrow_fancy_orienteering\n  ) +\n  labs(\n    title = \"Severe Damage Density by Operational Zone\",\n    subtitle = \"Beirut Port Explosion, August 2020 · top 8 cadastres labelled\"\n  ) +\n  theme_void() +\n  theme(\n    plot.title = element_text(size = 11, hjust = 0.5, face = \"bold\"),\n    plot.subtitle = element_text(size = 9, hjust = 0.5),\n    legend.position = \"right\",\n    legend.title = element_text(size = 9),\n    legend.text = element_text(size = 8)\n  )\n\nWarning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not\ngive correct results for longitude/latitude data\nWarning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not\ngive correct results for longitude/latitude data",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#damage-distribution",
+    "href": "lab_part1.html#damage-distribution",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.8 Damage distribution",
+    "text": "1.8 Damage distribution\n\ndamage_zones |&gt;\n  st_drop_geometry() |&gt;\n  ggplot(aes(x = pct_severe_adj)) +\n  geom_histogram(bins = 25, fill = \"#1a2744\", colour = \"white\", linewidth = 0.2) +\n  geom_vline(\n    xintercept = median(damage_zones$pct_severe_adj, na.rm = TRUE),\n    colour = \"#e8a020\", linetype = \"dashed\", linewidth = 1\n  ) +\n  annotate(\"text\",\n    x = median(damage_zones$pct_severe_adj, na.rm = TRUE),\n    y = Inf, vjust = 1.5, hjust = -0.1,\n    label = paste0(\n      \"Median: \",\n      round(median(damage_zones$pct_severe_adj, na.rm = TRUE), 1),\n      \"%\"\n    ),\n    colour = \"#e8a020\", size = 3.5\n  ) +\n  labs(\n    title    = \"Distribution of severe damage density across zones\",\n    subtitle = \"Beirut operational zones · RF classification\",\n    x        = \"% of zone classified as severely damaged\",\n    y        = \"Number of zones\"\n  ) +\n  theme_minimal(base_size = 12)",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#how-does-damage-decay-with-distance-from-the-port",
+    "href": "lab_part1.html#how-does-damage-decay-with-distance-from-the-port",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.9 How does damage decay with distance from the port?",
+    "text": "1.9 How does damage decay with distance from the port?\nThe histogram tells us how much damage there is overall, but not where. Plotting severe-damage percentage against distance from the epicentre gives us the spatial structure in a single chart — and a sanity check on the map.\n\ndamage_zones |&gt;\n  st_drop_geometry() |&gt;\n  ggplot(aes(x = dist_km, y = pct_severe_adj)) +\n  geom_point(\n    aes(size = area_km2),\n    alpha = 0.55,\n    colour = \"#b30000\"\n  ) +\n  geom_smooth(\n    method = \"loess\",\n    se = TRUE,\n    colour = \"#1a2744\",\n    fill = \"#1a2744\",\n    alpha = 0.15,\n    linewidth = 0.8\n  ) +\n  scale_size_continuous(range = c(1, 6), name = \"Zone area (km²)\") +\n  labs(\n    title    = \"Severe damage decays with distance from the blast epicentre\",\n    subtitle = \"Each point is one operational zone · LOESS smoother in navy\",\n    x        = \"Distance from epicentre (km)\",\n    y        = \"% of zone severely damaged\"\n  ) +\n  theme_minimal(base_size = 12) +\n  theme(\n    plot.title = element_text(face = \"bold\")\n  )\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteReading the decay curve\n\n\n\nThe drop-off is typically steep within the first 1–2 km of the port and then flattens. Points sitting above the smoother are zones that suffered more damage than their distance alone would predict — worth investigating (building stock, exposure, line-of-sight to the blast). Points below it are unexpectedly spared.",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "lab_part1.html#most-damaged-zones-ranked",
+    "href": "lab_part1.html#most-damaged-zones-ranked",
+    "title": "Part 1 · Satellite Data & Measuring Destruction",
+    "section": "1.10 Most damaged zones — ranked",
+    "text": "1.10 Most damaged zones — ranked\nRather than a plain table, we rank the top 15 cadastres by its distance from the epicentre. This pulls together magnitude and geography.\nFor reference, the same ten zones as a compact table:\n\ndamage_zones |&gt;\n  st_drop_geometry() |&gt;\n  arrange(desc(pct_severe_adj)) |&gt;\n  slice_head(n = 10) |&gt;\n  dplyr::select(zone_number, cadastre, area_km2, dist_km, pct_severe_adj) |&gt;\n  mutate(\n    area_km2       = round(area_km2, 3),\n    dist_km        = round(dist_km, 2),\n    pct_severe_adj = round(pct_severe_adj, 2)\n  ) |&gt;\n  knitr::kable(\n    col.names = c(\"Zone\", \"Cadastre\", \"Area (km²)\", \"Distance to port (km)\", \"% Severe\"),\n    caption   = \"Ten most severely damaged operational zones\"\n  )\n\n\nTen most severely damaged operational zones\n\n\n\n\n\n\n\n\n\nZone\nCadastre\nArea (km²)\nDistance to port (km)\n% Severe\n\n\n\n\n118\nBourj Hammoud\n0.018\n2.18\n75.00\n\n\n6\nMdaouar foncière\n0.218\n1.21\n65.38\n\n\n110\nBourj Hammoud\n0.009\n2.13\n63.50\n\n\n113\nBourj Hammoud\n0.016\n2.01\n60.84\n\n\n27\nRmeil foncière\n0.017\n0.94\n60.77\n\n\n1\nBeirut Central District\n0.536\n1.36\n59.58\n\n\n5\nMdaouar foncière\n0.889\n1.11\n59.48\n\n\n26\nRmeil foncière\n0.042\n0.89\n58.59\n\n\n50\nRmeil foncière\n0.029\n1.11\n57.76\n\n\n107\nBourj Hammoud\n0.050\n1.80\n57.30",
+    "crumbs": [
+      "Labs",
+      "Beirut Blast Lab",
+      "Part 1 · Satellite Data & Measuring Destruction"
+    ]
+  },
+  {
+    "objectID": "data_prep.html",
+    "href": "data_prep.html",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "",
+    "text": "WarningInternal document\n\n\n\nThis file documents the full data preparation pipeline. It is not part of the student-facing lab. It requires the full MAXAR .tif files (~several GB) to run. Set eval: true in the YAML when running locally.\nSource: adapted from GIS_Final_Coursework.Rmd (Moatti, 2021). Original repository: github.com/SaraMoatti/Beirut_explosion"
+  },
+  {
+    "objectID": "data_prep.html#setup",
+    "href": "data_prep.html#setup",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(terra)\nlibrary(sf)\nlibrary(tidyverse)\nlibrary(here)"
+  },
+  {
+    "objectID": "data_prep.html#step-1-load-operational-zones",
+    "href": "data_prep.html#step-1-load-operational-zones",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Step 1: Load operational zones",
+    "text": "Step 1: Load operational zones\n\n# Beirut operational zones — defines the study area boundary\nzones &lt;- st_read(\n  here(\"data\", \"geo\",\n       \"beirut_port_explosions_operational_zones_139\",\n       \"beirut_port_explosions_operational_zones_139.shp\")\n)\n\n#|&gt;\n#  st_transform(22770)   # Deir el Zor (EPSG:22770) — local Lebanese projection\n\nplot(st_geometry(zones), main = \"Beirut operational zones\")"
+  },
+  {
+    "objectID": "data_prep.html#step-2-load-pre--and-post-event-maxar-tiles",
+    "href": "data_prep.html#step-2-load-pre--and-post-event-maxar-tiles",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Step 2: Load pre- and post-event MAXAR tiles",
+    "text": "Step 2: Load pre- and post-event MAXAR tiles\n\n# Pre-event WorldView tile (July 2020)\n# Source: data/maxar_raw/Before/10300500A5F95600.tif\nr_before &lt;- terra::rast(\n  here(\"data\", \"maxmar\", \"10300500A5F95600.tif\")\n)\n\n# Post-event WorldView tile (August 5, 2020)\n# Source: data/maxar_raw/After/104001005BD06800.tif\nr_after &lt;- terra::rast(\n  here(\"data\", \"maxmar\", \"104001005BD06800.tif\")\n)\n\n# Inspect both\nr_before\nr_after"
+  },
+  {
+    "objectID": "data_prep.html#step-3-align-extents",
+    "href": "data_prep.html#step-3-align-extents",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Step 3: Align extents",
+    "text": "Step 3: Align extents\n\n# Check extents — they must match before differencing\next(r_before)\next(r_after)\n\n# Resample post to match pre if extents differ\n# method = \"near\" (nearest neighbour) preserves pixel values without interpolation\nr_after_matched &lt;- terra::resample(r_after, r_before, method = \"near\")"
+  },
+  {
+    "objectID": "data_prep.html#step-4-crop-and-mask-to-study-area",
+    "href": "data_prep.html#step-4-crop-and-mask-to-study-area",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Step 4: Crop and mask to study area",
+    "text": "Step 4: Crop and mask to study area\n\nzones_vect &lt;- terra::vect(zones)\n\nr_before_crop &lt;- r_before |&gt;\n  terra::crop(zones_vect) |&gt;\n  terra::mask(zones_vect)\n\nr_after_crop &lt;- r_after_matched |&gt;\n  terra::crop(zones_vect) |&gt;\n  terra::mask(zones_vect)\n\n# Check memory — these are large objects\ncat(\"Before crop size: \", terra::ncell(r_before_crop) * terra::nlyr(r_before_crop), \"cells\\n\")\ncat(\"After crop size:  \", terra::ncell(r_after_crop)  * terra::nlyr(r_after_crop),  \"cells\\n\")"
+  },
+  {
+    "objectID": "data_prep.html#step-5-log-ratio-differencing-primary-output",
+    "href": "data_prep.html#step-5-log-ratio-differencing-primary-output",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Step 5: Log-ratio differencing (primary output)",
+    "text": "Step 5: Log-ratio differencing (primary output)\n\n# log10(after / before) — more robust to illumination differences between dates\n# positive = brighter after (rubble, dust, exposed concrete)\n# negative = darker after (collapsed structure, shadow)\n# near zero = no change\n\nstack_after_before_log &lt;- log10(r_after_crop / r_before_crop)\n\nterra::writeRaster(\n  stack_after_before_log,\n  filename  = here(\"data\", \"maxmar_processed\", \"stack_after_before_log.tif\"),\n  overwrite = TRUE\n)\n\n\nterra::nlyr(stack_after_before_log)  \nterra::global(stack_after_before_log, \"range\", na.rm = TRUE)\nterra::global(stack_after_before_log, fun = function(x) sum(!is.finite(x)))\nsummary(terra::values(stack_after_before_log[[1]]))\n\nstack_plot &lt;- stack_after_before_log stack_plot[!is.finite(stack_plot)] &lt;- NA stack_plot &lt;- terra::trim(stack_plot) stack_plot &lt;- terra::clamp(stack_plot, lower = -1, upper = 1, values = TRUE)\nplotRGB(stack_plot, r = 1, g = 2, b = 3, stretch = “hist”, axes = TRUE, main = “Log-ratio (after / before)”)"
+  },
+  {
+    "objectID": "data_prep.html#step-6-visualise-the-log-ratio-difference-image",
+    "href": "data_prep.html#step-6-visualise-the-log-ratio-difference-image",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Step 6: Visualise the log-ratio difference image",
+    "text": "Step 6: Visualise the log-ratio difference image\n\n# Sanitise for display: drop non-finite (Inf/NaN from divisions by zero),\n# clamp tails to ±1 so outliers don't compress the visible range,\n# and trim the NA border so the data fills the plot extent.\nstack_plot &lt;- stack_after_before_log\nstack_plot[!is.finite(stack_plot)] &lt;- NA\nstack_plot &lt;- terra::clamp(stack_plot, lower = -1, upper = 1, values = TRUE)\nstack_plot &lt;- terra::trim(stack_plot)\n\n# Save as PNG for use in the lab document\n# (avoids loading the large raster in the rendered lab)\npng(here(\"data\", \"stack_after_before_log.png\"),\n    width = 1200, height = 1000, res = 150)\nplotRGB(stack_plot, r = 1, g = 2, b = 3,\n        stretch = \"hist\",\n        main    = \"Log-ratio difference: Beirut blast (Aug 2020)\")\ndev.off()\n\n# Interactive preview\nplotRGB(stack_plot,\n        r = 1, g = 2, b = 3,\n        axes    = TRUE,\n        stretch = \"hist\",\n        main    = \"Log-ratio difference image (after / before)\")\n\n\n\n\n\n\n\nNoteReading the log-ratio RGB image\n\n\n\nEach pixel in stack_after_before_log holds three values — log10(after / before) computed independently for bands 1, 2, and 3 of the Maxar multispectral product (approximately Red, Green, Blue). These describe how each colour channel changed between the pre-blast and post-blast acquisitions.\nSign convention:\n\nPositive (after &gt; before) — the surface got brighter in that band. Typical causes: exposed concrete, rubble, dust deposits, debris fields, newly bare ground where a roof or vegetation used to be.\nNegative (after &lt; before) — the surface got darker. Typical causes: collapsed structures (cavities, shadow), water intrusion, scorching, loss of bright roofing material.\nNear zero — no meaningful change. Stable surfaces, undamaged roofs, roads outside the blast footprint.\n\nWhat plotRGB does with the values. Band 1’s log-ratio maps to the red channel of the display, band 2 to green, band 3 to blue. stretch = \"hist\" then rescales each band independently across 0–255 by histogram equalisation. The clamp(-1, 1) step beforehand pulls extreme outliers (anything beyond a 10× brightness change) to the limits so they don’t compress all the meaningful variation into a narrow grey band.\nHow to read the colours. Because real physical change tends to move all three bands together — rubble brightens R, G, and B; collapse darkens all three — the most damaged areas typically show as near-greyscale: bright white/grey for debris and rubble, dark grey/black for collapse and shadow. Strongly coloured pixels (saturated red, green, or blue) indicate change in one band but not the others, which is usually spectrally selective change (e.g. vegetation loss) or inter-date noise rather than blast damage.\nSpatial pattern. The blast crater at the port (north end of the AOI, near the grain silos) shows the most extreme signature. A roughly circular pattern of bright pixels marks the debris and damage zone, fading to near-zero in undamaged areas further out. The operational zones masked in Step 4 define the outer boundary — everything beyond renders as the plot background.\nCaveat. stretch = \"hist\" equalises within the displayed extent, so the colours are relative to this crop. The same pixel value would render differently in a different subset. Fine for inspection, but not directly comparable across plots — for that you’d need a fixed value-to-colour mapping."
+  },
+  {
+    "objectID": "data_prep.html#step-8-zonal-statistics-damage-zones-shapefile",
+    "href": "data_prep.html#step-8-zonal-statistics-damage-zones-shapefile",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Step 8: Zonal statistics → damage zones shapefile",
+    "text": "Step 8: Zonal statistics → damage zones shapefile\n\n\n\n\n\n\nNoteQGIS step\n\n\n\nThe pixel count per zone (z_count) was computed in QGIS using the Zonal Statistics plugin, applied to stack_after_before_log.tif with beirut_port_explosions_operational_zones_139.shp as the zone layer. The output — Raster_cell_count_per_zones.shp — is the file loaded in the student lab.\nThis step is done in QGIS because terra::zonal() and terra::extract() struggled with the file size. If you want to replicate it in R:\n\n\n\n# R alternative to the QGIS zonal statistics step\n# WARNING: very slow on the full-resolution raster\n\nzones_vect &lt;- terra::vect(zones)\n\nzonal_counts &lt;- terra::extract(\n  stack_after_before_log,\n  zones_vect,\n  fun   = \"count\",\n  na.rm = TRUE\n)\n\n# Join back to zones and save\nzones_with_counts &lt;- zones |&gt;\n  mutate(z_count = zonal_counts[, 2])\n\nst_write(zones_with_counts,\n         here(\"data\", \"geo\", \"Raster_cell_count_per_zones.shp\"),\n         delete_dsn = TRUE)"
+  },
+  {
+    "objectID": "data_prep.html#output-files",
+    "href": "data_prep.html#output-files",
+    "title": "Data Preparation: Image Differencing Pipeline",
+    "section": "Output files",
+    "text": "Output files\nAfter running this script the following files should exist:\n\n\n\n\n\n\n\nFile\nUsed in\n\n\n\n\ndata/maxar_processed/stack_after_before_log.tif\nLab pipeline illustration\n\n\nassets/stack_after_before_log.png\nDisplayed in lab_part1.qmd\n\n\ndata/geo/Raster_cell_count_per_zones.shp\nLoaded in lab_part1.qmd Section 1.6"
+  }
+]

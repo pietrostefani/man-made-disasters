@@ -1,0 +1,64 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - "assets"
+
+website:
+  title: "Man-Made Disasters"
+  description: "Triangulated data methods for understanding man-made disasters — SPACERAISE Summer School, GSSI, May 2026"
+
+  page-footer:
+    center: |
+      [Elisabetta Pietrostefani](https://pietrostefani.com) · [[GDSL]{.orange}](https://gdsl.liverpool.ac.uk) · [[Imago]{.green}](https://imago.ac.uk)
+
+  favicon: assets/favicon.png
+  repo-url: https://github.com/pietrostefani/man-made-disasters
+  repo-branch: main
+  repo-actions: [edit, issue]
+
+  search:
+    location: sidebar
+    type: overlay
+
+  sidebar:
+    style: floating
+    collapse-level: 1
+    tools:
+      - icon: github
+        href: https://github.com/pietrostefani/man-made-disasters
+    contents:
+      - index.qmd
+      - lecture.qmd
+      - section: "Labs"
+        contents:
+          - section: "Beirut Blast Lab"
+            contents:
+              - lab_part1.qmd
+      - section: "A bit extra"
+        contents:
+          - datasets.qmd
+          - satellites_to_areas.qmd
+      - text: "---"
+      - text: "Elisabetta Pietrostefani"
+        href: https://pietrostefani.com
+      - text: "GDSL"
+        href: https://liverpool.ac.uk/geographic-data-science
+      - text: "Imago"
+        href: https://imago.ac.uk
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - assets/custom.scss
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-tools: false
+    code-copy: true
+    highlight-style: github
+
+editor: visual

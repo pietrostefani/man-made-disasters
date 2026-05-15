@@ -1,0 +1,389 @@
+/*-- scss:defaults --*/
+
+// ── Colour palette ────────────────────────────────────────────────────────────
+// Keeping navy + amber from original, but replacing warm grey/brown
+// with Imago's clean blue-grey family
+
+$navy:        #1a2744;       // primary — deep navy
+$navy-mid:    #243560;
+$navy-light:  #3b5188;
+$amber:       #e8a020;       // accent — warm amber (part badges, TOC, borders)
+$amber-light: #f5c055;
+
+// Imago-derived blue-greys (replacing the old warm browns)
+$light-grey:  #f6f6f4;       // sidebar, table stripes, callout bg
+$grey:        #B8BCD1;       // borders, dividers
+$dark-grey:   #8C91A8;       // secondary text, captions
+$imago-grey:  #4a4a49;       // body text (from Imago)
+$white:       #FFFFFF;
+
+// Imago accent colours (for .orange / .grey utility classes in footer)
+$orange:      #FF8F42;
+$blue:        #1877CF;
+
+// Neutral surfaces for code and table chrome (not blue-grey)
+$code-bg:        #f6f6f4;      // warm off-white for code block background
+$code-border:    #e3e1dc;      // subtle border for code blocks
+$code-inline-bg: #f0efeb;      // inline code background
+$table-stripe:   #faf9f6;      // very subtle warm stripe for tables
+$table-border:   #e3e1dc;      // neutral table borders
+$rule-grey:      #B8BCD1;      // the original $grey, kept for dividers/sidebars
+
+// Bootstrap / Quarto overrides
+$primary:           $navy;
+$link-color:        $navy-mid;
+$link-hover-color:  $amber;
+
+$body-bg:           $white;
+$body-color:        $imago-grey;
+
+// ── Typography — Figtree (matches Imago) ─────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+$font-family-sans-serif:  'Figtree', system-ui, -apple-system, sans-serif;
+$font-family-monospace:   'DM Mono', 'Fira Mono', monospace;
+
+$headings-font-family:    'Figtree', system-ui, sans-serif;
+$headings-font-weight:    700;
+$headings-color:          $navy;
+
+$toc-font-size:           0.85rem;
+$sidebar-font-size:       0.875rem;
+
+/*-- scss:rules --*/
+
+// ── Utility colour classes ────────────────────────────────────
+.navy      { color: $navy      !important; }
+.amber     { color: $amber     !important; }
+.orange    { color: $orange    !important; }
+.lightgrey     { color: $light-grey     !important; }
+.blue      { color: $blue      !important; }
+.dark-grey { color: $dark-grey !important; }
+.white     { color: $white     !important; }
+
+// ── Navbar ────────────────────────────────────────────────────────────────────
+.navbar {
+  background-color: $navy !important;
+  border-bottom: 3px solid $amber;
+
+  .navbar-brand {
+    font-family: $headings-font-family;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $white !important;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.85) !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    &:hover { color: $amber-light !important; }
+  }
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+.sidebar {
+  background-color: $light-grey;
+  border-right: 1px solid $grey;
+
+  .sidebar-title {
+    font-family: $headings-font-family;
+    font-weight: 700;
+    color: $navy;
+    font-size: 1rem;
+  }
+
+  .sidebar-section .sidebar-section-item {
+    font-weight: 700;
+    color: $navy;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 0.75rem;
+  }
+
+  .sidebar-item-text {
+    color: $dark-grey;
+    &:hover { color: $navy; }
+  }
+
+  .sidebar-item.active > .sidebar-item-text {
+    color: $navy;
+    font-weight: 600;
+    border-left: 3px solid $amber;
+    padding-left: 0.5rem;
+  }
+}
+
+// ── Page headings ─────────────────────────────────────────────────────────────
+.quarto-title h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $navy;
+  border-bottom: 3px solid $amber;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: $navy;
+  margin-top: 2rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid $grey;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: $navy-mid;
+  margin-top: 1.5rem;
+}
+
+// ── Links ─────────────────────────────────────────────────────────────────────
+a {
+  color: $navy-mid;
+  &:hover { color: $amber; }
+}
+
+// ── Code blocks — clean neutral surface ──────────────────────────────────────
+// Warm off-white background with subtle border. Syntax highlighting handles
+// colour; the block chrome stays out of the way.
+pre.sourceCode,
+div.sourceCode,
+pre {
+  background-color: $code-bg !important;
+  color: $imago-grey;
+  border: 1px solid $code-border;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  padding: 0.85rem 1rem;
+  line-height: 1.45;
+
+  code {
+    color: inherit;
+    background: none;
+  }
+}
+
+// Quarto wraps code in div.sourceCode > pre.sourceCode — strip the outer bg
+div.sourceCode {
+  background: transparent !important;
+  border: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+// Inline code — small monospace pill, no heavy border
+code:not(pre > code) {
+  background-color: $code-inline-bg;
+  color: $navy;
+  padding: 0.08em 0.32em;
+  border-radius: 3px;
+  font-size: 0.88em;
+  border: none;
+}
+
+// Code copy button
+.code-copy-button {
+  color: $dark-grey;
+  &:hover { color: $navy; }
+}
+
+// ── Callout blocks ────────────────────────────────────────────────────────────
+.callout-note {
+  border-left-color: $navy-mid !important;
+  background-color: mix($navy, $white, 5%) !important;
+  .callout-title { color: $navy; font-weight: 700; }
+}
+
+.callout-tip {
+  border-left-color: $amber !important;
+  background-color: mix($amber, $white, 8%) !important;
+  .callout-title { color: darken($amber, 20%); font-weight: 700; }
+}
+
+.callout-warning {
+  border-left-color: #c0392b !important;
+  .callout-title { font-weight: 700; }
+}
+
+// ── Tables ────────────────────────────────────────────────────────────────────
+// Quiet, editorial. Navy text on white header with a thick rule underneath;
+// warm-grey zebra stripes instead of blue-grey.
+table {
+  font-size: 0.9rem;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  width: 100%;
+
+  thead th {
+    background-color: $white;
+    color: $navy;
+    font-weight: 700;
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    border-bottom: 2px solid $navy;
+    letter-spacing: 0.01em;
+  }
+
+  tbody td {
+    padding: 0.45rem 0.7rem;
+    border-bottom: 1px solid $table-border;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: $table-stripe;
+  }
+
+  tbody tr:hover {
+    background-color: rgba($amber, 0.08);
+  }
+
+  caption {
+    caption-side: top;
+    text-align: left;
+    color: $dark-grey;
+    font-size: 0.85rem;
+    font-style: italic;
+    padding-bottom: 0.4rem;
+  }
+}
+
+// ── TOC ───────────────────────────────────────────────────────────────────────
+#TOC {
+  border-left: 3px solid $amber;
+  padding-left: 0.75rem;
+
+  a { color: $dark-grey; }
+  a:hover { color: $navy; }
+  .active { color: $navy; font-weight: 600; }
+}
+
+// ── Page footer ───────────────────────────────────────────────────────────────
+.nav-footer {
+  background-color: $navy;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.8rem;
+  border-top: 3px solid $amber;
+
+  a {
+    color: rgba(255,255,255,0.75);
+    &:hover { color: $amber-light; }
+  }
+
+  // Coloured link spans matching Imago footer pattern
+  .orange { color: $orange !important; }
+  .grey  { color: $grey  !important; }
+}
+
+// ── Hero banner (index page) ──────────────────────────────────────────────────
+.hero-banner {
+  background: linear-gradient(135deg, $navy 0%, $navy-mid 60%, $navy-light 100%);
+  color: $white;
+  padding: 3.5rem 2rem 3rem;
+  border-radius: 6px;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+
+  .h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: $white !important;
+    border-bottom: none !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: $amber-light;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .meta {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta span::before {
+    content: '◆ ';
+    color: $amber;
+    font-size: 0.6rem;
+    vertical-align: middle;
+  }
+}
+
+.hero-banner.compact {
+  padding: 1.75rem 1.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;     // was 0.9rem
+    line-height: 1.35;
+    margin-bottom: 0.8rem;
+  }
+
+  .meta {
+    font-size: 0.78rem;
+    gap: 1rem;
+  }
+}
+
+// ── Part badge ────────────────────────────────────────────────────────────────
+.part-badge {
+  display: inline-block;
+  background-color: $amber;
+  color: $navy;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25em 0.7em;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+
+// ── Learning objectives ───────────────────────────────────────────────────────
+.objectives {
+  background-color: $code-bg;        // same warm off-white as code blocks
+  border: 1px solid $code-border;
+  border-left: 5px solid $navy;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+
+  strong { color: $navy; }
+  ul { margin-bottom: 0; }
+}
+
+// ── Highlight utilities (mirrors Imago .hlg) ──────────────────────────────────
+.hlg {
+  background-color: rgba($amber, 0.25);
+  padding: 0.05em 0.2em;
+  border-radius: 0.2em;
+}
+
+.hlg-grey {
+  background-color: rgba($grey, 0.25);
+  padding: 0.05em 0.2em;
+  border-radius: 0.2em;
+}
+
+.hlg-blue {
+  background-color: rgba($blue, 0.25);
+  padding: 0.05em 0.2em;
+  border-radius: 0.2em;
+}

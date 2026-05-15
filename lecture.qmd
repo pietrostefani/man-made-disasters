@@ -1,0 +1,76 @@
+---
+title: "Lecture: Triangulated Data Methods for Man-Made Disasters"
+subtitle: "08:30 – 10:00 · May 19, 2026 · SPACERAISE @ GSSI"
+author: "Elisabetta Pietrostefani, University of Liverpool"
+date: "2026-05-19"
+---
+
+```{=html}
+<div class="part-badge">Lecture · 90 min</div>
+```
+
+::: {.objectives}
+**Learning objectives**
+
+By the end of this lecture you will be able to:
+
+- Define what we mean by *triangulated data methods* in the context of disaster research
+- Contrast traditional and non-traditional (digital) data sources and their trade-offs
+- Explain how satellite remote sensing is used to quantify physical damage
+- Understand how survey and administrative data complement earth observation
+- Situate the Beirut case study within a broader methodological literature
+:::
+
+## 1. What are man-made disasters?
+
+*[Slides section 1 — typology, scale, examples]*
+
+- Industrial accidents, explosions, conflict
+- The Beirut port explosion as the running example
+
+## 2. The data challenge
+
+*[Slides section 2 — why standard data fails us]*
+
+- Timeliness vs. depth
+- Administrative collapse after disasters
+- The role of remote sensing as a rapid-response tool
+
+## 3. Traditional data sources
+
+*[Slides section 3]*
+
+- Household surveys: strengths, limitations, cost
+- Administrative records: coverage gaps in crisis
+- Census and registry data
+
+## 4. Digital non-traditional data
+
+*[Slides section 4]*
+
+- Satellite imagery (optical, SAR)
+- Social media and mobile data
+- Nighttime lights as an economic proxy
+- MAXAR and commercial very-high-resolution imagery
+
+## 5. Triangulation logic
+
+*[Slides section 5]*
+
+- Why no single source is sufficient
+- Convergent validity and divergent findings
+- Spatial and temporal alignment challenges
+- A framework for multi-source disaster analysis
+
+## 6. The Beirut case study
+
+*[Slides section 6 — bridge to the lab]*
+
+- August 4, 2020 — what happened
+- The damage footprint: spatial extent and intensity gradient
+- Our data: MAXAR damage scores, in-person survey, synthetic outcomes
+- Preview of the lab
+
+## References
+
+*References to be added.*

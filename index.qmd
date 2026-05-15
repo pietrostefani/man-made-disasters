@@ -1,0 +1,60 @@
+---
+pagetitle: "Man-Made Disasters"
+page-layout: full
+toc: false
+title-block-style: none
+---
+
+```{=html}
+<div class="hero-banner compact">
+  <h1>Man-Made Disasters</h1>
+  <div class="subtitle">Triangulated data methods: satellite imagery, surveys &amp; socioeconomic outcomes</div>
+  <div class="meta">
+    <span>Elisabetta Pietrostefani · Univ. of Liverpool</span>
+    <span>SPACERAISE 2026 · Week 3 · GSSI, L'Aquila · 19 May 2026</span>
+  </div>
+</div>
+```
+
+## About this training
+
+This training is part of the **SPACERAISE 2026 Doctoral School** module on *Geospatial Data and Quantitative Analysis in Social Science* at the Gran Sasso Science Institute (GSSI), L'Aquila, Italy.
+
+It covers how to combine **satellite remote sensing data** with **traditional survey data** to measure the impacts of man-made disasters — illustrated with the case of the **2020 Beirut Port Explosion**.
+
+## Schedule for May 19
+
+| Time | Session |
+|-----------------------------|-------------------------------------------|
+| 08:30 – 10:00 | **Lecture** · Triangulated data methods for understanding man-made disasters |
+| 10:00 – 10:30 | *Coffee break* |
+| 14:00 – 15:30 | **Lab** · Geo data lab: Man-made disasters (Beirut case study) |
+
+## What you will learn
+
+By the end of this training you will be able to:
+
+- Understand how **satellite damage proxy maps** are constructed from pre/post imagery
+- Spatially join and compare **remote sensing** and **ground-truth survey** data
+- Run and interpret **regression models** linking physical destruction to socioeconomic outcomes
+- Critically assess where different data sources agree — and where they diverge
+
+## Materials
+
+|  |  |
+|------------------------------------|------------------------------------|
+| [Lecture slides](lecture.qmd) | Conceptual background on triangulated data methods |
+| [Part 1 — Satellite & destruction](lab_part1.qmd) | Measuring damage from MAXAR imagery |
+| [Part 2 — Survey validation](lab_part2.qmd) | How satellite damage matches ground-truth |
+| [Part 3 — Socioeconomic outcomes](lab_part3.qmd) | Does destruction predict sentiment and economic data? |
+| [Getting oriented](datasets.qmd) | Datasets overview and how to set up your R environment |
+
+## Case study: Beirut Port Explosion (August 4, 2020)
+
+The explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.
+
+::: callout-note
+## Data note
+
+This lab uses **MAXAR satellite-derived damage data** and a **synthetic survey dataset** modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.
+:::
