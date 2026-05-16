@@ -1,0 +1,86 @@
+---
+title: "Part 2 · Survey Validation"
+subtitle: "How does satellite damage match ground-truth survey data?"
+author: "Elisabetta Pietrostefani, University of Liverpool"
+date: "2026-05-19"
+---
+
+```{=html}
+<div class="part-badge">Lab Part 2 of 3 · ~25 min</div>
+```
+
+::: objectives
+**Learning objectives**
+
+By the end of Part 2 you will be able to:
+
+- Spatially join household survey data to satellite grid cells
+- Compute correlation and run a simple regression between satellite and survey damage measures
+- Visualise and interpret spatial mismatches (residuals)
+- Articulate *why* the two sources agree and disagree in different locations
+:::
+
+------------------------------------------------------------------------
+
+## 2.1 Load the survey data
+
+
+
+------------------------------------------------------------------------
+
+## 2.2 Convert survey to spatial
+
+
+
+------------------------------------------------------------------------
+
+## 2.3 Spatial join: survey points → satellite grid
+
+Each household gets assigned the damage index of the 250m grid cell it falls in.
+
+
+------------------------------------------------------------------------
+
+## 2.4 Correlation: satellite vs. survey damage
+
+
+
+
+
+------------------------------------------------------------------------
+
+## 2.5 Regression: satellite predicting survey damage
+
+
+::: callout-note
+The coefficient on `damage_index` tells us: for a one-unit increase in the satellite damage score (0→1), how many points higher is self-reported damage on the 1–5 scale?
+:::
+
+------------------------------------------------------------------------
+
+## 2.6 Where do they disagree? Mapping residuals
+
+
+------------------------------------------------------------------------
+
+## ✏️ Exercise 2
+
+::: callout-tip
+## Your turn
+
+1.  **Spatial clustering of residuals**: Are the mismatches geographically clustered or random? Use `spdep` to compute Moran's I on the residuals. What does the result suggest?
+
+2.  **Stratify by building type**: The mismatch might depend on building characteristics. Split the scatter plot by `damage_class` (the categorical version). Is the agreement better for severely damaged areas?
+
+3.  **Hypothesise**: Choose one area on the residual map where the satellite *underestimates* damage. What features of that area might explain it? (Think about building materials, street layout, blast direction.)
+
+*Hint for Moran's I: you'll need to create spatial weights with `spdep::knearneigh()` then `spdep::moran.test()`*
+:::
+
+------------------------------------------------------------------------
+
+::: callout-note
+## Up next
+
+In **Part 3** we go beyond the physical damage to ask: does destruction predict what happened to people — their wellbeing, income, and economic stress?
+:::

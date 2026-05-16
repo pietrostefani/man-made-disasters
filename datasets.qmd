@@ -1,0 +1,91 @@
+---
+title: "Datasets & Setup"
+subtitle: "What data we use and how to get your R environment ready"
+---
+
+## R packages required
+
+Install these before the lab session:
+
+```r
+install.packages(c(
+  "terra",      # raster / spatial analysis
+  "sf",         # vector spatial data
+  "tidyverse",  # data wrangling + ggplot2
+  "tmap",       # thematic mapping
+  "broom",      # tidy model outputs
+  "spdep",      # spatial dependence / Moran's I
+  "patchwork",  # combining plots
+  "viridis"     # colour palettes
+))
+```
+
+::: {.callout-tip}
+## RStudio version
+We recommend RStudio ≥ 2024.09 or Positron. R ≥ 4.3.0 is required for `terra` compatibility.
+:::
+
+## Datasets
+
+### 1. MAXAR damage data
+
+**File:** `data/beirut_damage_grid.gpkg`
+
+A spatial grid (250m cells) covering the blast impact zone with a continuous **Damage Index** (0–1) derived from MAXAR pre/post satellite imagery change detection. Higher values = greater structural change detected from above.
+
+| Variable | Description |
+|---|---|
+| `cell_id` | Unique grid cell identifier |
+| `damage_index` | Satellite-derived damage score (0–1) |
+| `damage_class` | Categorical: No Damage / Minor / Moderate / Severe / Destroyed |
+| `dist_port_km` | Distance from blast epicentre (km) |
+| `geometry` | Grid cell polygon |
+
+### 2. Synthetic survey data
+
+**File:** `data/beirut_survey_synthetic.csv`
+
+Household-level survey data (n ≈ 800) drawn from a synthetic population calibrated to match the statistical structure of a real post-blast in-person survey. Includes self-reported damage, location, and outcome variables.
+
+| Variable | Description |
+|---|---|
+| `hh_id` | Household identifier |
+| `lon`, `lat` | GPS coordinates (jittered ±50m for privacy) |
+| `survey_damage` | Self-reported structural damage (1–5 scale) |
+| `damage_binary` | 1 = Moderate+ damage reported |
+| `wellbeing_score` | Composite wellbeing/sentiment index (0–100) |
+| `income_disruption` | Months of income disruption reported |
+| `econ_stress` | Economic stress scale (1–10) |
+| `ntl_change` | Nighttime lights change (pre vs. post, synthetic) |
+| `neighbourhood` | Neighbourhood name |
+| `dist_port_km` | Distance from blast epicentre (km) |
+
+### 3. Beirut administrative boundaries
+
+**File:** `data/beirut_neighbourhoods.gpkg`
+
+Neighbourhood-level polygons for Beirut with a pre-blast socioeconomic deprivation index.
+
+| Variable | Description |
+|---|---|
+| `neighbourhood` | Neighbourhood name |
+| `deprivation_index` | Pre-blast deprivation score (0–10, higher = more deprived) |
+| `pop_2019` | Estimated 2019 population |
+| `geometry` | Polygon |
+
+## File structure
+
+```
+man-made-disasters/
+├── data/
+│   ├── beirut_damage_grid.gpkg
+│   ├── beirut_survey_synthetic.csv
+│   └── beirut_neighbourhoods.gpkg
+├── lab_part1.qmd
+├── lab_part2.qmd
+└── lab_part3.qmd
+```
+
+::: {.callout-note}
+All data files are available on the course GitHub repository. Clone or download before the session.
+:::

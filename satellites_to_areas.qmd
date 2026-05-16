@@ -1,0 +1,59 @@
+---
+title: "From Satellites to Areas"
+subtitle: "How we get from raw imagery to spatial damage metrics"
+---
+
+## How MAXAR imagery works
+
+MAXAR operates a constellation of very-high-resolution (VHR) optical satellites — primarily WorldView-2, WorldView-3, and GeoEye-1 — capable of sub-metre resolution (30–50 cm panchromatic). After major disasters, MAXAR typically releases pre- and post-event imagery under their Open Data Program.
+
+## The change detection pipeline
+
+```
+Pre-event image   →  ┐
+                      ├─ Co-registration → Differencing → Damage Index
+Post-event image  →  ┘
+```
+
+### Step 1: Image co-registration
+
+Pre and post images must be aligned to sub-pixel accuracy. Any spatial offset creates false "change" signal.
+
+### Step 2: Spectral change detection
+
+We compare spectral signatures before and after. Common approaches:
+
+- **Normalised Difference Index** on band ratios
+- **Change Vector Analysis** across multiple bands
+- **Deep learning classifiers** (CNN trained on labelled damage examples)
+
+### Step 3: Damage classification
+
+The UNOSAT/JRC damage scale used in humanitarian response:
+
+| Class | Description |
+|---|---|
+| 1 | No damage |
+| 2 | Possible damage |
+| 3 | Minor damage |
+| 4 | Moderate damage |
+| 5 | Severe damage |
+| 6 | Destroyed |
+
+### Step 4: Aggregation to areas
+
+Individual building assessments are aggregated to grid cells or administrative units to enable statistical analysis and joining with survey/census data.
+
+## Limitations to keep in mind
+
+::: {.callout-warning}
+**Satellite damage assessment has known limitations:**
+
+- **Line-of-sight bias**: Flat roofs look intact even with severe facade damage
+- **Rubble vs. damage**: Cleared rubble = no damage detected
+- **Cloud cover**: Optical imagery fails if post-event clouds present
+- **Temporal gap**: Imagery may be days–weeks post-event; recovery has begun
+- **Building footprint quality**: Aggregation quality depends on baseline building data
+:::
+
+These limitations are *exactly why* we triangulate with survey data in Part 2 of the lab.
