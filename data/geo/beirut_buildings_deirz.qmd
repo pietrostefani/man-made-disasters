@@ -1,0 +1,27 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis version="3.40.11-Bratislava">
+  <identifier></identifier>
+  <parentidentifier></parentidentifier>
+  <language></language>
+  <type>dataset</type>
+  <title></title>
+  <abstract></abstract>
+  <links/>
+  <dates/>
+  <fees></fees>
+  <encoding></encoding>
+  <crs>
+    <spatialrefsys nativeFormat="Wkt">
+      <wkt>PROJCRS["Deir ez Zor / Levant Stereographic",BASEGEOGCRS["Deir ez Zor",DATUM["Deir ez Zor",ELLIPSOID["Clarke 1880 (IGN)",6378249.2,293.466021293627,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4227]],CONVERSION["Levant Stereographic",METHOD["Oblique Stereographic",ID["EPSG",9809]],PARAMETER["Latitude of natural origin",38,ANGLEUNIT["grad",0.0157079632679489],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",43.5,ANGLEUNIT["grad",0.0157079632679489],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9995341,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, topographic mapping (large scale)."],AREA["Lebanon - onshore. Syrian Arab Republic - onshore."],BBOX[32.31,35.04,37.3,42.38]],ID["EPSG",22780]]</wkt>
+      <proj4>+proj=sterea +lat_0=34.2 +lon_0=39.15 +k=0.9995341 +x_0=0 +y_0=0 +ellps=clrk80ign +units=m +no_defs</proj4>
+      <srsid>1968</srsid>
+      <srid>22780</srid>
+      <authid>EPSG:22780</authid>
+      <description>Deir ez Zor / Levant Stereographic</description>
+      <projectionacronym>sterea</projectionacronym>
+      <ellipsoidacronym>EPSG:7011</ellipsoidacronym>
+      <geographicflag>false</geographicflag>
+    </spatialrefsys>
+  </crs>
+  <extent/>
+</qgis>
