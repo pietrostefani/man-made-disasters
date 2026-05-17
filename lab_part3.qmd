@@ -1,121 +1,18 @@
 ---
-title: "Part 3 · Does Destruction Predict Socioeconomic Outcomes?"
-subtitle: "Linking physical damage to sentiment, income disruption & economic stress"
+title: "Part 3 · Damage, sentiment & economic stress"
 author: "Elisabetta Pietrostefani, University of Liverpool"
 date: "2026-05-19"
 ---
 
 ```{=html}
-<div class="part-badge">Lab Part 3 of 3 · ~25 min</div>
+<div class="part-badge">Lab Part 3 of 3</div>
 ```
 
 ::: objectives
 **Learning objectives**
 
-By the end of Part 3 you will be able to:
-
-- Specify and run OLS models with satellite damage and survey controls
-- Interpret coefficients from multi-variable regressions on socioeconomic outcomes
-- Check for spatial autocorrelation in regression residuals (Moran's I)
-- Assess whether the satellite damage signal persists once survey damage is included
+-   Specify and run OLS models with satellite damage and survey controls
+-   Interpret coefficients from multi-variable regressions on socioeconomic outcomes
+-   Assess whether the satellite damage signal persists once survey damage is included
 :::
 
-------------------------------------------------------------------------
-
-## 3.1 Setup
-
-
-
-------------------------------------------------------------------------
-
-## 3.2 Outcome variables
-
-We have three outcome variables, capturing different dimensions of post-blast impact:
-
-| Variable | Dimension | Type |
-|------------------------|------------------------|------------------------|
-| `wellbeing_score` | Psychological / sentiment | Continuous (0–100, higher = better) |
-| `income_disruption` | Economic | Months of income lost |
-| `econ_stress` | Economic | Self-rated stress scale (1–10) |
-
-
-------------------------------------------------------------------------
-
-## 3.3 Model 1: Satellite damage → Wellbeing
-
-### Baseline: satellite damage only
-
-
-
-### Adding survey damage as a mediator
-
-Does the satellite signal survive once we control for what people *reported*?
-
-
-::: callout-note
-Compare the coefficient on `damage_index` between the two models. Does it attenuate when `survey_damage` is added? This tells us whether the satellite is picking up something *beyond* what was self-reported.
-:::
-
-------------------------------------------------------------------------
-
-## 3.4 Model 2: Satellite damage → Income disruption
-
-
-------------------------------------------------------------------------
-
-## 3.5 Are residuals spatially autocorrelated?
-
-If damage effects cluster in space beyond what our model captures, OLS standard errors are biased. Let's check.
-
-
-::: callout-tip
-A significant positive Moran's I means residuals cluster — nearby households have similar unexplained outcomes. This suggests omitted spatially-varying variables (e.g. local aid delivery, social networks, infrastructure disruption).
-:::
-
-------------------------------------------------------------------------
-
-## 3.6 Visualising the outcome gradient
-
-
-------------------------------------------------------------------------
-
-## ✏️ Exercise 3
-
-::: callout-tip
-## Your turn
-
-1.  **Swap the outcome**: Re-run the full model (`m1_full` specification) with `econ_stress` as the outcome instead of `wellbeing_score`. Are the results qualitatively similar?
-
-2.  **Interaction term**: Does the effect of satellite damage on wellbeing differ by pre-blast deprivation level? Add an interaction `damage_index * deprivation_index` and interpret the result.
-
-3.  **Nighttime lights**: The dataset includes `ntl_change` (synthetic nighttime lights change). Add it as an additional predictor. Does it carry independent predictive power beyond the satellite damage index?
-
-4.  **Reflection**: We've found that destruction predicts outcomes. But what are the main **threats to causal identification** in this analysis? Think about: selection into the blast zone, pre-existing conditions, omitted variables.
-:::
-
-------------------------------------------------------------------------
-
-## Wrap-up
-
-```{=html}
-<div class="objectives">
-<strong>Key takeaways from the lab</strong>
-<ul>
-  <li><strong>Satellite data</strong> provides rapid, spatially consistent damage measurement — but misses facade damage, rubble clearance, and is blind to cloud cover.</li>
-  <li><strong>Survey data</strong> captures lived experience and socioeconomic outcomes that remote sensing cannot see — but is costly, slow, and subject to recall and selection bias.</li>
-  <li><strong>Triangulation</strong> reveals where sources agree (confidence) and where they diverge (new hypotheses).</li>
-  <li><strong>Spatial autocorrelation</strong> in residuals reminds us that disasters don't affect households independently — local spillovers, aid patterns, and social networks matter.</li>
-  <li>Physical destruction predicts socioeconomic outcomes, but the relationship is <strong>mediated by pre-existing conditions</strong> — deprivation shapes who recovers and who doesn't.</li>
-</ul>
-</div>
-```
-
-------------------------------------------------------------------------
-
-::: callout-note
-## Further reading
-
-- Sou, G. & Cei Douglas, J. (2021). Do 'resilient' individuals produce 'resilient' communities? *Disasters.*
-- Moghadas, M. et al. (2021). Community disaster resilience assessment. *Progress in Disaster Science.*
-- Ji, M. et al. (2020). Satellite-based damage assessment for the Beirut port explosion. *Remote Sensing.*
-:::

@@ -1,0 +1,310 @@
+---
+title: "RF pipeline"
+author: "Elisabetta Pietrostefani"
+date: "2026-05-19"
+---
+
+```{=html}
+<div class="part-badge">Lab Appendix</div>
+```
+
+This is the **runnable recipe** behind §1.2 of Lab 1. It walks through the three computational steps that take you from raw MAXAR satellite tiles to a single number per neighbourhood — the percentage of severely damaged pixels — using a **supervised Random Forest classifier**.
+
+::: {.callout-important}
+## We don't run this in the lab itself
+
+The pipeline is heavy:
+
+-   the raw `.tif` tiles are several GB each
+-   training and tuning the Random Forest takes minutes-to-hours depending on the training sample size
+-   the full Beirut raster has on the order of **300 million pixels per band**
+
+In the lab we use the **pre-computed output** of this pipeline (`raster_rf_damage.shp`) and focus our time on comparing the satellite-derived damage measure to the survey data (Part 2).
+
+This document is here for the curious — and for anyone who wants to adapt the workflow to a different event.
+:::
+
+The recipe at a glance:
+
+```
+2 × 3-band rasters   →   6-band stacked input   →   1 × 1-band class raster   →   1 polygon per zone
+   (pre, post RGB)         (training input)           (severe / medium / none)      (% severe)
+        ↑                         ↑                          ↑                           ↑
+   raw MAXAR tiles          Step 1                     Step 2                       Step 3
+                       stack + clip                Random Forest                  zonal stats
+```
+
+------------------------------------------------------------------------
+
+## Setup
+
+```{r}
+#| label: setup
+#| eval: false
+
+library(terra)        # raster I/O and operations
+library(sf)           # vector I/O
+library(dplyr)
+library(randomForest) # supervised classifier
+library(caret)        # train/test split, confusion matrix
+```
+
+------------------------------------------------------------------------
+
+## Step 1 — Stack the pre- and post-event images
+
+The supervised classifier sees a **single 6-band raster** — the three pre-event RGB bands and the three post-event RGB bands appended together. Each pixel becomes a point in 6-dimensional spectral space, and the classifier learns boundaries in that space that separate damage classes.
+
+```{r}
+#| label: pipeline-step1-stack
+#| eval: false
+
+# ── Load the pre-event image ──────────────────────────────────────────────────
+# Source: data/maxar_raw/Before/10300500A5F95600.tif (WorldView, 31 Jul 2020)
+# 3 bands (R, G, B) · ~0.5 m pixel size · many GB
+
+r_before <- terra::rast("data/maxar_raw/Before/10300500A5F95600.tif")
+
+# ── Load the post-event image ─────────────────────────────────────────────────
+# Source: data/maxar_raw/After/10300500A6F8AA00.tif (WorldView, 5 Aug 2020)
+
+r_after  <- terra::rast("data/maxar_raw/After/10300500A6F8AA00.tif")
+
+# ── Load the operational zones (used as a mask and later for zonal stats) ────
+# CRS: Deir el Zor (EPSG:22770) — local Lebanese projection
+
+zones <- sf::st_read(
+  "data/geo/beirut_port_explosions_operational_zones_139.shp"
+) |>
+  sf::st_transform(22770)
+
+zones_vect <- terra::vect(zones)
+
+# ── Align the two acquisitions ────────────────────────────────────────────────
+# The two tiles do not share an identical extent or grid. Resample the "after"
+# image onto the "before" grid. method = "near" preserves the original digital
+# numbers without interpolating between pixels.
+
+r_after_matched <- terra::resample(r_after, r_before, method = "near")
+
+# ── Crop and mask to the study area ───────────────────────────────────────────
+# Shrinks file size dramatically and makes the rest of the pipeline tractable.
+
+r_before_crop <- r_before        |> terra::crop(zones_vect) |> terra::mask(zones_vect)
+r_after_crop  <- r_after_matched |> terra::crop(zones_vect) |> terra::mask(zones_vect)
+
+# ── Stack: 3 bands (pre) + 3 bands (post) = 6-band input ──────────────────────
+# Band order:  [Pre_R, Pre_G, Pre_B, Post_R, Post_G, Post_B]
+# This is what the Random Forest will see.
+
+stack_6band <- c(r_before_crop, r_after_crop)
+names(stack_6band) <- c("preR", "preG", "preB", "postR", "postG", "postB")
+
+terra::writeRaster(
+  stack_6band,
+  "data/maxar_processed/stack_6band_pre_post.tif",
+  overwrite = TRUE
+)
+```
+
+::: callout-note
+## Why stack rather than difference?
+
+A simpler approach is to compute the log-ratio `log10(post / pre)` per band and feed the classifier the 3-band *change* image. That works, but it throws away information: the classifier never gets to see what the pre-event surface actually looked like, only how much it changed. Stacking the raw bands lets the model learn, for example, that *bright concrete becoming bright rubble* is a different kind of change from *dark asphalt becoming bright rubble* — both register as "got brighter" in a log-ratio but mean different things on the ground.
+:::
+
+------------------------------------------------------------------------
+
+## Step 2 — Train a supervised Random Forest
+
+This is the heart of the pipeline. We hand the classifier:
+
+1.  the 6-band stack (one row per pixel, six numeric columns)
+2.  a set of **training polygons** drawn by an analyst over areas of known damage class
+
+The classifier learns the spectral signature of each class and applies it to every other pixel in the raster.
+
+### 2a. Load training polygons and sample pixels
+
+```{r}
+#| label: pipeline-step2a-training
+#| eval: false
+
+# Training polygons hand-digitised by the analyst.
+# Attribute table contains a `class` column with values:
+#   1 = severe damage      (e.g. collapsed warehouses near the port)
+#   2 = medium damage      (e.g. blown-out facades, partial roof collapse)
+#   3 = little to no damage (untouched residential blocks)
+
+training_poly <- sf::st_read("data/geo/training_polygons.shp") |>
+  sf::st_transform(22770)
+
+training_vect <- terra::vect(training_poly)
+
+# Extract every pixel that falls inside a training polygon, together with
+# its class label. Each row of `train_pixels` is one pixel:
+#   class  preR  preG  preB  postR  postG  postB
+
+train_pixels <- terra::extract(stack_6band, training_vect, bind = TRUE) |>
+  as.data.frame() |>
+  dplyr::filter(complete.cases(across(preR:postB))) |>
+  dplyr::mutate(class = factor(class, levels = c(1, 2, 3),
+                               labels = c("severe", "medium", "none")))
+
+# Sanity check: how many training pixels per class?
+table(train_pixels$class)
+```
+
+### 2b. Train / test split
+
+```{r}
+#| label: pipeline-step2b-split
+#| eval: false
+
+set.seed(42)
+
+# 70/30 split, stratified by class so each split has the same class proportions
+
+idx <- caret::createDataPartition(train_pixels$class, p = 0.7, list = FALSE)
+train_df <- train_pixels[idx, ]
+test_df  <- train_pixels[-idx, ]
+```
+
+### 2c. Fit the Random Forest
+
+```{r}
+#| label: pipeline-step2c-fit
+#| eval: false
+
+# Random Forest hyperparameters worth tuning:
+#   ntree  — number of trees. More trees → smaller variance, more compute.
+#            Watch the OOB error: stop adding trees when it stops falling.
+#   mtry   — variables sampled at each split. Default sqrt(p) ≈ 2 for 6 predictors.
+
+rf_model <- randomForest::randomForest(
+  class ~ preR + preG + preB + postR + postG + postB,
+  data       = train_df,
+  ntree      = 500,
+  mtry       = 2,
+  importance = TRUE
+)
+
+# Out-of-bag error: the model's honest internal validation.
+# Roughly 1/3 of training pixels are unseen by each tree (the "out-of-bag"
+# pixels for that tree). Their predicted labels give an unbiased error estimate
+# without needing a separate validation set.
+print(rf_model)
+plot(rf_model)   # OOB error vs number of trees — stop where it plateaus
+
+# Variable importance: which bands carry the discriminative signal?
+randomForest::varImpPlot(rf_model)
+```
+
+::: callout-tip
+## When have you trained enough?
+
+Following Rodriguez-Galiano et al. (2012), iteration stops when successive `ntree` increments change the OOB error by less than \~10%. In practice that's usually well below 500 trees for this kind of imagery — beyond that you're paying compute for negligible accuracy gains.
+:::
+
+### 2d. Validate on the held-out test pixels
+
+```{r}
+#| label: pipeline-step2d-validate
+#| eval: false
+
+test_pred <- predict(rf_model, newdata = test_df)
+
+# Confusion matrix: overall accuracy, per-class precision/recall, kappa
+caret::confusionMatrix(test_pred, test_df$class)
+```
+
+This is where you find out whether the model generalises. A high overall accuracy that hides a low recall on the "severe" class would be a red flag — it means the model is good at recognising the *common* class (probably "none") but missing the cases you actually care about.
+
+### 2e. Apply the model to every pixel
+
+```{r}
+#| label: pipeline-step2e-predict
+#| eval: false
+
+# `terra::predict()` runs the model in chunks so the full raster doesn't have
+# to be held in RAM at once. Output is a single-band raster where each cell
+# holds the predicted class (1 / 2 / 3).
+
+damage_class <- terra::predict(
+  stack_6band,
+  model    = rf_model,
+  na.rm    = TRUE,
+  filename = "data/maxar_processed/raster_rf_damage.tif",
+  overwrite = TRUE
+)
+
+# Quick visual sanity check
+plot(damage_class, col = c("red", "orange", "lightyellow"),
+     main = "Predicted damage class (1 = severe, 2 = medium, 3 = none)")
+```
+
+------------------------------------------------------------------------
+
+## Step 3 — Aggregate pixels to operational zones
+
+We have a damage class for every \~0.5 m pixel. For statistical analysis and joining to other data sources (survey, census, deprivation index) we need a number *per zone*, not per pixel.
+
+```{r}
+#| label: pipeline-step3-zonal
+#| eval: false
+
+# Total pixels per zone (denominator)
+n_total  <- terra::extract(
+  damage_class, zones_vect,
+  fun = function(x) sum(!is.na(x))
+)
+
+# Severe-damage pixels per zone — class id 1
+n_severe <- terra::extract(
+  damage_class, zones_vect,
+  fun = function(x) sum(x == 1, na.rm = TRUE)
+)
+
+zones$n_severe_px <- n_severe[, 2]
+zones$n_total_px  <- n_total[, 2]
+zones$pct_severe  <- 100 * zones$n_severe_px / zones$n_total_px
+
+# This is the file we load in §1.6 of the lab
+sf::st_write(zones, "data/geo/raster_rf_damage.shp", delete_dsn = TRUE)
+```
+
+::: callout-tip
+## Sense-check the orders of magnitude
+
+A zone of 0.2 km² at 0.5 m resolution contains roughly **800,000 pixels**. If `n_severe_px` for that zone comes back as \~96,000, then `pct_severe ≈ 12 %`. If it comes back as 0 or as 800,000, something has gone wrong — either a class id is mismatched, or the mask did not align with the zone boundary, or the zone is mostly sea. Always sanity-check denominators on a known zone first.
+:::
+
+------------------------------------------------------------------------
+
+## Recap: what's actually on disk after each step
+
+| Step | File written | Shape / dimensionality |
+|---------------|----------------------------------|------------------------|
+| 1    | `stack_6band_pre_post.tif`       | 6 bands · \~0.5 m pixels       |
+| 2    | `raster_rf_damage.tif`           | 1 band · \~0.5 m pixels · values ∈ {1, 2, 3} |
+| 3    | `raster_rf_damage.shp`           | 139 polygons · `pct_severe` attribute |
+
+The last file is the one that goes into Lab 1, §1.6 — and it's the variable we compare against the survey in Part 2.
+
+------------------------------------------------------------------------
+
+## Limitations to keep in mind
+
+The same five limitations from Lab 1 §1.2 apply to anything derived from this pipeline:
+
+-   **Line-of-sight bias** — at nadir the satellite sees rooftops, not facades.
+-   **Rubble removal** — pixels cleared before the post-image read as undamaged.
+-   **Cloud and smoke** — optical sensors can't see through either.
+-   **Temporal gap** — the post-image is \~24 h after the blast; some pixels have already shifted.
+-   **The 0.5 m floor** — anything smaller than the pixel is invisible.
+
+And one specific to the supervised approach used here:
+
+-   **Training-label bias** — the classifier only knows the damage signatures it was shown. If training polygons over-represent collapsed warehouses near the port and under-represent partial-facade damage further out, the classifier will systematically under-call damage in residential areas. The OOB error tells you how well the model predicts *its own training distribution*, not how well it generalises.
+
+This last point is the one most likely to bite in the Part 2 comparison with the survey. If the survey reports more damage than the satellite in residential blocks far from the port, training-label bias is one of the prime suspects.

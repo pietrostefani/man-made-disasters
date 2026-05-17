@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Man-Made Disasters</title>
+<title>Triangulating Traces for Humanitarian Response – Man-Made Disasters</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8a2c409a4afc0e5802d97936f111445e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bda389a1888e5529aad9c5b682554116.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9ddbd9f8df266fd28f4281cac3802d3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-84dbb316a80f823dd38d2099ee7033a6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -97,13 +95,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Man-Made Disasters</a> 
-        <div class="sidebar-tools-main">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/pietrostefani/man-made-disasters" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
 </div>
-    </div>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -116,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture: Triangulated Data Methods for Man-Made Disasters</span></a>
+ <span class="menu-text">Lecture: Triangulating Traces for Humanitarian Action</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -143,6 +140,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Part 1 · Satellite Data &amp; Measuring Destruction</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2 · Satellites vs.&nbsp;surveys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_part3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 3 · Damage, sentiment &amp; economic stress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_append.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RF pipeline</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -156,12 +171,6 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Datasets &amp; Setup</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./satellites_to_areas.html" class="sidebar-item-text sidebar-link">
@@ -230,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>08:30 – 10:00</td>
-<td><strong>Lecture</strong> · Triangulated data methods for understanding man-made disasters</td>
+<td><strong>Lecture</strong> · Triangulating Traces for Humanitarian Response</td>
 </tr>
 <tr class="even">
 <td>10:00 – 10:30</td>
@@ -270,12 +279,8 @@ ul.task-list li input[type="checkbox"] {
 <td>How satellite damage matches ground-truth</td>
 </tr>
 <tr class="even">
-<td><a href="./lab_part3.html">Part 3 — Socioeconomic outcomes</a></td>
+<td>Part 3 — Socioeconomic outcomes <em>(not covered in this session)</em></td>
 <td>Does destruction predict sentiment and economic data?</td>
-</tr>
-<tr class="odd">
-<td><a href="./datasets.html">Getting oriented</a></td>
-<td>Datasets overview and how to set up your R environment</td>
 </tr>
 </tbody>
 </table>

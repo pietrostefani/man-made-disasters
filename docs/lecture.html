@@ -2,18 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Elisabetta Pietrostefani, University of Liverpool">
 <meta name="dcterms.date" content="2026-05-19">
 
-<title>Lecture: Triangulated Data Methods for Man-Made Disasters – Man-Made Disasters</title>
+<title>Lecture: Triangulating Traces for Humanitarian Action – Man-Made Disasters</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,6 +26,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -37,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8a2c409a4afc0e5802d97936f111445e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bda389a1888e5529aad9c5b682554116.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9045dd281fbca22492a840d961968670.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3a5d84c34e814679a58457a58eb77514.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,25 +74,143 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lecture.html">Lecture: Triangulating Traces for Humanitarian Response</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/pietrostefani/man-made-disasters" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
+</div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this training</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lecture.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture: Triangulating Traces for Humanitarian Response</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Beirut Blast Lab</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_part1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 1 · Satellite Data &amp; Measuring Destruction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2 · Satellites vs.&nbsp;surveys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_part3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 3 · Damage, sentiment &amp; economic stress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_append.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RF pipeline</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">A bit extra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./satellites_to_areas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">From Satellites to Areas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://pietrostefani.com" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elisabetta Pietrostefani</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://liverpool.ac.uk/geographic-data-science" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GDSL</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://imago.ac.uk" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Imago</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-are-man-made-disasters" id="toc-what-are-man-made-disasters" class="nav-link active" data-scroll-target="#what-are-man-made-disasters">1. What are man-made disasters?</a></li>
-  <li><a href="#the-data-challenge" id="toc-the-data-challenge" class="nav-link" data-scroll-target="#the-data-challenge">2. The data challenge</a></li>
-  <li><a href="#traditional-data-sources" id="toc-traditional-data-sources" class="nav-link" data-scroll-target="#traditional-data-sources">3. Traditional data sources</a></li>
-  <li><a href="#digital-non-traditional-data" id="toc-digital-non-traditional-data" class="nav-link" data-scroll-target="#digital-non-traditional-data">4. Digital non-traditional data</a></li>
-  <li><a href="#triangulation-logic" id="toc-triangulation-logic" class="nav-link" data-scroll-target="#triangulation-logic">5. Triangulation logic</a></li>
-  <li><a href="#the-beirut-case-study" id="toc-the-beirut-case-study" class="nav-link" data-scroll-target="#the-beirut-case-study">6. The Beirut case study</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/man-made-disasters/edit/main/lecture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pietrostefani/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -102,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture: Triangulated Data Methods for Man-Made Disasters</h1>
+<h1 class="title">Lecture: Triangulating Traces for Humanitarian Action</h1>
 <p class="subtitle lead">08:30 – 10:00 · May 19, 2026 · SPACERAISE @ GSSI</p>
 </div>
 
@@ -141,65 +258,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Contrast traditional and non-traditional (digital) data sources and their trade-offs</li>
 <li>Explain how satellite remote sensing is used to quantify physical damage</li>
 <li>Understand how survey and administrative data complement earth observation</li>
-<li>Situate the Beirut case study within a broader methodological literature</li>
 </ul>
 </div>
-<section id="what-are-man-made-disasters" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-man-made-disasters">1. What are man-made disasters?</h2>
-<p><em>[Slides section 1 — typology, scale, examples]</em></p>
-<ul>
-<li>Industrial accidents, explosions, conflict</li>
-<li>The Beirut port explosion as the running example</li>
-</ul>
-</section>
-<section id="the-data-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="the-data-challenge">2. The data challenge</h2>
-<p><em>[Slides section 2 — why standard data fails us]</em></p>
-<ul>
-<li>Timeliness vs.&nbsp;depth</li>
-<li>Administrative collapse after disasters</li>
-<li>The role of remote sensing as a rapid-response tool</li>
-</ul>
-</section>
-<section id="traditional-data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="traditional-data-sources">3. Traditional data sources</h2>
-<p><em>[Slides section 3]</em></p>
-<ul>
-<li>Household surveys: strengths, limitations, cost</li>
-<li>Administrative records: coverage gaps in crisis</li>
-<li>Census and registry data</li>
-</ul>
-</section>
-<section id="digital-non-traditional-data" class="level2">
-<h2 class="anchored" data-anchor-id="digital-non-traditional-data">4. Digital non-traditional data</h2>
-<p><em>[Slides section 4]</em></p>
-<ul>
-<li>Satellite imagery (optical, SAR)</li>
-<li>Social media and mobile data</li>
-<li>Nighttime lights as an economic proxy</li>
-<li>MAXAR and commercial very-high-resolution imagery</li>
-</ul>
-</section>
-<section id="triangulation-logic" class="level2">
-<h2 class="anchored" data-anchor-id="triangulation-logic">5. Triangulation logic</h2>
-<p><em>[Slides section 5]</em></p>
-<ul>
-<li>Why no single source is sufficient</li>
-<li>Convergent validity and divergent findings</li>
-<li>Spatial and temporal alignment challenges</li>
-<li>A framework for multi-source disaster analysis</li>
-</ul>
-</section>
-<section id="the-beirut-case-study" class="level2">
-<h2 class="anchored" data-anchor-id="the-beirut-case-study">6. The Beirut case study</h2>
-<p><em>[Slides section 6 — bridge to the lab]</em></p>
-<ul>
-<li>August 4, 2020 — what happened</li>
-<li>The damage footprint: spatial extent and intensity gradient</li>
-<li>Our data: MAXAR damage scores, in-person survey, synthetic outcomes</li>
-<li>Preview of the lab</li>
-</ul>
-</section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p><em>References to be added.</em></p>

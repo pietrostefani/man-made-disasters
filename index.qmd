@@ -1,5 +1,5 @@
 ---
-pagetitle: "Man-Made Disasters"
+pagetitle: "Triangulating Traces for Humanitarian Response"
 page-layout: full
 toc: false
 title-block-style: none
@@ -26,7 +26,7 @@ It covers how to combine **satellite remote sensing data** with **traditional su
 
 | Time | Session |
 |-----------------------------|-------------------------------------------|
-| 08:30 – 10:00 | **Lecture** · Triangulated data methods for understanding man-made disasters |
+| 08:30 – 10:00 | **Lecture** · Triangulating Traces for Humanitarian Response |
 | 10:00 – 10:30 | *Coffee break* |
 | 14:00 – 15:30 | **Lab** · Geo data lab: Man-made disasters (Beirut case study) |
 
@@ -34,10 +34,10 @@ It covers how to combine **satellite remote sensing data** with **traditional su
 
 By the end of this training you will be able to:
 
-- Understand how **satellite damage proxy maps** are constructed from pre/post imagery
-- Spatially join and compare **remote sensing** and **ground-truth survey** data
-- Run and interpret **regression models** linking physical destruction to socioeconomic outcomes
-- Critically assess where different data sources agree — and where they diverge
+-   Understand how **satellite damage proxy maps** are constructed from pre/post imagery
+-   Spatially join and compare **remote sensing** and **ground-truth survey** data
+-   Run and interpret **regression models** linking physical destruction to socioeconomic outcomes
+-   Critically assess where different data sources agree — and where they diverge
 
 ## Materials
 
@@ -46,8 +46,7 @@ By the end of this training you will be able to:
 | [Lecture slides](lecture.qmd) | Conceptual background on triangulated data methods |
 | [Part 1 — Satellite & destruction](lab_part1.qmd) | Measuring damage from MAXAR imagery |
 | [Part 2 — Survey validation](lab_part2.qmd) | How satellite damage matches ground-truth |
-| [Part 3 — Socioeconomic outcomes](lab_part3.qmd) | Does destruction predict sentiment and economic data? |
-| [Getting oriented](datasets.qmd) | Datasets overview and how to set up your R environment |
+| Part 3 — Socioeconomic outcomes *(not covered in this session)* | Does destruction predict sentiment and economic data? |
 
 ## Case study: Beirut Port Explosion (August 4, 2020)
 

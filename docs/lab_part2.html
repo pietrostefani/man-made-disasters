@@ -2,18 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Elisabetta Pietrostefani, University of Liverpool">
 <meta name="dcterms.date" content="2026-05-19">
 
-<title>Part 2 · Survey Validation – Man-Made Disasters</title>
+<title>Part 2 · Satellites vs.&nbsp;surveys – Man-Made Disasters</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -73,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8a2c409a4afc0e5802d97936f111445e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bda389a1888e5529aad9c5b682554116.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7954a5d54c8b0cb64ecd6ab906da3eb8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3a5d84c34e814679a58457a58eb77514.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,9 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Man-Made Disasters
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast Lab</a></li><li class="breadcrumb-item"><a href="./lab_part2.html">Part 2 · Satellites vs.&nbsp;surveys</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -136,43 +132,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Man-Made Disasters</a> 
-        <div class="sidebar-tools-main">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/pietrostefani/man-made-disasters" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
 </div>
-    </div>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Man-Made Disasters</span></a>
+ <span class="menu-text">About this training</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture: Triangulated Data Methods for Man-Made Disasters</span></a>
+ <span class="menu-text">Lecture: Triangulating Traces for Humanitarian Action</span></a>
   </div>
 </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Getting oriented</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Beirut Blast Lab</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Datasets &amp; Setup</span></a>
+  <a href="./lab_part1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 1 · Satellite Data &amp; Measuring Destruction</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_part2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Part 2 · Satellites vs.&nbsp;surveys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_part3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 3 · Damage, sentiment &amp; economic stress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab_append.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 1 · RF pipeline</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">A bit extra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./satellites_to_areas.html" class="sidebar-item-text sidebar-link">
@@ -181,6 +216,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://pietrostefani.com" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elisabetta Pietrostefani</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://liverpool.ac.uk/geographic-data-science" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GDSL</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://imago.ac.uk" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Imago</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -191,23 +245,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#load-the-survey-data" id="toc-load-the-survey-data" class="nav-link active" data-scroll-target="#load-the-survey-data">2.1 Load the survey data</a></li>
-  <li><a href="#convert-survey-to-spatial" id="toc-convert-survey-to-spatial" class="nav-link" data-scroll-target="#convert-survey-to-spatial">2.2 Convert survey to spatial</a></li>
-  <li><a href="#spatial-join-survey-points-satellite-grid" id="toc-spatial-join-survey-points-satellite-grid" class="nav-link" data-scroll-target="#spatial-join-survey-points-satellite-grid">2.3 Spatial join: survey points → satellite grid</a></li>
-  <li><a href="#correlation-satellite-vs.-survey-damage" id="toc-correlation-satellite-vs.-survey-damage" class="nav-link" data-scroll-target="#correlation-satellite-vs.-survey-damage">2.4 Correlation: satellite vs.&nbsp;survey damage</a></li>
-  <li><a href="#regression-satellite-predicting-survey-damage" id="toc-regression-satellite-predicting-survey-damage" class="nav-link" data-scroll-target="#regression-satellite-predicting-survey-damage">2.5 Regression: satellite predicting survey damage</a></li>
-  <li><a href="#where-do-they-disagree-mapping-residuals" id="toc-where-do-they-disagree-mapping-residuals" class="nav-link" data-scroll-target="#where-do-they-disagree-mapping-residuals">2.6 Where do they disagree? Mapping residuals</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">✏️ Exercise 2</a></li>
+  <li><a href="#why-validate" id="toc-why-validate" class="nav-link active" data-scroll-target="#why-validate">2.1 Why validate?</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">2.2 Setup</a></li>
+  <li><a href="#the-structural-layer-two-expert-damage-assessments" id="toc-the-structural-layer-two-expert-damage-assessments" class="nav-link" data-scroll-target="#the-structural-layer-two-expert-damage-assessments">2.3 The structural layer: two expert damage assessments</a>
+  <ul class="collapse">
+  <li><a href="#tabulate-both-grades" id="toc-tabulate-both-grades" class="nav-link" data-scroll-target="#tabulate-both-grades">Tabulate both grades</a></li>
+  </ul></li>
+  <li><a href="#the-household-survey" id="toc-the-household-survey" class="nav-link" data-scroll-target="#the-household-survey">2.4 The household survey</a>
+  <ul class="collapse">
+  <li><a href="#the-blast-damage-variables" id="toc-the-blast-damage-variables" class="nav-link" data-scroll-target="#the-blast-damage-variables">The blast-damage variables</a></li>
+  <li><a href="#join-the-survey-to-building-geometries" id="toc-join-the-survey-to-building-geometries" class="nav-link" data-scroll-target="#join-the-survey-to-building-geometries">Join the survey to building geometries</a></li>
+  </ul></li>
+  <li><a href="#map-the-building-level-damage" id="toc-map-the-building-level-damage" class="nav-link" data-scroll-target="#map-the-building-level-damage">2.5 Map the building-level damage</a></li>
+  <li><a href="#aggregate-buildings-up-to-operational-zones" id="toc-aggregate-buildings-up-to-operational-zones" class="nav-link" data-scroll-target="#aggregate-buildings-up-to-operational-zones">2.6 Aggregate buildings up to operational zones</a></li>
+  <li><a href="#satellite-vs-both-structural-assessments" id="toc-satellite-vs-both-structural-assessments" class="nav-link" data-scroll-target="#satellite-vs-both-structural-assessments">2.7 Satellite vs both structural assessments</a></li>
+  <li><a href="#the-household-survey-distribution" id="toc-the-household-survey-distribution" class="nav-link" data-scroll-target="#the-household-survey-distribution">2.8 The household survey: distribution</a></li>
+  <li><a href="#joining-the-survey-to-zones" id="toc-joining-the-survey-to-zones" class="nav-link" data-scroll-target="#joining-the-survey-to-zones">2.9 Joining the survey to zones</a></li>
+  <li><a href="#four-measures-one-zone-the-triangulated-comparison" id="toc-four-measures-one-zone-the-triangulated-comparison" class="nav-link" data-scroll-target="#four-measures-one-zone-the-triangulated-comparison">2.10 Four measures, one zone: the triangulated comparison</a></li>
+  <li><a href="#a-simple-regression" id="toc-a-simple-regression" class="nav-link" data-scroll-target="#a-simple-regression">2.11 A simple regression</a></li>
+  <li><a href="#where-do-they-disagree-mapping-residuals" id="toc-where-do-they-disagree-mapping-residuals" class="nav-link" data-scroll-target="#where-do-they-disagree-mapping-residuals">2.12 Where do they disagree? Mapping residuals</a></li>
+  <li><a href="#discussion-what-this-analysis-can-and-cant-tell-us" id="toc-discussion-what-this-analysis-can-and-cant-tell-us" class="nav-link" data-scroll-target="#discussion-what-this-analysis-can-and-cant-tell-us">2.14 Discussion: what this analysis can and can’t tell us</a></li>
+  <li><a href="#where-to-go-next" id="toc-where-to-go-next" class="nav-link" data-scroll-target="#where-to-go-next">2.15 Where to go next</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/elisabettap/man-made-disasters/edit/main/lab_part2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/elisabettap/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/man-made-disasters/edit/main/lab_part2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pietrostefani/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast Lab</a></li><li class="breadcrumb-item"><a href="./lab_part2.html">Part 2 · Satellites vs.&nbsp;surveys</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Part 2 · Survey Validation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">How does satellite damage match ground-truth survey data?</p>
+<h1 class="title">Part 2 · Satellites vs.&nbsp;surveys</h1>
 </div>
 
 
@@ -236,93 +303,927 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="part-badge">Lab Part 2 of 3 · ~25 min</div>
+<div class="part-badge">Lab Part 2 of 2</div>
 <div class="objectives">
 <p><strong>Learning objectives</strong></p>
 <p>By the end of Part 2 you will be able to:</p>
 <ul>
-<li>Spatially join household survey data to satellite grid cells</li>
-<li>Compute correlation and run a simple regression between satellite and survey damage measures</li>
-<li>Visualise and interpret spatial mismatches (residuals)</li>
-<li>Articulate <em>why</em> the two sources agree and disagree in different locations</li>
+<li>Explain why a satellite-derived damage measure needs to be validated against other sources, and what “validation” does and doesn’t mean here</li>
+<li>Load two building-level damage assessments (Copernicus EMSN087 photointerpretation and the JRC automated pipeline) and join them spatially to the operational zones from Part 1</li>
+<li>Load a household survey of self-reported blast damage and aggregate it to the same zones</li>
+<li>Compute correlations between four independent damage measures (satellite, two structural, survey) and visualise where they agree and disagree</li>
+<li>Articulate <em>why</em> the measures diverge in particular places — and what those divergences tell us about using satellites for humanitarian response</li>
 </ul>
 </div>
 <hr>
-<section id="load-the-survey-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-the-survey-data">2.1 Load the survey data</h2>
-<hr>
-</section>
-<section id="convert-survey-to-spatial" class="level2">
-<h2 class="anchored" data-anchor-id="convert-survey-to-spatial">2.2 Convert survey to spatial</h2>
-<hr>
-</section>
-<section id="spatial-join-survey-points-satellite-grid" class="level2">
-<h2 class="anchored" data-anchor-id="spatial-join-survey-points-satellite-grid">2.3 Spatial join: survey points → satellite grid</h2>
-<p>Each household gets assigned the damage index of the 250m grid cell it falls in.</p>
-<hr>
-</section>
-<section id="correlation-satellite-vs.-survey-damage" class="level2">
-<h2 class="anchored" data-anchor-id="correlation-satellite-vs.-survey-damage">2.4 Correlation: satellite vs.&nbsp;survey damage</h2>
-<hr>
-</section>
-<section id="regression-satellite-predicting-survey-damage" class="level2">
-<h2 class="anchored" data-anchor-id="regression-satellite-predicting-survey-damage">2.5 Regression: satellite predicting survey damage</h2>
+<section id="why-validate" class="level2">
+<h2 class="anchored" data-anchor-id="why-validate">2.1 Why validate?</h2>
+<p>Part 1 left us with a single number per operational zone: <code>pct_severe_adj</code>, the share of ~0.5 m pixels a Random Forest classified as severely damaged. It is a <em>plausible</em> damage measure — the map looks right, the distance-decay curve is clean — but plausibility isn’t validation. <strong>How do we know the satellite is actually capturing what happened on the ground?</strong></p>
+<p>The honest answer is that we never fully do. But we can triangulate: if independent damage measures agree in a given zone, our confidence rises; where they disagree, the disagreement itself is informative. In this lab we’ll compare the satellite measure from Part 1 against three other sources:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>What it measures</th>
+<th>Unit</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Satellite</strong> (Part 1)</td>
+<td>RGB change → RF classification → % severe pixels</td>
+<td>Operational zone</td>
+<td>August 2020</td>
+</tr>
+<tr class="even">
+<td><strong>Copernicus EMSN087</strong> (<code>dmg_grd</code>)</td>
+<td>Expert photointerpretation of pre/post imagery against a key</td>
+<td>Individual building</td>
+<td>Feb 2021 baseline</td>
+</tr>
+<tr class="odd">
+<td><strong>JRC automated</strong> (<code>dmg_JRC</code>)</td>
+<td>Automated damage classification from the same JRC team</td>
+<td>Individual building</td>
+<td>Feb 2021 baseline</td>
+</tr>
+<tr class="even">
+<td><strong>Household survey</strong></td>
+<td>Self-reported damage to windows, walls, furniture</td>
+<td>Household</td>
+<td>2021 (post-blast)</td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Validation isn’t about being “right”
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The coefficient on <code>damage_index</code> tells us: for a one-unit increase in the satellite damage score (0→1), how many points higher is self-reported damage on the 1–5 scale?</p>
+<p>Each of these measures sees something different. The satellite RF and the JRC automated pipeline both process imagery algorithmically. The EMSN087 grade is an analyst looking at the same imagery with expert eyes. The survey is what households reported about the inside of their dwelling — which a passer-by, or a satellite at nadir, can’t see at all.</p>
+<p>So when two measures disagree, we shouldn’t conclude that one is “wrong”. Both can be measuring real things, just different real things. Disagreement tells us where each measure is <em>blind</em>, not where it is <em>broken</em>.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="where-do-they-disagree-mapping-residuals" class="level2">
-<h2 class="anchored" data-anchor-id="where-do-they-disagree-mapping-residuals">2.6 Where do they disagree? Mapping residuals</h2>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">2.2 Setup</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)        <span class="co"># project-relative file paths</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)          <span class="co"># vector spatial data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)       <span class="co"># only if we need raster ops; light usage here</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)   <span class="co"># data wrangling + ggplot2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)      <span class="co"># read .xlsx survey file</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)        <span class="co"># interactive thematic mapping</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)   <span class="co"># scale bar, north arrow, basemap tiles</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)     <span class="co"># non-overlapping map labels</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(classInt)    <span class="co"># break classification for choropleths</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)     <span class="co"># accessible palettes</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)       <span class="co"># tables</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We also reload the satellite output from Part 1 so the comparison is self-contained:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>damage_zones <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"data/geo/raster_rf_damage2.shp"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">zone_number    =</span> zon_nmb,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cadastre       =</span> Cdstr_1,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_severe_adj =</span> pct___2</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Epicentre (Hangar 12, Port of Beirut)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>epicentre <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_sfc</span>(sf<span class="sc">::</span><span class="fu">st_point</span>(<span class="fu">c</span>(<span class="fl">35.5189</span>, <span class="fl">33.9013</span>)), <span class="at">crs =</span> <span class="dv">4326</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_transform</span>(sf<span class="sc">::</span><span class="fu">st_crs</span>(damage_zones))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <hr>
 </section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">✏️ Exercise 2</h2>
+<section id="the-structural-layer-two-expert-damage-assessments" class="level2">
+<h2 class="anchored" data-anchor-id="the-structural-layer-two-expert-damage-assessments">2.3 The structural layer: two expert damage assessments</h2>
+<p>The buildings shapefile contains every building in central Beirut assessed by <strong>Copernicus EMS</strong> after the blast — specifically activation <a href="https://data.jrc.ec.europa.eu/dataset/aa4e3619-4e53-406d-8dec-954d9a6372d3">EMSN087</a>, produced by the EU Joint Research Centre for the World Bank / UN / EU “3RF” reconstruction framework.</p>
+<p>The shapefile carries <strong>two parallel damage grades</strong> for each building:</p>
+<ul>
+<li><code>dmg_grd</code> — assigned by trained analysts visually comparing pre-event, immediate post-event and February 2021 satellite imagery against a photointerpretation key, supplemented by a UN-Habitat field survey for cross-checking.</li>
+<li><code>dmg_JRC</code> — a separate automated classification produced by the same JRC team from imagery alone.</li>
+</ul>
+<p>Neither is “ground truth” in the strict sense — both ultimately derive from imagery. But they are independent of the Random Forest pipeline from Part 1, and they disagree with each other in interesting ways, which is exactly what makes them useful as a second opinion.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>buildings <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"data/geo/buildings_damaged.shp"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(buildings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 25,573
+Columns: 35
+$ fid      &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…
+$ zone     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 5…
+$ Plt_nmb  &lt;chr&gt; "Po_1545", "Po_1545", "Po_1545", NA, "Po_1548", "Po_1548", NA…
+$ bld_nbr  &lt;dbl&gt; 4728, 4787, 4729, 2550, 4725, 4724, 2547, 2551, 2546, 2549, 2…
+$ fid_2    &lt;dbl&gt; 1, 4, 11, 14, 21, 23, 40, 44, 54, 54, 63, 67, 93, 132, 138, 1…
+$ dmg_grd  &lt;chr&gt; "under reconstruction", "under reconstruction", "under recons…
+$ DN       &lt;dbl&gt; 50, 45, 38, 168, 54, 43, 44, 63, 38, 38, 38, 39, 71, 104, 57,…
+$ NASA_DV  &lt;dbl&gt; 45.66667, 34.14286, 32.00000, 93.52632, 50.80000, 44.00000, 3…
+$ dmg_JRC  &lt;chr&gt; "Under reconstruction", "Under reconstruction", "Under recons…
+$ dmg_FER  &lt;chr&gt; "Damaged Not Repaired", "Damaged Not Repaired", "Damaged Not …
+$ fid_3    &lt;dbl&gt; 24731, 24732, 24726, 24574, 24723, 24722, 6861, 24573, 6860, …
+$ zone_2   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 5…
+$ Plt_n_1  &lt;chr&gt; "Po_1545", "Po_1545", "Po_1545", NA, "Po_1548", "Po_1548", NA…
+$ bld_n_2  &lt;dbl&gt; 4728, 4787, 4729, 2551, 4725, 4724, 2548, 2550, 2546, 2549, 2…
+$ FER      &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4…
+$ Repair   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ fid_4    &lt;dbl&gt; 19936, 19934, 19934, 19937, 21244, 21243, 19897, 19937, 20416…
+$ OBJECTI  &lt;dbl&gt; 19936, 19934, 19934, 19937, 21244, 21243, 19897, 19937, 20416…
+$ NAM      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ aoi_id   &lt;chr&gt; "01", "01", "01", "01", "01", "01", "01", "01", "01", "01", "…
+$ emsn_id  &lt;chr&gt; "EMSN087", "EMSN087", "EMSN087", "EMSN087", "EMSN087", "EMSN0…
+$ fwd_typ  &lt;chr&gt; "FLEX", "FLEX", "FLEX", "FLEX", "FLEX", "FLEX", "FLEX", "FLEX…
+$ localty  &lt;chr&gt; "Lebanon", "Lebanon", "Lebanon", "Lebanon", "Lebanon", "Leban…
+$ Flr_Nmb  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ Popultn  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ or_src_  &lt;chr&gt; "8,9,1,5,6", "8,9,1,5,6", "8,9,1,5,6", "8,9,5,6", "8,9,5,6", …
+$ EMS_STD  &lt;chr&gt; "Moderate damage", "Moderate damage", "Moderate damage", "Sev…
+$ Fld_Srv  &lt;chr&gt; "Damaged", "Damaged", "Damaged", "Not analysed", "Not analyse…
+$ Shp_Lng  &lt;dbl&gt; 107.16884, 171.62866, 171.62866, 245.29125, 102.04028, 161.38…
+$ Shap_Ar  &lt;dbl&gt; 684.4600, 1759.4300, 1759.4300, 3071.0800, 550.6369, 1034.591…
+$ info     &lt;chr&gt; "Industrial buildings", "Industrial buildings", "Industrial b…
+$ FUN      &lt;chr&gt; "Under construction", "Under construction", "Under constructi…
+$ dt_mthd  &lt;chr&gt; "Photo-interpretation", "Photo-interpretation", "Photo-interp…
+$ obj_typ  &lt;chr&gt; "Building", "Building", "Building", "Building", "Building", "…
+$ geometry &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((35.50786 33..., MULTIPOLYGON (((…</code></pre>
+</div>
+</div>
+<p>The variables that matter for us:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>bld_nbr</code></td>
+<td>Unique building ID (joins to the survey)</td>
+</tr>
+<tr class="even">
+<td><code>dmg_grd</code></td>
+<td>Damage grade from Copernicus EMSN087 photointerpretation</td>
+</tr>
+<tr class="odd">
+<td><code>dmg_JRC</code></td>
+<td>Alternative grade from the JRC automated pipeline</td>
+</tr>
+<tr class="even">
+<td><code>geometry</code></td>
+<td>Building footprint polygon</td>
+</tr>
+</tbody>
+</table>
+<section id="tabulate-both-grades" class="level3">
+<h3 class="anchored" data-anchor-id="tabulate-both-grades">Tabulate both grades</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EMSN087 photointerpretation grade</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>buildings <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(dmg_grd, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pct =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> n <span class="sc">/</span> <span class="fu">sum</span>(n), <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               dmg_grd     n  pct
+1            no damage 19827 77.5
+2         minor damage  2514  9.8
+3      moderate damage  1873  7.3
+4        severe damage  1264  4.9
+5             repaired    38  0.1
+6            destroyed    37  0.1
+7 under reconstruction    17  0.1
+8         new building     3  0.0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JRC automated grade</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>buildings <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(dmg_JRC, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pct =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> n <span class="sc">/</span> <span class="fu">sum</span>(n), <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               dmg_JRC     n  pct
+1    No visible damage 23183 90.7
+2                 &lt;NA&gt;  1771  6.9
+3      Possible damage   512  2.0
+4              Damaged    50  0.2
+5            Destroyed    37  0.1
+6 Under reconstruction    17  0.1
+7         New building     3  0.0</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The two pipelines disagree a lot
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>EMSN087 flags roughly 5,700 buildings (~22%) with <em>some</em> damage. JRC automated flags only ~600 buildings (~2%). That’s not a bug — it’s the methodological difference between expert photointerpretation (an analyst inferring damage from subtle cues) and automated classification (an algorithm only flagging clear signal). Worth keeping in mind when the JRC scatter looks compressed against the left edge later.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-household-survey" class="level2">
+<h2 class="anchored" data-anchor-id="the-household-survey">2.4 The household survey</h2>
+<p>The survey was carried out across three Beirut neighbourhoods — <strong>Karantina</strong>, <strong>Mar Mikhael</strong>, and <strong>Ras Beirut</strong> — in two waves (2018 and 2021). The 2018 wave is a pre-blast baseline; the 2021 wave was fielded after the explosion and asked households directly about damage to their dwelling.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The survey data is synthetic
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For privacy reasons, this lab uses a <strong>synthetic version</strong> of the real survey. The <em>blast damage variables</em> (<code>windows_rev</code>, <code>walls_rev</code>, <code>furniture_rev</code>, <code>BLASTav</code>, <code>rel_blast</code>, <code>struct</code>) are preserved as collected. Everything else — income, tenure, education, mental health — has been re-sampled. Marginal distributions and the link to building damage are preserved, but joint structure between non-blast variables is broken. <strong>Do not use this dataset for inferential analysis beyond the lab.</strong></p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>samplings <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data/kr_rb_mm_synthetic.xlsx"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The four "rev" variables are inverted (1 = severe, 4 = none).</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Flip them here so the rest of the lab reads "higher = more damage".</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">windows_rev   =</span> <span class="dv">5</span> <span class="sc">-</span> windows_rev,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">walls_rev     =</span> <span class="dv">5</span> <span class="sc">-</span> walls_rev,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">furniture_rev =</span> <span class="dv">5</span> <span class="sc">-</span> furniture_rev,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">BLASTav       =</span> <span class="dv">5</span> <span class="sc">-</span> BLASTav</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick orientation</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>samplings <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">count</span>(neighbourhood, year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  neighbourhood  year     n
+  &lt;chr&gt;         &lt;dbl&gt; &lt;int&gt;
+1 Karantina      2021  1858
+2 MarMikhael     2018   360
+3 MarMikhael     2021   410
+4 RasBeirut      2018   706
+5 RasBeirut      2021   583</code></pre>
+</div>
+</div>
+<p>For damage comparison we only care about the <strong>2021 wave</strong>.</p>
+<section id="the-blast-damage-variables" class="level3">
+<h3 class="anchored" data-anchor-id="the-blast-damage-variables">The blast-damage variables</h3>
+<p>The survey asked respondents to rate damage to specific parts of their home:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Question</th>
+<th>Coding</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>windows_rev</code></td>
+<td>“How would you rate damage to your windows?”</td>
+<td>1 = none → 4 = severe</td>
+</tr>
+<tr class="even">
+<td><code>walls_rev</code></td>
+<td>“How would you rate damage to your walls?”</td>
+<td>1 = none → 4 = severe</td>
+</tr>
+<tr class="odd">
+<td><code>furniture_rev</code></td>
+<td>“How would you rate damage to your furniture?”</td>
+<td>1 = none → 4 = severe</td>
+</tr>
+<tr class="even">
+<td><code>BLASTav</code></td>
+<td>Average of the three above</td>
+<td>1–4 continuous</td>
+</tr>
+<tr class="odd">
+<td><code>rel_blast</code></td>
+<td>Was anyone in the household physically harmed?</td>
+<td>0/1</td>
+</tr>
+<tr class="even">
+<td><code>struct</code></td>
+<td>Self-reported structural integrity</td>
+<td>1–4 ordinal</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="join-the-survey-to-building-geometries" class="level3">
+<h3 class="anchored" data-anchor-id="join-the-survey-to-building-geometries">Join the survey to building geometries</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Survey: 2021 wave only, blast-damage variables only</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>survey_vars <span class="ot">&lt;-</span> samplings <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2021</span>, <span class="sc">!</span><span class="fu">is.na</span>(BLASTav)) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bld_nbr, neighbourhood,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                windows_rev, walls_rev, furniture_rev, BLASTav,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                rel_blast, struct)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Average multi-respondent buildings up to one row per building</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>survey_by_bldg <span class="ot">&lt;-</span> survey_vars <span class="sc">|&gt;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(bld_nbr) <span class="sc">|&gt;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_respondents =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">neighbourhood =</span> dplyr<span class="sc">::</span><span class="fu">first</span>(neighbourhood),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">BLASTav       =</span> <span class="fu">mean</span>(BLASTav,       <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">windows_rev   =</span> <span class="fu">mean</span>(windows_rev,   <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">walls_rev     =</span> <span class="fu">mean</span>(walls_rev,     <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">furniture_rev =</span> <span class="fu">mean</span>(furniture_rev, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">rel_blast     =</span> <span class="fu">mean</span>(rel_blast,     <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">struct        =</span> <span class="fu">mean</span>(struct,        <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Buildings *with* a survey response — keeps building geometry attached</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>buildings_surveyed <span class="ot">&lt;-</span> buildings <span class="sc">|&gt;</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bld_nbr, dmg_grd, dmg_JRC) <span class="sc">|&gt;</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">inner_join</span>(survey_by_bldg, <span class="at">by =</span> <span class="st">"bld_nbr"</span>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(buildings_surveyed)  <span class="co"># how many buildings the survey hit</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 422</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>buildings_surveyed <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(neighbourhood) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_buildings   =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_respondents =</span> <span class="fu">sum</span>(n_respondents),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(n_buildings))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The observations are much more limited than the citywide buildings layer — the survey only hits three neighbourhoods, and within each only a fraction of the buildings.</p>
+<hr>
+</section>
+</section>
+<section id="map-the-building-level-damage" class="level2">
+<h2 class="anchored" data-anchor-id="map-the-building-level-damage">2.5 Map the building-level damage</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Numeric recode for downstream zonal aggregation</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>buildings <span class="ot">&lt;-</span> buildings <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># EMSN087 photointerpretation: 0 = none, 1 = minor/mod, 2 = severe/worse</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">dmg_grd_num =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>      dmg_grd <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"no damage"</span>, <span class="st">"new building"</span>, <span class="st">"repaired"</span>) <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>      dmg_grd <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"minor damage"</span>, <span class="st">"moderate damage"</span>)       <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>      dmg_grd <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"severe damage"</span>, <span class="st">"destroyed"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"under reconstruction"</span>)                  <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                     <span class="sc">~</span> <span class="cn">NA_real_</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># JRC automated: parallel coding so the two are comparable</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">dmg_JRC_num =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      dmg_JRC <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"No visible damage"</span>, <span class="st">"New building"</span>)     <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>      dmg_JRC <span class="sc">==</span> <span class="st">"Possible damage"</span>                            <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      dmg_JRC <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Damaged"</span>, <span class="st">"Destroyed"</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Under reconstruction"</span>)                  <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                     <span class="sc">~</span> <span class="cn">NA_real_</span>   <span class="co"># incl. "Not analysed"</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the four real damage states on the CEMS layer for visual comparison</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># with the survey's 1–4 scale.</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>buildings_4cat <span class="ot">&lt;-</span> buildings <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(dmg_grd <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"no damage"</span>, <span class="st">"minor damage"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"moderate damage"</span>, <span class="st">"severe damage"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">dmg_grd_14 =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>      dmg_grd <span class="sc">==</span> <span class="st">"no damage"</span>       <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>      dmg_grd <span class="sc">==</span> <span class="st">"minor damage"</span>    <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>      dmg_grd <span class="sc">==</span> <span class="st">"moderate damage"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>      dmg_grd <span class="sc">==</span> <span class="st">"severe damage"</span>   <span class="sc">~</span> <span class="dv">4</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Shared scale so both layers read off the same legend</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>shared_palette <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#fee08b"</span>, <span class="st">"#fdae61"</span>, <span class="st">"#f46d43"</span>, <span class="st">"#d73027"</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>shared_breaks  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="fl">4.5</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>shared_labels  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1 – none"</span>, <span class="st">"2 – minor"</span>, <span class="st">"3 – moderate"</span>, <span class="st">"4 – severe"</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"view"</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(buildings_4cat, <span class="at">name =</span> <span class="st">"CEMS damage grade"</span>) <span class="sc">+</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dmg_grd_14"</span>,</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title       =</span> <span class="st">"CEMS Damage (1–4)"</span>,</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">style       =</span> <span class="st">"fixed"</span>,</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks      =</span> shared_breaks,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels      =</span> shared_labels,</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">palette     =</span> shared_palette,</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">border.alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">id          =</span> <span class="st">"bld_nbr"</span>,</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup.vars  =</span> <span class="fu">c</span>(<span class="st">"CEMS grade"</span> <span class="ot">=</span> <span class="st">"dmg_grd"</span>,</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"JRC grade"</span>  <span class="ot">=</span> <span class="st">"dmg_JRC"</span>)</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(buildings_surveyed, <span class="at">name =</span> <span class="st">"Survey BLASTav (2021)"</span>) <span class="sc">+</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BLASTav"</span>,</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">title        =</span> <span class="st">"Survey Damage (1–4)"</span>,</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">style        =</span> <span class="st">"fixed"</span>,</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks       =</span> shared_breaks,</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels       =</span> shared_labels,</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">palette      =</span> shared_palette,</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">border.col   =</span> <span class="st">"grey"</span>,</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">border.alpha =</span> <span class="fl">0.6</span>,</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">border.lwd   =</span> <span class="fl">0.6</span>,</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">id           =</span> <span class="st">"bld_nbr"</span>,</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup.vars   =</span> <span class="fu">c</span>(<span class="st">"Mean BLASTav"</span>  <span class="ot">=</span> <span class="st">"BLASTav"</span>,</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Windows"</span>       <span class="ot">=</span> <span class="st">"windows_rev"</span>,</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Walls"</span>         <span class="ot">=</span> <span class="st">"walls_rev"</span>,</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Furniture"</span>     <span class="ot">=</span> <span class="st">"furniture_rev"</span>,</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Respondents"</span>   <span class="ot">=</span> <span class="st">"n_respondents"</span>)</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">"CartoDB.PositronNoLabels"</span>) <span class="sc">+</span></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_view</span>(<span class="at">set.zoom.limits =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">20</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="aggregate-buildings-up-to-operational-zones" class="level2">
+<h2 class="anchored" data-anchor-id="aggregate-buildings-up-to-operational-zones">2.6 Aggregate buildings up to operational zones</h2>
+<p>To compare against the satellite measure, we summarise the building-level grades inside each zone polygon: what share of buildings in a zone were rated severe or worse? Aggregating to zones means we’re comparing like with like — both measures live at the same spatial unit. A more detailed analysis would keep the buildings at polygon level, but as we can see from the first interactive map it’s complicated to operationalise.</p>
+<p>We compute this <strong>separately for the two structural sources</strong>, with independent denominators (each pipeline classified slightly different subsets of buildings).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure both layers are in the same CRS before joining</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>buildings_zoned <span class="ot">&lt;-</span> buildings <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_transform</span>(sf<span class="sc">::</span><span class="fu">st_crs</span>(damage_zones)) <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_join</span>(damage_zones <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(zone_number),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">join =</span> sf<span class="sc">::</span>st_within)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Per-zone summary of structural damage — both EMSN087 and JRC</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>zone_struct <span class="ot">&lt;-</span> buildings_zoned <span class="sc">|&gt;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(zone_number)) <span class="sc">|&gt;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(zone_number) <span class="sc">|&gt;</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_buildings         =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># EMSN087 photointerpretation</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_classifiable_cems =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(dmg_grd_num)),</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_severe_cems       =</span> <span class="fu">sum</span>(dmg_grd_num <span class="sc">==</span> <span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_severe_cems     =</span> <span class="dv">100</span> <span class="sc">*</span> n_severe_cems <span class="sc">/</span> n_classifiable_cems,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># JRC automated</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_classifiable_jrc  =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(dmg_JRC_num)),</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_severe_jrc        =</span> <span class="fu">sum</span>(dmg_JRC_num <span class="sc">==</span> <span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_severe_jrc      =</span> <span class="dv">100</span> <span class="sc">*</span> n_severe_jrc <span class="sc">/</span> n_classifiable_jrc,</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach to the satellite zones layer</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>damage_zones <span class="ot">&lt;-</span> damage_zones <span class="sc">|&gt;</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(zone_struct, <span class="at">by =</span> <span class="st">"zone_number"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Your turn
+<span class="screen-reader-only">Tip</span>Sense-check the join
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li><p><strong>Spatial clustering of residuals</strong>: Are the mismatches geographically clustered or random? Use <code>spdep</code> to compute Moran’s I on the residuals. What does the result suggest?</p></li>
-<li><p><strong>Stratify by building type</strong>: The mismatch might depend on building characteristics. Split the scatter plot by <code>damage_class</code> (the categorical version). Is the agreement better for severely damaged areas?</p></li>
-<li><p><strong>Hypothesise</strong>: Choose one area on the residual map where the satellite <em>underestimates</em> damage. What features of that area might explain it? (Think about building materials, street layout, blast direction.)</p></li>
-</ol>
-<p><em>Hint for Moran’s I: you’ll need to create spatial weights with <code>spdep::knearneigh()</code> then <code>spdep::moran.test()</code></em></p>
+<p>A common bug: forgetting to transform CRSes before <code>st_join</code>. If <code>n_buildings</code> per zone comes back as 0 across the board, your CRSes don’t match. Run <code>st_crs(buildings)</code> and <code>st_crs(damage_zones)</code> — both should report the same EPSG code before the join.</p>
 </div>
 </div>
 <hr>
+</section>
+<section id="satellite-vs-both-structural-assessments" class="level2">
+<h2 class="anchored" data-anchor-id="satellite-vs-both-structural-assessments">2.7 Satellite vs both structural assessments</h2>
+<p>We now have three damage measures per zone: the satellite RF, the EMSN087 analyst grade, and the JRC automated grade. Plotting all three on one chart shows two things at once — how the satellite agrees with each structural source, and how the two structural sources disagree with each other.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>damage_zones <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(pct_severe_cems, pct_severe_jrc),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to  =</span> <span class="st">"source"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"pct_severe_struct"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">source =</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(source,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pct_severe_cems"</span> <span class="ot">=</span> <span class="st">"EMSN087 (analyst)"</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pct_severe_jrc"</span>  <span class="ot">=</span> <span class="st">"JRC (automated)"</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pct_severe_struct, <span class="at">y =</span> pct_severe_adj, <span class="at">colour =</span> source)) <span class="sc">+</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> n_buildings), <span class="at">alpha =</span> <span class="fl">0.55</span>) <span class="sc">+</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"EMSN087 (analyst)"</span> <span class="ot">=</span> <span class="st">"#b30000"</span>,</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>               <span class="st">"JRC (automated)"</span>   <span class="ot">=</span> <span class="st">"#1a2744"</span>),</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Structural source"</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>), <span class="at">name =</span> <span class="st">"Buildings</span><span class="sc">\n</span><span class="st">in zone"</span>) <span class="sc">+</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Satellite damage vs two independent structural assessments"</span>,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point = one operational zone · dashed = perfect agreement"</span>,</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"% buildings severely damaged (structural assessment)"</span>,</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"% pixels severely damaged (satellite)"</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab_part2_files/figure-html/scatter-sat-vs-structural-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We might need to deal with these zeros here.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pearson correlation of satellite against each structural source</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(damage_zones<span class="sc">$</span>pct_severe_adj,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>         damage_zones<span class="sc">$</span>pct_severe_cems,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(damage_zones<span class="sc">$</span>pct_severe_adj,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>         damage_zones<span class="sc">$</span>pct_severe_jrc,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Up next
+<span class="screen-reader-only">Note</span>Reading the scatter and correlations
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In <strong>Part 3</strong> we go beyond the physical damage to ask: does destruction predict what happened to people — their wellbeing, income, and economic stress?</p>
+<ul>
+<li><strong>EMSN087 analyst (red cloud):</strong> spans the full range, slope is steep, <strong>r ≈ 0.47</strong> — a moderate-to-strong agreement between the satellite RF and the expert analyst.</li>
+<li><strong>JRC automated (navy cloud):</strong> piles up at the left edge. The pipeline flags only ~0.4% of buildings citywide as severely damaged, so most zones report near-zero. <strong>r ≈ 0.20</strong> — significant but weak.</li>
+<li><strong>Both clouds sit above the 45° line:</strong> the satellite reports higher <em>percentages</em> than either structural source. Expected — one damaged building is hundreds of severe pixels but just one row in the structural count.</li>
+</ul>
+<p>The natural reaction is “JRC is doing a worse job.” But a measure that almost always says “no damage” has no variance left to correlate against — the low r reflects calibration, not necessarily accuracy. And <strong>r ≈ 0.47 is genuinely good</strong> by remote-sensing-validation standards (typical range 0.3–0.6; above 0.6 is exceptional).</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-household-survey-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="the-household-survey-distribution">2.8 The household survey: distribution</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>samplings <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(neighbourhood, windows_rev, walls_rev, furniture_rev) <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols      =</span> <span class="fu">c</span>(windows_rev, walls_rev, furniture_rev),</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to  =</span> <span class="st">"component"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"rating"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(rating)) <span class="sc">|&gt;</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># tidy facet labels and order: windows → walls → furniture (outermost → innermost)</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">component =</span> <span class="fu">factor</span>(</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    component,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"windows_rev"</span>, <span class="st">"walls_rev"</span>, <span class="st">"furniture_rev"</span>),</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Windows"</span>, <span class="st">"Walls"</span>, <span class="st">"Furniture"</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> rating, <span class="at">fill =</span> neighbourhood)) <span class="sc">+</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">colour =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">position =</span> <span class="fu">position_dodge2</span>(<span class="at">preserve =</span> <span class="st">"single"</span>)) <span class="sc">+</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Karantina"</span>  <span class="ot">=</span> <span class="st">"#7570b3"</span>,</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MarMikhael"</span> <span class="ot">=</span> <span class="st">"#d95f02"</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1</span><span class="sc">\n</span><span class="st">none"</span>, <span class="st">"2</span><span class="sc">\n</span><span class="st">minor"</span>, <span class="st">"3</span><span class="sc">\n</span><span class="st">moderate"</span>, <span class="st">"4</span><span class="sc">\n</span><span class="st">severe"</span>)) <span class="sc">+</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> component, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Self-reported damage by component and neighbourhood (2021)"</span>,</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each panel = one type of damage · grouped bars compare neighbourhoods"</span>,</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Reported damage"</span>,</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Households"</span>,</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill     =</span> <span class="cn">NULL</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab_part2_files/figure-html/survey-damage-subcomponents-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="joining-the-survey-to-zones" class="level2">
+<h2 class="anchored" data-anchor-id="joining-the-survey-to-zones">2.9 Joining the survey to zones</h2>
+<p>Each respondent’s <code>bld_nbr</code> links them to a building, and each building (via §2.6) sits inside an operational zone. So the survey can be aggregated up to the zone level the same way the buildings were.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Building → zone lookup (built in §2.6)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>bldg_zone <span class="ot">&lt;-</span> buildings_zoned <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bld_nbr, zone_number) <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(bld_nbr, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean BLASTav per zone, 2021 only</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>zone_survey <span class="ot">&lt;-</span> samplings <span class="sc">|&gt;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2021</span>, <span class="sc">!</span><span class="fu">is.na</span>(BLASTav)) <span class="sc">|&gt;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(bldg_zone, <span class="at">by =</span> <span class="st">"bld_nbr"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(zone_number)) <span class="sc">|&gt;</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(zone_number) <span class="sc">|&gt;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_resp        =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_BLASTav  =</span> <span class="fu">mean</span>(BLASTav, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>damage_zones <span class="ot">&lt;-</span> damage_zones <span class="sc">|&gt;</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(zone_survey, <span class="at">by =</span> <span class="st">"zone_number"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Watch the sample sizes per zone
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The survey only covers three neighbourhoods, so most of the 139 operational zones will have <strong>zero respondents</strong> and <code>mean_BLASTav</code> = NA. That’s expected — not every zone got surveyed. When you visualise, only the zones with <code>n_resp &gt; 0</code> will have a colour. We typically also filter out zones with <code>n_resp &lt; 5</code> from the regression to avoid one-respondent zones swinging the estimates.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="four-measures-one-zone-the-triangulated-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="four-measures-one-zone-the-triangulated-comparison">2.10 Four measures, one zone: the triangulated comparison</h2>
+<p>Now each zone (where the survey is available) carries four independent damage scores. Let’s look at all of them on a single scatter — satellite on the x-axis, survey on the y-axis, EMSN087 as the fill colour.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>triangulated <span class="ot">&lt;-</span> damage_zones <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(mean_BLASTav), n_resp <span class="sc">&gt;=</span> <span class="dv">5</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(triangulated, <span class="fu">aes</span>(<span class="at">x =</span> pct_severe_adj, <span class="at">y =</span> mean_BLASTav)) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> n_resp, <span class="at">colour =</span> pct_severe_cems), <span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">colour =</span> <span class="st">"#1a2744"</span>, <span class="at">fill =</span> <span class="st">"#1a2744"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.15</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"rocket"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">name =</span> <span class="st">"% buildings</span><span class="sc">\n</span><span class="st">severely damaged</span><span class="sc">\n</span><span class="st">(EMSN087)"</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">7</span>), <span class="at">name =</span> <span class="st">"Survey</span><span class="sc">\n</span><span class="st">respondents"</span>) <span class="sc">+</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Four measures, one zone"</span>,</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point = one operational zone (≥5 survey respondents)"</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Satellite: % pixels severely damaged"</span>,</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Survey: mean BLASTav (1–4)"</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab_part2_files/figure-html/scatter-triangulated-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A well-aligned triangulation looks like: the satellite x-axis rises, the survey y-axis rises with it, and the EMSN087 fill colour deepens in the upper-right corner. Mismatches show up as points whose fill colour doesn’t match their position on the regression line.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>triangulated <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(pct_severe_adj, pct_severe_cems, pct_severe_jrc, mean_BLASTav) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Pairwise correlations between damage measures"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Pairwise correlations between damage measures</caption>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">pct_severe_adj</th>
+<th style="text-align: right;">pct_severe_cems</th>
+<th style="text-align: right;">pct_severe_jrc</th>
+<th style="text-align: right;">mean_BLASTav</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pct_severe_adj</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.401</td>
+<td style="text-align: right;">0.536</td>
+<td style="text-align: right;">0.485</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pct_severe_cems</td>
+<td style="text-align: right;">0.401</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">-0.018</td>
+<td style="text-align: right;">0.434</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pct_severe_jrc</td>
+<td style="text-align: right;">0.536</td>
+<td style="text-align: right;">-0.018</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.031</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mean_BLASTav</td>
+<td style="text-align: right;">0.485</td>
+<td style="text-align: right;">0.434</td>
+<td style="text-align: right;">0.031</td>
+<td style="text-align: right;">1.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+<section id="a-simple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-regression">2.11 A simple regression</h2>
+<p>We have a hypothesised relationship: <strong>higher satellite damage → higher self-reported damage</strong>. A linear model formalises it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_BLASTav <span class="sc">~</span> pct_severe_adj, <span class="at">data =</span> triangulated)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean_BLASTav ~ pct_severe_adj, data = triangulated)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.76869 -0.28600 -0.02967  0.36074  0.55870 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)     1.06388    0.76623   1.388   0.1840  
+pct_severe_adj  0.02996    0.01349   2.221   0.0412 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4117 on 16 degrees of freedom
+Multiple R-squared:  0.2356,    Adjusted R-squared:  0.1878 
+F-statistic: 4.931 on 1 and 16 DF,  p-value: 0.04117</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What the regression says
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Slope = 0.030, p = 0.041.</strong> A one-percentage-point increase in the satellite’s % severe pixels predicts a 0.03-point rise in mean BLASTav. So a zone the satellite flags as 50% severe sits about 1.5 BLASTav points higher than a 0% zone — roughly one full step on the four-point survey scale. That’s a meaningful effect size, not just a statistically detectable one.</p></li>
+<li><p><strong>R² = 0.24.</strong> The satellite measure explains about a quarter of the variance in zone-level household damage. The remaining three quarters are noise, sampling variation, and the genuine gap between what the satellite sees from above and what households experience inside their homes. This is consistent with the r ≈ 0.47 correlation from §2.7 (0.47² ≈ 0.22).</p></li>
+<li><p><strong>n = 18 zones.</strong> There are too few observations! How could be improve this? A grid maybe?</p></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="where-do-they-disagree-mapping-residuals" class="level2">
+<h2 class="anchored" data-anchor-id="where-do-they-disagree-mapping-residuals">2.12 Where do they disagree? Mapping residuals</h2>
+<p>The most informative thing we can do with this regression isn’t the coefficient — it’s the <strong>residuals</strong>. Each zone’s residual tells us whether the satellite over- or under-predicts the household experience.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>triangulated<span class="sc">$</span>resid <span class="ot">&lt;-</span> <span class="fu">residuals</span>(m1)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach back to the spatial layer</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>resid_map <span class="ot">&lt;-</span> damage_zones <span class="sc">|&gt;</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    triangulated <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(zone_number, resid),</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"zone_number"</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(resid))</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resid_map) <span class="sc">+</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_map_tile</span>(<span class="at">type =</span> <span class="st">"cartolight"</span>, <span class="at">zoom =</span> <span class="dv">14</span>, <span class="at">progress =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> resid), <span class="at">colour =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> epicentre, <span class="at">shape =</span> <span class="dv">4</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">stroke =</span> <span class="fl">1.4</span>, <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">low      =</span> <span class="st">"#2166ac"</span>,   <span class="co"># satellite over-estimates (more damage than survey)</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">mid      =</span> <span class="st">"white"</span>,</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">high     =</span> <span class="st">"#b2182b"</span>,   <span class="co"># satellite under-estimates (less damage than survey)</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">midpoint =</span> <span class="dv">0</span>,</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">name     =</span> <span class="st">"Residual</span><span class="sc">\n</span><span class="st">(survey − satellite</span><span class="sc">\n</span><span class="st">prediction)"</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"bl"</span>, <span class="at">width_hint =</span> <span class="fl">0.25</span>, <span class="at">text_cex =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Where the satellite and survey diverge"</span>,</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Red = survey reports more damage than satellite predicts · Blue = the opposite"</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab_part2_files/figure-html/residual-map-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">## 2.13 Let’s have a think</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">::: callout-tip ## Your turn</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Look at the residual map you just made.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">- Find a <strong>red</strong> zone (survey reports more damage than the satellite predicts). What kind of damage might the satellite be <em>missing</em>? - Find a <strong>blue</strong> zone (satellite reports more damage than households experienced). What might be causing the satellite to <em>over-detect</em>? Construction sites, demolition, dust, shadow? - The survey only covers limited buildings. How does that limit what we can say about the satellite measure’s overall accuracy?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Two patterns worth looking for specifically:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1. <strong>Red residuals far from the port</strong> — could be a training-label bias problem: the Random Forest was probably trained more heavily on dramatic damage near the port, and may under-call subtler facade damage further out. 2. <strong>Blue residuals near the port</strong> — the satellite might be seeing rubble or cleared lots that households can no longer report on because they’ve moved out. :::</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="discussion-what-this-analysis-can-and-cant-tell-us" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-what-this-analysis-can-and-cant-tell-us">2.14 Discussion: what this analysis can and can’t tell us</h2>
+<p><strong>The agreement is real but partial.</strong></p>
+<p><strong>The four measures are not equally independent.</strong></p>
+<p><strong>The validation sample is thin.</strong></p>
+<hr>
+</section>
+<section id="where-to-go-next" class="level2">
+<h2 class="anchored" data-anchor-id="where-to-go-next">2.15 Where to go next</h2>
+<p>A few directions to push the analysis further:</p>
+<ul>
+<li><p><strong>Building level rather than zone level.</strong> §2.6–§2.12 aggregate to zones, leaving ~18 observations. A building-level analysis gives ~600, plus access to the floors / age / construction-type variables in <code>buildings</code>. The trade-off is mixed effects (multiple respondents per building) and re-aggregating the satellite pixels to building footprints.</p></li>
+<li><p><strong>Add controls for what else drives damage.</strong> Distance from the port (§1.9) is the obvious one. Adding it asks: <em>does the satellite still predict survey damage once we account for distance?</em> If yes, the satellite is picking up building-specific signal; if no, it’s mostly proxying for proximity to the blast.</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean_BLASTav <span class="sc">~</span> pct_severe_adj <span class="sc">+</span> dist_km <span class="sc">+</span> neighbourhood,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> triangulated)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p><strong>Neighbourhood fixed effects.</strong> <code>+ neighbourhood</code> absorbs everything that varies between Karantina, Mar Mikhael and Ras Beirut (wealth, housing stock, sampling) and asks the satellite to predict <em>within-neighbourhood</em> damage variation. Strict test, probably underpowered at n = 18, but conceptually the right move.</p></li>
+<li><p><strong>Disaggregate the survey response.</strong> <code>BLASTav</code> averages windows / walls / furniture. Windows are exterior (visible from above); furniture is interior (invisible by construction). If the correlation with the satellite is much higher for windows than for furniture, that’s direct evidence for the line-of-sight bias from §1.2.</p></li>
+<li><p><strong>Regress the residuals on something else.</strong> The residual map shows <em>where</em> satellite and survey diverge. Are those residuals correlated with building age? Pre-blast deprivation? Wind direction? Each is one regression away.</p></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Discussion prompts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Running a humanitarian response from a satellite map alone — what would you systematically miss?</strong> Push past “interior damage” — think about <em>who</em> lives in the buildings that get miscounted.</li>
+<li><strong>The JRC pipeline almost never calls a building “damaged” unless it’s unmistakable.</strong> Right calibration for a humanitarian context? What does the opposite calibration cost?</li>
+<li><strong>All four measures capture damage in roughly the same month.</strong> What kinds of damage take longer to surface? What kinds get <em>erased</em> before any of these can pick them up?</li>
+</ol>
 </div>
 </div>
 
-
-<!-- -->
 
 </section>
 
@@ -397,57 +1298,6 @@ Note
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -777,106 +1627,19 @@ Note
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Part 2 · Survey Validation"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "How does satellite damage match ground-truth survey data?"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Elisabetta Pietrostefani, University of Liverpool"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2026-05-19"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="part-badge"&gt;Lab Part 2 of 3 · ~25 min&lt;/div&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>::: objectives</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>**Learning objectives**</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>By the end of Part 2 you will be able to:</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Spatially join household survey data to satellite grid cells</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Compute correlation and run a simple regression between satellite and survey damage measures</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Visualise and interpret spatial mismatches (residuals)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Articulate *why* the two sources agree and disagree in different locations</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.1 Load the survey data</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.2 Convert survey to spatial</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.3 Spatial join: survey points → satellite grid</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Each household gets assigned the damage index of the 250m grid cell it falls in.</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.4 Correlation: satellite vs. survey damage</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.5 Regression: satellite predicting survey damage</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The coefficient on <span class="in">`damage_index`</span> tells us: for a one-unit increase in the satellite damage score (0→1), how many points higher is self-reported damage on the 1–5 scale?</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.6 Where do they disagree? Mapping residuals</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## ✏️ Exercise 2</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Spatial clustering of residuals**: Are the mismatches geographically clustered or random? Use <span class="in">`spdep`</span> to compute Moran's I on the residuals. What does the result suggest?</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Stratify by building type**: The mismatch might depend on building characteristics. Split the scatter plot by <span class="in">`damage_class`</span> (the categorical version). Is the agreement better for severely damaged areas?</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Hypothesise**: Choose one area on the residual map where the satellite *underestimates* damage. What features of that area might explain it? (Think about building materials, street layout, blast direction.)</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>*Hint for Moran's I: you'll need to create spatial weights with `spdep::knearneigh()` then `spdep::moran.test()`*</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Up next</span></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>In **Part 3** we go beyond the physical damage to ask: does destruction predict what happened to people — their wellbeing, income, and economic stress?</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://elisabettapietrostefani.com">Elisabetta Pietrostefani</a>, <a href="https://gdsl.liverpool.ac.uk">Geographic Data Science Lab</a>, University of Liverpool</p>
-</div>   
-    <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/elisabettap/man-made-disasters/edit/main/lab_part2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/elisabettap/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="https://pietrostefani.com">Elisabetta Pietrostefani</a> · <a href="https://gdsl.liverpool.ac.uk"><span class="orange">GDSL</span></a> · <a href="https://imago.ac.uk"><span class="green">Imago</span></a></p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pietrostefani/man-made-disasters/edit/main/lab_part2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pietrostefani/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p><a href="https://spaceraise.academy">SPACERAISE 2026</a> · Week #3 · May 19, 2026</p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
 
