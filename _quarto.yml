@@ -35,9 +35,11 @@ website:
           - section: "Beirut Blast Lab"
             contents:
               - lab_part1.qmd
+              - lab_part2.qmd
+              - lab_part3.qmd
+              - lab_append.qmd
       - section: "A bit extra"
         contents:
-          - datasets.qmd
           - satellites_to_areas.qmd
       - text: "---"
       - text: "Elisabetta Pietrostefani"
