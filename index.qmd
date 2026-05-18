@@ -7,10 +7,10 @@ title-block-style: none
 
 ```{=html}
 <div class="hero-banner compact">
-  <h1>Man-Made Disasters</h1>
-  <div class="subtitle">Triangulated data methods: satellite imagery, surveys &amp; socioeconomic outcomes</div>
+  <h1>Triangulating Traces for Humanitarian Response</h1>
+  <div class="subtitle">Combining satellite imagery, surveys &amp; socioeconomic data to measure the impact of man-made disasters</div>
   <div class="meta">
-    <span>Elisabetta Pietrostefani · Univ. of Liverpool</span>
+    <span>Elisabetta Pietrostefani · University of Liverpool</span>
     <span>SPACERAISE 2026 · Week 3 · GSSI, L'Aquila · 19 May 2026</span>
   </div>
 </div>
@@ -25,9 +25,8 @@ It covers how to combine **satellite remote sensing data** with **traditional su
 ## Schedule for May 19
 
 | Time | Session |
-|-----------------------------|-------------------------------------------|
+|------|---------|
 | 08:30 – 10:00 | **Lecture** · Triangulating Traces for Humanitarian Response |
-| 10:00 – 10:30 | *Coffee break* |
 | 14:00 – 15:30 | **Lab** · Geo data lab: Man-made disasters (Beirut case study) |
 
 ## What you will learn
@@ -35,25 +34,29 @@ It covers how to combine **satellite remote sensing data** with **traditional su
 By the end of this training you will be able to:
 
 -   Understand how **satellite damage proxy maps** are constructed from pre/post imagery
--   Spatially join and compare **remote sensing** and **ground-truth survey** data
--   Run and interpret **regression models** linking physical destruction to socioeconomic outcomes
+-   Spatially join and compare **remote sensing**, **expert structural assessments**, and **ground-truth survey** data
+-   Run and interpret a simple **regression model** linking physical destruction to a socioeconomic outcome
 -   Critically assess where different data sources agree — and where they diverge
 
 ## Materials
 
-|  |  |
-|------------------------------------|------------------------------------|
-| [Lecture slides](lecture.qmd) | Conceptual background on triangulated data methods |
-| [Part 1 — Satellite & destruction](lab_part1.qmd) | Measuring damage from MAXAR imagery |
-| [Part 2 — Survey validation](lab_part2.qmd) | How satellite damage matches ground-truth |
-| Part 3 — Socioeconomic outcomes *(not covered in this session)* | Does destruction predict sentiment and economic data? |
+| Page | What it covers |
+|------|----------------|
+| [Lecture slides](lecture.qmd) | Conceptual background on 3 case-studies |
+| [Setup & data access](lab_setup.qmd) | Download the data, set up R, troubleshooting |
+| [Datasets reference](datasets.qmd) | What each file contains and how to read it |
+| [Part 1 — Satellites & destruction](lab_part1.qmd) | Measuring damage from MAXAR imagery |
+| [Part 2 — Satellite vs surveys](lab_part2.qmd) | How the satellite measure matches Copernicus, JRC, and household reports |
+| [Part 3 — Damage, sentiment & economic stress](lab_part3.qmd) | One regression linking damage to income — then student exploration |
+| [Pipeline appendix](pipeline_demo.qmd) | The full Random Forest pipeline, illustrated (not run in the session) |
+| [From grids to areas](satellites_to_areas.qmd) | How satellite imagery becomes area-level statistics (Imago context) |
 
 ## Case study: Beirut Port Explosion (August 4, 2020)
 
-The explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.
+The explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, expert structural assessments, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.
 
 ::: callout-note
 ## Data note
 
-This lab uses **MAXAR satellite-derived damage data** and a **synthetic survey dataset** modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.
+This lab uses **MAXAR / WorldView satellite-derived damage data**, the **Copernicus EMSN087** building-level structural assessment from the EU Joint Research Centre, and a **synthetic version of a household survey** modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.
 :::

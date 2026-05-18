@@ -13,9 +13,9 @@ The full dataset — the pre-computed satellite damage raster, the operational z
 ::: callout-tip
 ## Download link
 
-[**Lab data on Dropbox**](https://www.dropbox.com/scl/fo/z1ax4o17tfs8piohwn73m/AME7WpX6dJbixtmWqUFykwA?rlkey=i10gdfs2hfm5qazkf0sm9uw8s&st=r3s6jmvy&dl=0)
+[**Lab data here**](https://www.dropbox.com/scl/fo/z1ax4o17tfs8piohwn73m/AME7WpX6dJbixtmWqUFykwA?rlkey=i10gdfs2hfm5qazkf0sm9uw8s&st=r3s6jmvy&dl=0)
 
-⚠️ **This link expires on [24 May 2026].** If you're reading this after that date, email me for a refreshed link.
+⚠️ **This link expires on \[24 May 2026\].** If you're reading this after that date, email me for a refreshed link.
 :::
 
 Once downloaded:
@@ -74,7 +74,7 @@ That guide will walk you through installing R, RStudio, and the core packages. T
 
 If you only need a few files from a GitHub repo (rather than cloning the whole thing), there's a neat free tool that lets you download a single folder directly:
 
-1.  Go to **<https://download-directory.github.io>**
+1.  Go to [**https://download-directory.github.io**](https://download-directory.github.io){.uri}
 2.  Find the folder you need on GitHub and copy its URL — for example: `https://github.com/pietrostefani/gds/tree/main/data/London`
 3.  Paste it into the green box on download-directory and wait a few seconds. The site builds you a zip on the fly.
 4.  Check your `Downloads` folder and unzip.
@@ -100,4 +100,3 @@ A few common issues and what to do about them:
 **Tiles don't appear in the `tmap` interactive maps** — usually an internet hiccup with the basemap provider. Refresh, or switch the basemap line to `tm_basemap("OpenStreetMap")` which tends to be the most reliable.
 
 **`mean_BLASTav` is `NA` for every zone** — the survey `bld_nbr` didn't join to the buildings shapefile. Check that both are integer/character types (not factor) before joining, and that you're using the *flipped* `BLASTav` from the load step.
-

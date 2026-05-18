@@ -217,16 +217,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Man-Made Disasters</h1></header>
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Triangulating Traces for Humanitarian Response</h1></header>
 
 
 
 
 <div class="hero-banner compact">
   
-  <div class="subtitle">Triangulated data methods: satellite imagery, surveys &amp; socioeconomic outcomes</div>
+  <div class="subtitle">Combining satellite imagery, surveys &amp; socioeconomic data to measure the impact of man-made disasters</div>
   <div class="meta">
-    <span>Elisabetta Pietrostefani · Univ. of Liverpool</span>
+    <span>Elisabetta Pietrostefani · University of Liverpool</span>
     <span>SPACERAISE 2026 · Week 3 · GSSI, L'Aquila · 19 May 2026</span>
   </div>
 </div>
@@ -240,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 <table class="caption-top table">
 <colgroup>
 <col style="width: 40%">
-<col style="width: 59%">
+<col style="width: 60%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -254,10 +254,6 @@ ul.task-list li input[type="checkbox"] {
 <td><strong>Lecture</strong> · Triangulating Traces for Humanitarian Response</td>
 </tr>
 <tr class="even">
-<td>10:00 – 10:30</td>
-<td><em>Coffee break</em></td>
-</tr>
-<tr class="odd">
 <td>14:00 – 15:30</td>
 <td><strong>Lab</strong> · Geo data lab: Man-made disasters (Beirut case study)</td>
 </tr>
@@ -269,37 +265,59 @@ ul.task-list li input[type="checkbox"] {
 <p>By the end of this training you will be able to:</p>
 <ul>
 <li>Understand how <strong>satellite damage proxy maps</strong> are constructed from pre/post imagery</li>
-<li>Spatially join and compare <strong>remote sensing</strong> and <strong>ground-truth survey</strong> data</li>
-<li>Run and interpret <strong>regression models</strong> linking physical destruction to socioeconomic outcomes</li>
+<li>Spatially join and compare <strong>remote sensing</strong>, <strong>expert structural assessments</strong>, and <strong>ground-truth survey</strong> data</li>
+<li>Run and interpret a simple <strong>regression model</strong> linking physical destruction to a socioeconomic outcome</li>
 <li>Critically assess where different data sources agree — and where they diverge</li>
 </ul>
 </section>
 <section id="materials" class="level2">
 <h2 class="anchored" data-anchor-id="materials">Materials</h2>
 <table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Page</th>
+<th>What it covers</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><a href="./lecture.html">Lecture slides</a></td>
-<td>Conceptual background on triangulated data methods</td>
+<td>Conceptual background on 3 case-studies</td>
 </tr>
 <tr class="even">
-<td><a href="./lab_part1.html">Part 1 — Satellite &amp; destruction</a></td>
+<td><a href="./lab_setup.html">Setup &amp; data access</a></td>
+<td>Download the data, set up R, troubleshooting</td>
+</tr>
+<tr class="odd">
+<td><a href="./datasets.html">Datasets reference</a></td>
+<td>What each file contains and how to read it</td>
+</tr>
+<tr class="even">
+<td><a href="./lab_part1.html">Part 1 — Satellites &amp; destruction</a></td>
 <td>Measuring damage from MAXAR imagery</td>
 </tr>
 <tr class="odd">
-<td><a href="./lab_part2.html">Part 2 — Survey validation</a></td>
-<td>How satellite damage matches ground-truth</td>
+<td><a href="./lab_part2.html">Part 2 — Satellite vs surveys</a></td>
+<td>How the satellite measure matches Copernicus, JRC, and household reports</td>
 </tr>
 <tr class="even">
-<td>Part 3 — Socioeconomic outcomes <em>(not covered in this session)</em></td>
-<td>Does destruction predict sentiment and economic data?</td>
+<td><a href="./lab_part3.html">Part 3 — Damage, sentiment &amp; economic stress</a></td>
+<td>One regression linking damage to income — then student exploration</td>
+</tr>
+<tr class="odd">
+<td><a href="pipeline_demo.qmd">Pipeline appendix</a></td>
+<td>The full Random Forest pipeline, illustrated (not run in the session)</td>
+</tr>
+<tr class="even">
+<td><a href="./satellites_to_areas.html">From grids to areas</a></td>
+<td>How satellite imagery becomes area-level statistics (Imago context)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="case-study-beirut-port-explosion-august-4-2020" class="level2">
 <h2 class="anchored" data-anchor-id="case-study-beirut-port-explosion-august-4-2020">Case study: Beirut Port Explosion (August 4, 2020)</h2>
-<p>The explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.</p>
+<p>The explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, expert structural assessments, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -310,7 +328,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This lab uses <strong>MAXAR satellite-derived damage data</strong> and a <strong>synthetic survey dataset</strong> modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.</p>
+<p>This lab uses <strong>MAXAR / WorldView satellite-derived damage data</strong>, the <strong>Copernicus EMSN087</strong> building-level structural assessment from the EU Joint Research Centre, and a <strong>synthetic version of a household survey</strong> modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.</p>
 </div>
 </div>
 

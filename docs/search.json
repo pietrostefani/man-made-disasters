@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Man-Made Disasters",
+    "title": "Triangulating Traces for Humanitarian Response",
     "section": "",
-    "text": "Triangulated data methods: satellite imagery, surveys & socioeconomic outcomes\n  \n    Elisabetta Pietrostefani · Univ. of Liverpool\n    SPACERAISE 2026 · Week 3 · GSSI, L'Aquila · 19 May 2026",
+    "text": "Combining satellite imagery, surveys & socioeconomic data to measure the impact of man-made disasters\n  \n    Elisabetta Pietrostefani · University of Liverpool\n    SPACERAISE 2026 · Week 3 · GSSI, L'Aquila · 19 May 2026",
     "crumbs": [
       "About this training"
     ]
@@ -12,7 +12,7 @@
   {
     "objectID": "index.html#about-this-training",
     "href": "index.html#about-this-training",
-    "title": "Man-Made Disasters",
+    "title": "Triangulating Traces for Humanitarian Response",
     "section": "About this training",
     "text": "About this training\nThis training is part of the SPACERAISE 2026 Doctoral School module on Geospatial Data and Quantitative Analysis in Social Science at the Gran Sasso Science Institute (GSSI), L’Aquila, Italy.\nIt covers how to combine satellite remote sensing data with traditional survey data to measure the impacts of man-made disasters — illustrated with the case of the 2020 Beirut Port Explosion.",
     "crumbs": [
@@ -22,9 +22,9 @@
   {
     "objectID": "index.html#schedule-for-may-19",
     "href": "index.html#schedule-for-may-19",
-    "title": "Man-Made Disasters",
+    "title": "Triangulating Traces for Humanitarian Response",
     "section": "Schedule for May 19",
-    "text": "Schedule for May 19\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n08:30 – 10:00\nLecture · Triangulating Traces for Humanitarian Response\n\n\n10:00 – 10:30\nCoffee break\n\n\n14:00 – 15:30\nLab · Geo data lab: Man-made disasters (Beirut case study)",
+    "text": "Schedule for May 19\n\n\n\n\n\n\n\nTime\nSession\n\n\n\n\n08:30 – 10:00\nLecture · Triangulating Traces for Humanitarian Response\n\n\n14:00 – 15:30\nLab · Geo data lab: Man-made disasters (Beirut case study)",
     "crumbs": [
       "About this training"
     ]
@@ -32,9 +32,9 @@
   {
     "objectID": "index.html#what-you-will-learn",
     "href": "index.html#what-you-will-learn",
-    "title": "Man-Made Disasters",
+    "title": "Triangulating Traces for Humanitarian Response",
     "section": "What you will learn",
-    "text": "What you will learn\nBy the end of this training you will be able to:\n\nUnderstand how satellite damage proxy maps are constructed from pre/post imagery\nSpatially join and compare remote sensing and ground-truth survey data\nRun and interpret regression models linking physical destruction to socioeconomic outcomes\nCritically assess where different data sources agree — and where they diverge",
+    "text": "What you will learn\nBy the end of this training you will be able to:\n\nUnderstand how satellite damage proxy maps are constructed from pre/post imagery\nSpatially join and compare remote sensing, expert structural assessments, and ground-truth survey data\nRun and interpret a simple regression model linking physical destruction to a socioeconomic outcome\nCritically assess where different data sources agree — and where they diverge",
     "crumbs": [
       "About this training"
     ]
@@ -42,9 +42,9 @@
   {
     "objectID": "index.html#materials",
     "href": "index.html#materials",
-    "title": "Man-Made Disasters",
+    "title": "Triangulating Traces for Humanitarian Response",
     "section": "Materials",
-    "text": "Materials\n\n\n\nLecture slides\nConceptual background on triangulated data methods\n\n\nPart 1 — Satellite & destruction\nMeasuring damage from MAXAR imagery\n\n\nPart 2 — Survey validation\nHow satellite damage matches ground-truth\n\n\nPart 3 — Socioeconomic outcomes (not covered in this session)\nDoes destruction predict sentiment and economic data?",
+    "text": "Materials\n\n\n\nPage\nWhat it covers\n\n\n\n\nLecture slides\nConceptual background on 3 case-studies\n\n\nSetup & data access\nDownload the data, set up R, troubleshooting\n\n\nDatasets reference\nWhat each file contains and how to read it\n\n\nPart 1 — Satellites & destruction\nMeasuring damage from MAXAR imagery\n\n\nPart 2 — Satellite vs surveys\nHow the satellite measure matches Copernicus, JRC, and household reports\n\n\nPart 3 — Damage, sentiment & economic stress\nOne regression linking damage to income — then student exploration\n\n\nPipeline appendix\nThe full Random Forest pipeline, illustrated (not run in the session)\n\n\nFrom grids to areas\nHow satellite imagery becomes area-level statistics (Imago context)",
     "crumbs": [
       "About this training"
     ]
@@ -52,9 +52,9 @@
   {
     "objectID": "index.html#case-study-beirut-port-explosion-august-4-2020",
     "href": "index.html#case-study-beirut-port-explosion-august-4-2020",
-    "title": "Man-Made Disasters",
+    "title": "Triangulating Traces for Humanitarian Response",
     "section": "Case study: Beirut Port Explosion (August 4, 2020)",
-    "text": "Case study: Beirut Port Explosion (August 4, 2020)\nThe explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.\n\n\n\n\n\n\nNoteData note\n\n\n\nThis lab uses MAXAR satellite-derived damage data and a synthetic survey dataset modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.",
+    "text": "Case study: Beirut Port Explosion (August 4, 2020)\nThe explosion at the Port of Beirut was one of the largest non-nuclear explosions in history, equivalent to approximately 1–1.5 kilotons of TNT. It devastated large parts of the city and provides a compelling case study for how we can use multiple data types — satellite imagery, expert structural assessments, household surveys, and socioeconomic indicators — to understand the spatial patterns of destruction and recovery.\n\n\n\n\n\n\nNoteData note\n\n\n\nThis lab uses MAXAR / WorldView satellite-derived damage data, the Copernicus EMSN087 building-level structural assessment from the EU Joint Research Centre, and a synthetic version of a household survey modelled on a real in-person survey conducted in Beirut post-blast. The synthetic data preserves the statistical structure of the original while protecting respondent confidentiality.",
     "crumbs": [
       "About this training"
     ]
@@ -624,10 +624,10 @@
     "href": "lab_part3.html",
     "title": "Part 3 · Damage, sentiment & economic stress",
     "section": "",
-    "text": "Lab Part 3 of 3\n\nLearning objectives\n\nSpecify and run OLS models with satellite damage and survey controls\nInterpret coefficients from multi-variable regressions on socioeconomic outcomes\nAssess whether the satellite damage signal persists once survey damage is included",
+    "text": "Lab Part 3 of 3\n\nLearning objectives\n\nSpecify and run OLS models with satellite damage and survey controls\nAssess whether the satellite damage signal persists once survey damage is included\n\n\nRun something descriptive using dmg_grd and the following variables from the survey - use all data Ras Beirut included\nuse these three synthetic variables - do it quite light weight - one regression nation_hh hh_income_dollars confidence_municipality\nAsk students to follow-up by using alternative damage vairables and seeing how change results",
     "crumbs": [
       "Labs",
-      "Beirut Blast Lab",
+      "Beirut Blast",
       "Part 3 · Damage, sentiment & economic stress"
     ]
   },
@@ -955,7 +955,7 @@
     "href": "lab_setup.html#download-the-lab-data",
     "title": "Accessing the data and setting up R",
     "section": "1. Download the lab data",
-    "text": "1. Download the lab data\nThe full dataset — the pre-computed satellite damage raster, the operational zone polygons, the buildings shapefile, and the synthetic household survey — lives in a Dropbox folder:\n\n\n\n\n\n\nTipDownload link\n\n\n\nLab data on Dropbox\n⚠️ This link expires on [24 May 2026]. If you’re reading this after that date, email me for a refreshed link.\n\n\nOnce downloaded:\n\nUnzip the folder.\nMove the contents into a data/ folder inside your lab project directory. The expected structure is:\n\nyour-project/\n├── lab_part1.qmd\n├── lab_part2.qmd\n├── lab_part2-3.qmd\n└── data/\n    ├── geo/\n    │   ├── raster_rf_damage.shp        (and siblings)\n    │   ├── buildings_damaged.shp       (and siblings)\n    │   └── beirut_port_explosions_operational_zones_139.shp (and siblings)\n    ├── maxar_processed/\n    │   └── MX_31Jul_5Aug_UN.tif\n    └── kr_rb_mm_synthetic.xlsx\n\nOpen the .qmd files in RStudio. The relative paths (data/geo/...) in the code will resolve automatically.",
+    "text": "1. Download the lab data\nThe full dataset — the pre-computed satellite damage raster, the operational zone polygons, the buildings shapefile, and the synthetic household survey — lives in a Dropbox folder:\n\n\n\n\n\n\nTipDownload link\n\n\n\nLab data here\n⚠️ This link expires on [24 May 2026]. If you’re reading this after that date, email me for a refreshed link.\n\n\nOnce downloaded:\n\nUnzip the folder.\nMove the contents into a data/ folder inside your lab project directory. The expected structure is:\n\nyour-project/\n├── lab_part1.qmd\n├── lab_part2.qmd\n├── lab_part2-3.qmd\n└── data/\n    ├── geo/\n    │   ├── raster_rf_damage.shp        (and siblings)\n    │   ├── buildings_damaged.shp       (and siblings)\n    │   └── beirut_port_explosions_operational_zones_139.shp (and siblings)\n    ├── maxar_processed/\n    │   └── MX_31Jul_5Aug_UN.tif\n    └── kr_rb_mm_synthetic.xlsx\n\nOpen the .qmd files in RStudio. The relative paths (data/geo/...) in the code will resolve automatically.",
     "crumbs": [
       "Data & Set-up",
       "Accessing the data and setting up R"
