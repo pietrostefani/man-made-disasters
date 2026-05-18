@@ -172,7 +172,7 @@ This is what gets passed to Step 3, where we count *severe* pixels inside each o
 
 ### Step 3 — Aggregation to zones (pixel → neighbourhood)
 
-A pixel-level damage map is too granular for policy or humanitarian targeting — agencies operate at the neighbourhood (cadastre / operational zone) scale, not the dinner-plate scale. So the final step **aggregates** pixel classifications up using **zonal statistics**:
+A pixel-level damage map is too granular for policy or humanitarian targeting — agencies operate at the neighbourhood (cadastre / operational zone in the case of Beirut) scale, not the dinner-plate scale. So the final step **aggregates** pixel classifications up using **zonal statistics**:
 
 > For each operational zone polygon, count how many pixels fall inside it, count how many of those are classified as severe damage, and divide.
 
@@ -260,7 +260,7 @@ The pipeline is heavy: the raw tiles are several GB each, and training the Rando
 ::: callout-tip
 ## Want to see the pipeline demonstrated?
 
-A separate companion document walks through all three steps — loading the raw tiles, stacking pre + post, training and applying the supervised Random Forest, and aggregating to zones — as a runnable R recipe. You won't need it for this lab, but it's there if you want to adapt the workflow to a different event.
+A separate companion document walks through all three steps — loading the raw tiles, stacking pre + post, training and applying the supervised Random Forest and aggregating to zones — as a runnable R recipe. You won't need it for this lab, but it's there if you want to adapt the workflow to a different event.
 
 🔗 **[lab_append.qmd](lab_append.qmd)** — the full pipeline, illustrated (not run)
 :::
@@ -421,7 +421,7 @@ summary(damage_zones$dist_km)
 
 ### Static map with epicentre and top zones labelled
 
-To make the map *interpretable* (and not just decorative), we add two things:
+To make the map *interpretable*, we add two things:
 
 -   A cross marking the **blast epicentre** at Hangar 12 of the Port of Beirut.
 -   **Labels for the 8 most-damaged cadastres**, so the eye doesn't have to jump between map and table to identify them.
@@ -554,7 +554,7 @@ damage_zones |>
 
 ## 1.9 How does damage decay with distance from the port?
 
-The histogram tells us *how much* damage there is overall, but not *where*. Plotting severe-damage percentage against distance from the epicentre gives us the spatial structure in a single chart — and a sanity check on the map.
+The histogram tells us *how much* damage there is overall, but not *where*. Plotting severe-damage percentage against distance from the blast epicentre gives us the spatial structure in a single chart — and a sanity check on the map.
 
 ```{r}
 #| label: distance-decay
@@ -580,8 +580,8 @@ damage_zones |>
   scale_size_continuous(range = c(1, 6), name = "Zone area (km²)") +
   labs(
     title    = "Severe damage decays with distance from the blast epicentre",
-    subtitle = "Each point is one operational zone · LOESS smoother in navy",
-    x        = "Distance from epicentre (km)",
+    subtitle = "Each point is one zone · LOESS smoother in navy",
+    x        = "Distance from blast epicentre (km)",
     y        = "% of zone severely damaged"
   ) +
   theme_minimal(base_size = 12) +
@@ -600,7 +600,7 @@ The drop-off is typically steep within the first 1–2 km of the port and then f
 
 ## 1.10 Most damaged zones — ranked
 
-Rather than a plain table, we rank the top 10 cadastres by its distance from the epicentre. This pulls together *magnitude* and *geography*.
+Rather than a plain table, we rank the top 10 cadastres/zones by its distance from the blast epicentre. This pulls together *magnitude* and *geography*.
 
 For reference, the same ten zones as a compact table:
 
