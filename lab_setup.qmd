@@ -1,0 +1,103 @@
+---
+title: "Accessing the data and setting up R"
+---
+
+This page gathers everything you need to follow the lab on your own machine: the data download, where to find the code, and how to get R set up if you haven't already.
+
+------------------------------------------------------------------------
+
+## 1. Download the lab data
+
+The full dataset — the pre-computed satellite damage raster, the operational zone polygons, the buildings shapefile, and the synthetic household survey — lives in a Dropbox folder:
+
+::: callout-tip
+## Download link
+
+[**Lab data on Dropbox**](https://www.dropbox.com/scl/fo/z1ax4o17tfs8piohwn73m/AME7WpX6dJbixtmWqUFykwA?rlkey=i10gdfs2hfm5qazkf0sm9uw8s&st=r3s6jmvy&dl=0)
+
+⚠️ **This link expires on [24 May 2026].** If you're reading this after that date, email me for a refreshed link.
+:::
+
+Once downloaded:
+
+1.  Unzip the folder.
+2.  Move the contents into a `data/` folder inside your lab project directory. The expected structure is:
+
+```         
+your-project/
+├── lab_part1.qmd
+├── lab_part2.qmd
+├── lab_part2-3.qmd
+└── data/
+    ├── geo/
+    │   ├── raster_rf_damage.shp        (and siblings)
+    │   ├── buildings_damaged.shp       (and siblings)
+    │   └── beirut_port_explosions_operational_zones_139.shp (and siblings)
+    ├── maxar_processed/
+    │   └── MX_31Jul_5Aug_UN.tif
+    └── kr_rb_mm_synthetic.xlsx
+```
+
+3.  Open the `.qmd` files in RStudio. The relative paths (`data/geo/...`) in the code will resolve automatically.
+
+------------------------------------------------------------------------
+
+## 2. Code and lab materials
+
+All lab materials — the rendered Quarto pages, the source `.qmd` files, the slides, and any updates after the session — are hosted at:
+
+::: callout-tip
+## Course website
+
+[**pietrostefani.github.io/man-made-disasters**](https://pietrostefani.github.io/man-made-disasters/)
+:::
+
+The site is updated as the labs evolve, so if you're returning to the material later, it's worth checking back for the latest version.
+
+------------------------------------------------------------------------
+
+## 3. Setting up R
+
+If you haven't installed R, RStudio, or the spatial-analysis packages used in these labs, the most reliable starting point is the Geographic Data Science setup guide:
+
+::: callout-tip
+## R installation and setup
+
+[**gdsl-ul.github.io/gds/environR.html**](https://gdsl-ul.github.io/gds/environR.html)
+:::
+
+That guide will walk you through installing R, RStudio, and the core packages. The lab assumes you can already load `sf`, `terra`, `tidyverse`, `tmap`, and a handful of mapping helpers — the §2.2 setup chunk lists them all explicitly.
+
+------------------------------------------------------------------------
+
+## 4. Downloading specific files from GitHub
+
+If you only need a few files from a GitHub repo (rather than cloning the whole thing), there's a neat free tool that lets you download a single folder directly:
+
+1.  Go to **<https://download-directory.github.io>**
+2.  Find the folder you need on GitHub and copy its URL — for example: `https://github.com/pietrostefani/gds/tree/main/data/London`
+3.  Paste it into the green box on download-directory and wait a few seconds. The site builds you a zip on the fly.
+4.  Check your `Downloads` folder and unzip.
+
+::: callout-warning
+## Don't download the whole repository
+
+It's tempting to hit the green "Code → Download ZIP" button on GitHub and pull the entire repo, but this gets messy fast: you'll end up with hundreds of files you don't need, rendered HTML output that conflicts with your own `.qmd` files when you re-render, and a `data/` folder structure that may not match what the lab expects. Stick to grabbing just the folder you need using the method above.
+:::
+
+This is much faster than cloning the whole repository, and it's the easiest way to grab individual lab folders from the course materials.
+
+------------------------------------------------------------------------
+
+## 5. Troubleshooting
+
+A few common issues and what to do about them:
+
+**`Error in CPL_read_ogr(...) : Cannot open ...`** — the path is wrong. The lab uses relative paths from your project root (e.g. `data/geo/buildings_damaged.shp`). Either run the code from RStudio with the project open, or use `here::here("data/geo/buildings_damaged.shp")` to anchor the path to the project root.
+
+**`Error: package 'sf' could not be loaded`** — `sf` needs system libraries (GDAL, GEOS, PROJ) that aren't installed by default on all systems. The setup guide linked above covers this.
+
+**Tiles don't appear in the `tmap` interactive maps** — usually an internet hiccup with the basemap provider. Refresh, or switch the basemap line to `tm_basemap("OpenStreetMap")` which tends to be the most reliable.
+
+**`mean_BLASTav` is `NA` for every zone** — the survey `bld_nbr` didn't join to the buildings shapefile. Check that both are integer/character types (not factor) before joining, and that you're using the *flipped* `BLASTav` from the load step.
+

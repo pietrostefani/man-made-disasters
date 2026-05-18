@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast Lab</a></li><li class="breadcrumb-item"><a href="./lab_part1.html">Part 1 · Satellite Data &amp; Measuring Destruction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast</a></li><li class="breadcrumb-item"><a href="./lab_part1.html">Part 1 · Satellite Data &amp; Measuring Destruction</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture: Triangulating Traces for Humanitarian Action</span></a>
+ <span class="menu-text">Lecture: Triangulating Traces for Humanitarian Response</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -165,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Beirut Blast Lab</span></a>
+ <span class="menu-text">Beirut Blast</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -202,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">A bit extra</span></a>
+ <span class="menu-text">Data &amp; Set-up</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -210,8 +210,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./lab_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing the data and setting up R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./satellites_to_areas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Satellites to Areas</span></a>
+ <span class="menu-text">From grids to areas</span></a>
   </div>
 </li>
       </ul>
@@ -286,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast Lab</a></li><li class="breadcrumb-item"><a href="./lab_part1.html">Part 1 · Satellite Data &amp; Measuring Destruction</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast</a></li><li class="breadcrumb-item"><a href="./lab_part1.html">Part 1 · Satellite Data &amp; Measuring Destruction</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Part 1 · Satellite Data &amp; Measuring Destruction</h1>
 </div>
@@ -589,7 +601,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-3-aggregation-to-zones-pixel-neighbourhood" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-aggregation-to-zones-pixel-neighbourhood">Step 3 — Aggregation to zones (pixel → neighbourhood)</h3>
-<p>A pixel-level damage map is too granular for policy or humanitarian targeting — agencies operate at the neighbourhood (cadastre / operational zone) scale, not the dinner-plate scale. So the final step <strong>aggregates</strong> pixel classifications up using <strong>zonal statistics</strong>:</p>
+<p>A pixel-level damage map is too granular for policy or humanitarian targeting — agencies operate at the neighbourhood (cadastre / operational zone in the case of Beirut) scale, not the dinner-plate scale. So the final step <strong>aggregates</strong> pixel classifications up using <strong>zonal statistics</strong>:</p>
 <blockquote class="blockquote">
 <p>For each operational zone polygon, count how many pixels fall inside it, count how many of those are classified as severe damage, and divide.</p>
 </blockquote>
@@ -681,7 +693,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A separate companion document walks through all three steps — loading the raw tiles, stacking pre + post, training and applying the supervised Random Forest, and aggregating to zones — as a runnable R recipe. You won’t need it for this lab, but it’s there if you want to adapt the workflow to a different event.</p>
+<p>A separate companion document walks through all three steps — loading the raw tiles, stacking pre + post, training and applying the supervised Random Forest and aggregating to zones — as a runnable R recipe. You won’t need it for this lab, but it’s there if you want to adapt the workflow to a different event.</p>
 <p>🔗 <strong><a href="./lab_append.html">lab_append.qmd</a></strong> — the full pipeline, illustrated (not run)</p>
 </div>
 </div>
@@ -922,7 +934,7 @@ $ geometry       &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((
 <h2 class="anchored" data-anchor-id="visualise-the-damage">1.7 Visualise the damage</h2>
 <section id="static-map-with-epicentre-and-top-zones-labelled" class="level3">
 <h3 class="anchored" data-anchor-id="static-map-with-epicentre-and-top-zones-labelled">Static map with epicentre and top zones labelled</h3>
-<p>To make the map <em>interpretable</em> (and not just decorative), we add two things:</p>
+<p>To make the map <em>interpretable</em>, we add two things:</p>
 <ul>
 <li>A cross marking the <strong>blast epicentre</strong> at Hangar 12 of the Port of Beirut.</li>
 <li><strong>Labels for the 8 most-damaged cadastres</strong>, so the eye doesn’t have to jump between map and table to identify them.</li>
@@ -1058,7 +1070,7 @@ $ geometry       &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((
 </section>
 <section id="how-does-damage-decay-with-distance-from-the-port" class="level2">
 <h2 class="anchored" data-anchor-id="how-does-damage-decay-with-distance-from-the-port">1.9 How does damage decay with distance from the port?</h2>
-<p>The histogram tells us <em>how much</em> damage there is overall, but not <em>where</em>. Plotting severe-damage percentage against distance from the epicentre gives us the spatial structure in a single chart — and a sanity check on the map.</p>
+<p>The histogram tells us <em>how much</em> damage there is overall, but not <em>where</em>. Plotting severe-damage percentage against distance from the blast epicentre gives us the spatial structure in a single chart — and a sanity check on the map.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>damage_zones <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
@@ -1079,8 +1091,8 @@ $ geometry       &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((
 <span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>), <span class="at">name =</span> <span class="st">"Zone area (km²)"</span>) <span class="sc">+</span></span>
 <span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Severe damage decays with distance from the blast epicentre"</span>,</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point is one operational zone · LOESS smoother in navy"</span>,</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Distance from epicentre (km)"</span>,</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point is one zone · LOESS smoother in navy"</span>,</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Distance from blast epicentre (km)"</span>,</span>
 <span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"% of zone severely damaged"</span></span>
 <span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
@@ -1115,7 +1127,7 @@ $ geometry       &lt;POLYGON [°]&gt; POLYGON ((35.51227 33.90421..., POLYGON ((
 </section>
 <section id="most-damaged-zones-ranked" class="level2">
 <h2 class="anchored" data-anchor-id="most-damaged-zones-ranked">1.10 Most damaged zones — ranked</h2>
-<p>Rather than a plain table, we rank the top 10 cadastres by its distance from the epicentre. This pulls together <em>magnitude</em> and <em>geography</em>.</p>
+<p>Rather than a plain table, we rank the top 10 cadastres/zones by its distance from the blast epicentre. This pulls together <em>magnitude</em> and <em>geography</em>.</p>
 <p>For reference, the same ten zones as a compact table:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>damage_zones <span class="sc">|&gt;</span></span>
