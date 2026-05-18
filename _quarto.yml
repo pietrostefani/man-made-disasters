@@ -32,14 +32,16 @@ website:
       - lecture.qmd
       - section: "Labs"
         contents:
-          - section: "Beirut Blast Lab"
+          - section: "Beirut Blast"
             contents:
               - lab_part1.qmd
               - lab_part2.qmd
               - lab_part3.qmd
               - lab_append.qmd
-      - section: "A bit extra"
+      - section: "Data & Set-up"
         contents:
+          - lab_setup.qmd
+          - datasets.qmd
           - satellites_to_areas.qmd
       - text: "---"
       - text: "Elisabetta Pietrostefani"
