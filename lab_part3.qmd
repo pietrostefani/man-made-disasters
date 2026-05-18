@@ -11,8 +11,183 @@ date: "2026-05-19"
 ::: objectives
 **Learning objectives**
 
--   Specify and run OLS models with satellite damage and survey controls
--   Interpret coefficients from multi-variable regressions on socioeconomic outcomes
--   Assess whether the satellite damage signal persists once survey damage is included
+By the end of Part 3 you will be able to:
+
+-   Run a simple OLS model linking building-level damage to a household-level outcome
+-   Interpret the slope on a damage variable as a "one-grade-worse" effect
+-   Identify which alternative damage measures and outcomes are worth exploring next
 :::
 
+::: callout-important
+## Quick reminder: the survey is synthetic
+
+The blast damage variables (`windows_rev`, `walls_rev`, `furniture_rev`, `BLASTav`) are preserved as collected. Everything else — including the three outcomes we use below — has been re-sampled. The marginal distributions look right and the link to building damage is preserved, but **do not use these results for inference beyond the lab**.
+:::
+
+------------------------------------------------------------------------
+
+## 3.1 Why this part is light
+
+Parts 1 and 2 spent a long time building, comparing and validating damage measures. Part 3 takes the simplest possible next step: does damage actually *predict anything we care about* at the household level?
+
+We'll run **one regression** linking the Copernicus structural grade (`dmg_grd`) to three household outcomes, then hand the rest of the analysis over to you.
+
+------------------------------------------------------------------------
+
+## 3.2 Setup and join
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(sf)
+library(tidyverse)
+library(readxl)
+library(broom)       # tidy regression output
+library(knitr)
+```
+
+We need the survey at household level with each respondent's *building damage grade* attached. The 2021 wave only, across all three neighbourhoods (Ras Beirut included).
+
+```{r}
+#| label: join-survey-buildings
+#| eval: false
+
+samplings <- readxl::read_excel("data/kr_rb_mm_synthetic.xlsx") |>
+  dplyr::mutate(
+    windows_rev   = 5 - windows_rev,
+    walls_rev     = 5 - walls_rev,
+    furniture_rev = 5 - furniture_rev,
+    BLASTav       = 5 - BLASTav
+  )
+
+buildings <- sf::st_read("data/geo/buildings_damaged.shp", quiet = TRUE) |>
+  sf::st_drop_geometry() |>
+  dplyr::select(bld_nbr, dmg_grd)
+
+hh <- samplings |>
+  dplyr::filter(year == 2021) |>
+  dplyr::left_join(buildings, by = "bld_nbr") |>
+  # ordered factor: severity rises from "no damage" to "destroyed"
+  dplyr::mutate(dmg_grd = factor(
+    dmg_grd,
+    levels  = c("no damage", "minor damage", "moderate damage",
+                "severe damage", "destroyed"),
+    ordered = TRUE
+  )) |>
+  dplyr::filter(!is.na(dmg_grd))
+
+nrow(hh)
+```
+
+------------------------------------------------------------------------
+
+## 3.3 Three outcomes, one quick look
+
+The three synthetic outcomes we'll use:
+
+| Variable | Description | Scale |
+|---|---|---|
+| `hh_income_dollars` | Self-reported monthly household income | USD |
+| `nation_hh` | Household nationality | 1 = Lebanese, 2 = Syrian, 3 = Other, 100 = didn't reply |
+| `confid_municipality` | Confidence in the local municipality | 1 = none → 5 = a lot |
+
+`nation_hh` is **categorical**, not ordinal — averaging it gives a meaningless number. For the descriptive look below we recode it as a binary (% Lebanese) and treat 100s as NA. We'll come back to it in §3.5 as a possible *control* or *split* variable rather than an outcome.
+
+```{r}
+#| label: descriptives-by-damage
+#| eval: false
+
+hh <- hh |>
+  dplyr::mutate(
+    nation_hh = dplyr::na_if(nation_hh, 100)   # 100 = didn't reply → NA
+  )
+
+hh |>
+  dplyr::group_by(dmg_grd) |>
+  dplyr::summarise(
+    n                = dplyr::n(),
+    mean_income      = mean(hh_income_dollars,   na.rm = TRUE),
+    pct_lebanese     = 100 * mean(nation_hh == 1, na.rm = TRUE),
+    mean_confid_muni = mean(confid_municipality, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  knitr::kable(
+    digits  = 2,
+    caption = "Three outcomes by Copernicus damage grade"
+  )
+```
+------------------------------------------------------------------------
+
+## 3.4 One regression
+
+We treat the ordered damage grade as a numeric severity score (0 = no damage → 4 = destroyed) and regress monthly income on it. A simple, single specification — no controls, no fixed effects, no heteroskedasticity-robust SEs. Just the headline relationship.
+
+```{r}
+#| label: damage-income-regression
+#| eval: false
+
+hh <- hh |> dplyr::mutate(dmg_grd_num = as.integer(dmg_grd) - 1L)
+
+m_income <- lm(hh_income_dollars ~ dmg_grd_num, data = hh)
+
+broom::tidy(m_income) |>
+  knitr::kable(digits = 2,
+               caption = "Effect of a one-grade increase in damage on monthly income")
+```
+
+::: callout-note
+## Reading the regression
+
+- **Slope = −75 USD, p < 0.001.** Each one-grade-worse rating on the Copernicus damage scale predicts about $75 less in self-reported monthly income. A household in a *severely damaged* building (grade 3) sits roughly $225 below a household in an *undamaged* building (grade 0).
+
+- **Intercept ≈ $264.** This is the model's predicted monthly income for an undamaged-building household — a sobering anchor that reflects Beirut's economic collapse rather than anything about the blast itself. Most respondents are reporting incomes that put them well below any reasonable poverty line.
+
+- **n ≈ 2,790.** Much larger than the zone-level regression in Part 2 (n = 18), so the standard error is tight and the slope is robust.
+
+**This is correlation, not causation.** Three stories are consistent with this slope:
+
+1. The blast destroyed earning capacity for households in heavily damaged buildings (causal, in the direction you'd hope to claim).
+2. Poorer households were already living in the most vulnerable buildings before the blast (selection — the buildings most likely to be damaged were the ones already housing the poorest people).
+3. Some unobserved third variable (neighbourhood, housing tenure, age structure) drives both poverty *and* building vulnerability.
+
+You can't separate these with a single cross-sectional regression. The §3.5 exploration prompts give you ways to start chipping at them.
+:::
+
+------------------------------------------------------------------------
+
+## 3.5 Your turn — explore
+
+You now have the machinery to ask a lot of questions in a few lines of code. Some directions to try:
+
+**Swap the damage variable.** `dmg_grd_num` is one of at least four damage measures you have in hand. The full set:
+
+- `dmg_grd_num` — Copernicus expert grade (what we just used)
+- `dmg_JRC_num` — JRC automated grade (much more conservative)
+- `BLASTav` — household self-report (interior damage)
+- `pct_severe_adj` — satellite RF % severe at zone level (need to join via §2.6 lookup)
+
+Rerun the regression with each. Does the coefficient stay the same sign? Same magnitude? Where do they diverge most, and why?
+
+**Swap the outcome.** Try `nation_hh` or `confidence_municipality` instead of income. Does damage predict sentiment as well as it predicts earnings? Does it predict one but not the other? *Hypothesis to test:* damage to your home might shake confidence in local institutions (who's supposed to rebuild?) more than it shakes feelings about the nation.
+
+**Add a control or many.** Neighbourhood is the obvious one:
+
+```r
+lm(hh_income_dollars ~ dmg_grd_num + neighbourhood, data = hh)
+```
+
+This asks: *does damage still predict income once we account for the fact that Karantina is generally poorer than Ras Beirut?* If the damage coefficient shrinks dramatically, damage was mostly proxying for which neighbourhood the household was in. If it stays, damage carries signal *within* neighbourhoods.
+
+**Compare survey vs structural damage as predictors.** Run two regressions side by side: one with `dmg_grd_num` (what an expert saw from imagery) and one with `BLASTav` (what the household reported about their own home). Which one predicts income better? Both points back to a deeper question: *which damage measure is a better proxy for the actual harm done to a household?*
+
+------------------------------------------------------------------------
+
+::: callout-tip
+## Things worth discussing
+
+- The synthetic data preserves the *correlation* between damage and outcomes but breaks the joint structure between non-damage variables. What kinds of questions can we still ask honestly? What kinds become unreliable?
+- We don't have a pre-blast measure of income in 2021 (only 2018, with a different sample). What kind of identification strategy would let you say something causal about the blast's effect on income? What data would you need?
+- If satellite damage predicts income with roughly the same coefficient as Copernicus damage, that's good news for humanitarian work: you could target relief from satellite imagery alone, without sending surveyors into the field. Under what conditions would that conclusion be wrong?
+:::

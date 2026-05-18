@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -83,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast Lab</a></li><li class="breadcrumb-item"><a href="./lab_part3.html">Part 3 · Damage, sentiment &amp; economic stress</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast</a></li><li class="breadcrumb-item"><a href="./lab_part3.html">Part 3 · Damage, sentiment &amp; economic stress</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -115,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lecture: Triangulating Traces for Humanitarian Action</span></a>
+ <span class="menu-text">Lecture: Triangulating Traces for Humanitarian Response</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -130,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Beirut Blast Lab</span></a>
+ <span class="menu-text">Beirut Blast</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -157,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab_append.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Part 1 · RF pipeline</span></a>
+ <span class="menu-text">RF pipeline</span></a>
   </div>
 </li>
       </ul>
@@ -167,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">A bit extra</span></a>
+ <span class="menu-text">Data &amp; Set-up</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -175,8 +210,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./lab_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing the data and setting up R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./satellites_to_areas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Satellites to Areas</span></a>
+ <span class="menu-text">From grids to areas</span></a>
   </div>
 </li>
       </ul>
@@ -205,13 +252,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-this-part-is-light" id="toc-why-this-part-is-light" class="nav-link active" data-scroll-target="#why-this-part-is-light">3.1 Why this part is light</a></li>
+  <li><a href="#setup-and-join" id="toc-setup-and-join" class="nav-link" data-scroll-target="#setup-and-join">3.2 Setup and join</a></li>
+  <li><a href="#three-outcomes-one-quick-look" id="toc-three-outcomes-one-quick-look" class="nav-link" data-scroll-target="#three-outcomes-one-quick-look">3.3 Three outcomes, one quick look</a></li>
+  <li><a href="#one-regression" id="toc-one-regression" class="nav-link" data-scroll-target="#one-regression">3.4 One regression</a></li>
+  <li><a href="#your-turn-explore" id="toc-your-turn-explore" class="nav-link" data-scroll-target="#your-turn-explore">3.5 Your turn — explore</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/man-made-disasters/edit/main/lab_part3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pietrostefani/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast Lab</a></li><li class="breadcrumb-item"><a href="./lab_part3.html">Part 3 · Damage, sentiment &amp; economic stress</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Labs</li><li class="breadcrumb-item"><a href="./lab_part1.html">Beirut Blast</a></li><li class="breadcrumb-item"><a href="./lab_part3.html">Part 3 · Damage, sentiment &amp; economic stress</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Part 3 · Damage, sentiment &amp; economic stress</h1>
 </div>
@@ -245,14 +302,204 @@ ul.task-list li input[type="checkbox"] {
 <div class="part-badge">Lab Part 3 of 3</div>
 <div class="objectives">
 <p><strong>Learning objectives</strong></p>
+<p>By the end of Part 3 you will be able to:</p>
 <ul>
-<li>Specify and run OLS models with satellite damage and survey controls</li>
-<li>Interpret coefficients from multi-variable regressions on socioeconomic outcomes</li>
-<li>Assess whether the satellite damage signal persists once survey damage is included</li>
+<li>Run a simple OLS model linking building-level damage to a household-level outcome</li>
+<li>Interpret the slope on a damage variable as a “one-grade-worse” effect</li>
+<li>Identify which alternative damage measures and outcomes are worth exploring next</li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Quick reminder: the survey is synthetic
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The blast damage variables (<code>windows_rev</code>, <code>walls_rev</code>, <code>furniture_rev</code>, <code>BLASTav</code>) are preserved as collected. Everything else — including the three outcomes we use below — has been re-sampled. The marginal distributions look right and the link to building damage is preserved, but <strong>do not use these results for inference beyond the lab</strong>.</p>
+</div>
+</div>
+<hr>
+<section id="why-this-part-is-light" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-part-is-light">3.1 Why this part is light</h2>
+<p>Parts 1 and 2 spent a long time building, comparing and validating damage measures. Part 3 takes the simplest possible next step: does damage actually <em>predict anything we care about</em> at the household level?</p>
+<p>We’ll run <strong>one regression</strong> linking the Copernicus structural grade (<code>dmg_grd</code>) to three household outcomes, then hand the rest of the analysis over to you.</p>
+<hr>
+</section>
+<section id="setup-and-join" class="level2">
+<h2 class="anchored" data-anchor-id="setup-and-join">3.2 Setup and join</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)       <span class="co"># tidy regression output</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We need the survey at household level with each respondent’s <em>building damage grade</em> attached. The 2021 wave only, across all three neighbourhoods (Ras Beirut included).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>samplings <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data/kr_rb_mm_synthetic.xlsx"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">windows_rev   =</span> <span class="dv">5</span> <span class="sc">-</span> windows_rev,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">walls_rev     =</span> <span class="dv">5</span> <span class="sc">-</span> walls_rev,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">furniture_rev =</span> <span class="dv">5</span> <span class="sc">-</span> furniture_rev,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">BLASTav       =</span> <span class="dv">5</span> <span class="sc">-</span> BLASTav</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>buildings <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"data/geo/buildings_damaged.shp"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bld_nbr, dmg_grd)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>hh <span class="ot">&lt;-</span> samplings <span class="sc">|&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(buildings, <span class="at">by =</span> <span class="st">"bld_nbr"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ordered factor: severity rises from "no damage" to "destroyed"</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dmg_grd =</span> <span class="fu">factor</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    dmg_grd,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">levels  =</span> <span class="fu">c</span>(<span class="st">"no damage"</span>, <span class="st">"minor damage"</span>, <span class="st">"moderate damage"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                <span class="st">"severe damage"</span>, <span class="st">"destroyed"</span>),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dmg_grd))</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(hh)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="three-outcomes-one-quick-look" class="level2">
+<h2 class="anchored" data-anchor-id="three-outcomes-one-quick-look">3.3 Three outcomes, one quick look</h2>
+<p>The three synthetic outcomes we’ll use:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>hh_income_dollars</code></td>
+<td>Self-reported monthly household income</td>
+<td>USD</td>
+</tr>
+<tr class="even">
+<td><code>nation_hh</code></td>
+<td>Household nationality</td>
+<td>1 = Lebanese, 2 = Syrian, 3 = Other, 100 = didn’t reply</td>
+</tr>
+<tr class="odd">
+<td><code>confid_municipality</code></td>
+<td>Confidence in the local municipality</td>
+<td>1 = none → 5 = a lot</td>
+</tr>
+</tbody>
+</table>
+<p><code>nation_hh</code> is <strong>categorical</strong>, not ordinal — averaging it gives a meaningless number. For the descriptive look below we recode it as a binary (% Lebanese) and treat 100s as NA. We’ll come back to it in §3.5 as a possible <em>control</em> or <em>split</em> variable rather than an outcome.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>hh <span class="ot">&lt;-</span> hh <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">nation_hh =</span> dplyr<span class="sc">::</span><span class="fu">na_if</span>(nation_hh, <span class="dv">100</span>)   <span class="co"># 100 = didn't reply → NA</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>hh <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(dmg_grd) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">n                =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_income      =</span> <span class="fu">mean</span>(hh_income_dollars,   <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_lebanese     =</span> <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(nation_hh <span class="sc">==</span> <span class="dv">1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_confid_muni =</span> <span class="fu">mean</span>(confid_municipality, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits  =</span> <span class="dv">2</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Three outcomes by Copernicus damage grade"</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="one-regression" class="level2">
+<h2 class="anchored" data-anchor-id="one-regression">3.4 One regression</h2>
+<p>We treat the ordered damage grade as a numeric severity score (0 = no damage → 4 = destroyed) and regress monthly income on it. A simple, single specification — no controls, no fixed effects, no heteroskedasticity-robust SEs. Just the headline relationship.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hh <span class="ot">&lt;-</span> hh <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dmg_grd_num =</span> <span class="fu">as.integer</span>(dmg_grd) <span class="sc">-</span> <span class="dv">1</span>L)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>m_income <span class="ot">&lt;-</span> <span class="fu">lm</span>(hh_income_dollars <span class="sc">~</span> dmg_grd_num, <span class="at">data =</span> hh)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(m_income) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">caption =</span> <span class="st">"Effect of a one-grade increase in damage on monthly income"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Reading the regression
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Slope = −75 USD, p &lt; 0.001.</strong> Each one-grade-worse rating on the Copernicus damage scale predicts about $75 less in self-reported monthly income. A household in a <em>severely damaged</em> building (grade 3) sits roughly $225 below a household in an <em>undamaged</em> building (grade 0).</p></li>
+<li><p><strong>Intercept ≈ $264.</strong> This is the model’s predicted monthly income for an undamaged-building household — a sobering anchor that reflects Beirut’s economic collapse rather than anything about the blast itself. Most respondents are reporting incomes that put them well below any reasonable poverty line.</p></li>
+<li><p><strong>n ≈ 2,790.</strong> Much larger than the zone-level regression in Part 2 (n = 18), so the standard error is tight and the slope is robust.</p></li>
+</ul>
+<p><strong>This is correlation, not causation.</strong> Three stories are consistent with this slope:</p>
+<ol type="1">
+<li>The blast destroyed earning capacity for households in heavily damaged buildings (causal, in the direction you’d hope to claim).</li>
+<li>Poorer households were already living in the most vulnerable buildings before the blast (selection — the buildings most likely to be damaged were the ones already housing the poorest people).</li>
+<li>Some unobserved third variable (neighbourhood, housing tenure, age structure) drives both poverty <em>and</em> building vulnerability.</li>
+</ol>
+<p>You can’t separate these with a single cross-sectional regression. The §3.5 exploration prompts give you ways to start chipping at them.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="your-turn-explore" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-explore">3.5 Your turn — explore</h2>
+<p>You now have the machinery to ask a lot of questions in a few lines of code. Some directions to try:</p>
+<p><strong>Swap the damage variable.</strong> <code>dmg_grd_num</code> is one of at least four damage measures you have in hand. The full set:</p>
+<ul>
+<li><code>dmg_grd_num</code> — Copernicus expert grade (what we just used)</li>
+<li><code>dmg_JRC_num</code> — JRC automated grade (much more conservative)</li>
+<li><code>BLASTav</code> — household self-report (interior damage)</li>
+<li><code>pct_severe_adj</code> — satellite RF % severe at zone level (need to join via §2.6 lookup)</li>
+</ul>
+<p>Rerun the regression with each. Does the coefficient stay the same sign? Same magnitude? Where do they diverge most, and why?</p>
+<p><strong>Swap the outcome.</strong> Try <code>nation_hh</code> or <code>confidence_municipality</code> instead of income. Does damage predict sentiment as well as it predicts earnings? Does it predict one but not the other? <em>Hypothesis to test:</em> damage to your home might shake confidence in local institutions (who’s supposed to rebuild?) more than it shakes feelings about the nation.</p>
+<p><strong>Add a control or many.</strong> Neighbourhood is the obvious one:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(hh_income_dollars <span class="sc">~</span> dmg_grd_num <span class="sc">+</span> neighbourhood, <span class="at">data =</span> hh)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This asks: <em>does damage still predict income once we account for the fact that Karantina is generally poorer than Ras Beirut?</em> If the damage coefficient shrinks dramatically, damage was mostly proxying for which neighbourhood the household was in. If it stays, damage carries signal <em>within</em> neighbourhoods.</p>
+<p><strong>Compare survey vs structural damage as predictors.</strong> Run two regressions side by side: one with <code>dmg_grd_num</code> (what an expert saw from imagery) and one with <code>BLASTav</code> (what the household reported about their own home). Which one predicts income better? Both points back to a deeper question: <em>which damage measure is a better proxy for the actual harm done to a household?</em></p>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Things worth discussing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The synthetic data preserves the <em>correlation</em> between damage and outcomes but breaks the joint structure between non-damage variables. What kinds of questions can we still ask honestly? What kinds become unreliable?</li>
+<li>We don’t have a pre-blast measure of income in 2021 (only 2018, with a different sample). What kind of identification strategy would let you say something causal about the blast’s effect on income? What data would you need?</li>
+<li>If satellite damage predicts income with roughly the same coefficient as Copernicus damage, that’s good news for humanitarian work: you could target relief from satellite imagery alone, without sending surveyors into the field. Under what conditions would that conclusion be wrong?</li>
+</ul>
+</div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -663,7 +910,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p><a href="https://pietrostefani.com">Elisabetta Pietrostefani</a> · <a href="https://gdsl.liverpool.ac.uk"><span class="orange">GDSL</span></a> · <a href="https://imago.ac.uk"><span class="green">Imago</span></a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/man-made-disasters/edit/main/lab_part3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pietrostefani/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pietrostefani/man-made-disasters/edit/main/lab_part3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pietrostefani/man-made-disasters/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
