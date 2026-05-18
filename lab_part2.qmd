@@ -17,7 +17,7 @@ By the end of Part 2 you will be able to:
 -   Load two building-level damage assessments (Copernicus EMSN087 photointerpretation and the JRC automated pipeline) and join them spatially to the operational zones from Part 1
 -   Load a household survey of self-reported blast damage and aggregate it to the same zones
 -   Compute correlations between four independent damage measures (satellite, two structural, survey) and visualise where they agree and disagree
--   Articulate *why* the measures diverge in particular places — and what those divergences tell us about using satellites for humanitarian response
+-   Articulate *why* the measures diverge in particular places and what those divergences tell us about using satellites for humanitarian response
 :::
 
 ------------------------------------------------------------------------
@@ -38,7 +38,7 @@ The honest answer is that we never fully do. But we can triangulate: if independ
 ::: callout-note
 ## Validation isn't about being "right"
 
-Each of these measures sees something different. The satellite RF and the JRC automated pipeline both process imagery algorithmically. The EMSN087 grade is an analyst looking at the same imagery with expert eyes. The survey is what households reported about the inside of their dwelling — which a passer-by, or a satellite at nadir, can't see at all.
+Each of these measures sees something different. The satellite RF and the JRC automated pipeline both process imagery algorithmically. The EMSN087 grade is an analyst looking at the same imagery with expert eyes. The survey is what households reported about the inside of their dwelling — which a optical image from above (eg. satellite!) can't see.
 
 So when two measures disagree, we shouldn't conclude that one is "wrong". Both can be measuring real things, just different real things. Disagreement tells us where each measure is *blind*, not where it is *broken*.
 :::
@@ -76,11 +76,11 @@ We also reload the satellite output from Part 1 so the comparison is self-contai
 damage_zones <- sf::st_read("data/geo/raster_rf_damage2.shp", quiet = TRUE) |>
   dplyr::rename(
     zone_number    = zon_nmb,
-    cadastre       = Cdstr_1,
+    cadastre       = Cdstr_1, # neighbourhood level for Beirut
     pct_severe_adj = pct___2
   )
 
-# Epicentre (Hangar 12, Port of Beirut)
+# Blast epicentre (Hangar 12, Port of Beirut)
 epicentre <- sf::st_sfc(sf::st_point(c(35.5189, 33.9013)), crs = 4326) |>
   sf::st_transform(sf::st_crs(damage_zones))
 ```
@@ -470,7 +470,7 @@ samplings |>
            position = position_dodge2(preserve = "single")) +
   scale_fill_manual(values = c(
     "Karantina"  = "#7570b3",
-    "MarMikhael" = "#d95f02"
+    "Mar Mikhael" = "#d95f02"
   )) +
   scale_x_continuous(breaks = 1:4,
                      labels = c("1\nnone", "2\nminor", "3\nmoderate", "4\nsevere")) +

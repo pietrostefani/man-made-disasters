@@ -554,7 +554,7 @@ damage_zones |>
 
 ## 1.9 How does damage decay with distance from the port?
 
-The histogram tells us *how much* damage there is overall, but not *where*. Plotting severe-damage percentage against distance from the epicentre gives us the spatial structure in a single chart — and a sanity check on the map.
+The histogram tells us *how much* damage there is overall, but not *where*. Plotting severe-damage percentage against distance from the blast epicentre gives us the spatial structure in a single chart — and a sanity check on the map.
 
 ```{r}
 #| label: distance-decay
@@ -577,10 +577,10 @@ damage_zones |>
     alpha = 0.15,
     linewidth = 0.8
   ) +
-  scale_size_continuous(range = c(1, 6), name = "Neighbourhood area (km²)") +
+  scale_size_continuous(range = c(1, 6), name = "Zone area (km²)") +
   labs(
     title    = "Severe damage decays with distance from the blast epicentre",
-    subtitle = "Each point is one neighbourhood · LOESS smoother in navy",
+    subtitle = "Each point is one zone · LOESS smoother in navy",
     x        = "Distance from blast epicentre (km)",
     y        = "% of zone severely damaged"
   ) +
@@ -600,7 +600,7 @@ The drop-off is typically steep within the first 1–2 km of the port and then f
 
 ## 1.10 Most damaged zones — ranked
 
-Rather than a plain table, we rank the top 10 cadastres/neighbourhoods by its distance from the blast epicentre. This pulls together *magnitude* and *geography*.
+Rather than a plain table, we rank the top 10 cadastres/zones by its distance from the blast epicentre. This pulls together *magnitude* and *geography*.
 
 For reference, the same ten zones as a compact table:
 
